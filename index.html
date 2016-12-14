@@ -174,25 +174,321 @@ alert("Hello world");
     Do you? */
 </textarea></code></pre>
 
+            <p>Also we use them, so something doesn't get executed to see how our program behaves or just we don't want that to run for now.</p>
+<pre><code class="language-javascript"><textarea readonly>
+//alert("Hello world");
+</textarea></code></pre>
+            <p>As you can see nothing happens now that the code is commented. </p>
+
 
         </section><!--End Comment section-->
 
+        <hr>
+
         <!--Statements and semicolons section-->
-        <section><h2>Statements and semicolons.</h2>
+        <section><h2>Statements and semicolons</h2>
             <p>In HTML, JavaScript statements are "instructions" to be "executed" by the web browser.
             </p>
-            <p>For example the line we wrote was a statement.
+            <p>For example the line we wrote was a statement </p>
 <pre><code class="language-javascript"><textarea readonly>
 alert("Hello world");
 </textarea></code></pre>
-            </p>
+
             <p>Also you might noticed semicolons at the end and it's common usage in many programming languages. Semicolons are used to separate our statements.</p>
 
         </section><!--Statements and semicolons section-->
 
+        <hr>
+
+        <!--Variables section-->
+        <section><h2>Variables</h2>
+            <p>Variables are very important. You store something into a variable so you can easily call it or make changes.
+            </p>
+            <p>Let's see how we declare a variable in javascript by simpling adding the keyword var. </p>
+<pre><code class="language-javascript"><textarea readonly>
+//Declaring variables
+var  shippingUK;
+var  shippingEurope;
+</textarea></code></pre>
+            <p>Ok now to alert this variable value simple :</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Alerting the variable's shippingUK value returns undefined
+alert(shippingUK);
+</textarea></code></pre>
+            <p>You will notice now it alerts undefined. Makes sense since our shippingUK variable doesn't have any values and it says to us :</p>
+               <p><strong>"Hey man I don't have anything stored in me what I'm supposed to show?"</strong></p>
+
+            <p>But what if you had 100 products and the shipping price changed ? You would have to change every product shipping price</p>
+            <p>With variables you simply change one value. </p>
+<pre><code class="language-javascript"><textarea readonly>
+//Giving variables values
+var  shippingUK = 20 ;
+var  shippingEurope = 50;
+</textarea></code></pre>
+            <p>Now see that we will get from alert message the value as supposed to :</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Alerting the variable's shippingUK value
+alert(shippingUK);
+</textarea></code></pre>
+
+
+            <h5>Side notes for variables:</h5>
+            <ol><i>
+                <li>Variables must start with letters only.</li>
+                <li>You can' t use as name keywords like var, function etc...</li>
+                <li>Javascript is case sensitive so var HELLO  is different than var hello.</li>
+                <li>You can't use spaces for naming.</li>
+                <li>Also it is used in programming to use camel case practice so you understand we have different word after.</li>
+                </i>
+            </ol>
+
+            </section><!--End variables section-->
+
+        <hr>
+
+    <!--Data types-->
+    <section>
+    <h2>Data types</h2>
+    <p>In javascript you don't have to give a type to a variable since it does it automatically.</p>
+     <ol>
+
+                <!--Number-->
+                <li>Number.</li>
+                <p>Javascript has only one kind of number. Numbers can be written with, or without, decimals </p>
+<pre><code class="language-javascript"><textarea readonly>
+//Some number variables
+var  shippingUK = 20 ;
+var  shoePrice = 50;
+var  tax =  1.23//Which equals +23% ;
+var  totalPrice = ( shoePrice * tax) + shippingUK;
+</textarea></code></pre>
+<pre><code class="language-javascript"><textarea readonly>
+//Alerting the variable's totalPrice value
+alert(totalPrice);
+</textarea></code></pre>
+
+                <!--String-->
+                <li>String
+                <p>You can use single or double quotes to declare a string.</p>
+<pre><code class="language-javascript"><textarea readonly>
+//String
+var  myName = "George";
+</textarea></code></pre>
+<pre><code class="language-javascript"><textarea readonly>
+//Alerting myName
+alert (myName);//Will alert George
+</textarea></code></pre>
+                <p>It's the same with :</p>
+<pre><code class="language-javascript"><textarea readonly>
+var  myName = 'George';
+</textarea></code></pre>
+                <p>But don't get confused if you declare it like this :</p>
+<pre><code class="language-javascript"><textarea readonly>
+var  myName = George;
+</textarea></code></pre>
+                <p>It will declare the var myName equal to the variable George which we don't have.</p>
+                </li><!--String-->
+
+
+                <!--Boolean-->
+                <li>Boolean
+                <p>Boolean is a type that returns true or false. Imagine it like yes/no or a switch on/off.</p>
+                <p>Booleans are often used in conditional testing which we will see later.</p>
+
+
+<pre><code class="language-javascript"><textarea readonly>
+var x = true;
+var y = false;
+</textarea></code></pre>
+                </li><!--Boolean-->
+
+                <!--Arrays-->
+                <li>Arrays
+                    <p>Very important for all programming languages. <a>Covered here</a></p>
+                </li>
+
+
+                <!--Object-->
+                <li>Object
+                <p>In javascript almost everything is an object. <a>Full details here</a></p>
+                </li>
+
+                <!--Null-->
+                <li>Null
+                <p>We can give a variable the value of null. It means it's null,nothing,empty but null also is an object in javascript.</p>
+
+
+<pre><code class="language-javascript"><textarea readonly>
+var x = null;
+</textarea></code></pre>
+<pre><code class="language-javascript"><textarea readonly>
+alert (x); //Will alert null
+</textarea></code></pre>
+                </li><!--Null-->
+
+     </ol><!--End ordered list types of variables-->
+
+            <!--Undefined vs null-->
+            <h2>Undefined vs Null</h2>
+            <h3>Mysterious Code(interview question)</h3>
+            <p>So a lot of people confuse those two meanings in javascript.</p>
+
+            <h4>Undefined</h4>
+<pre><code class="language-javascript"><textarea readonly>
+var x; //undefined
+</textarea></code></pre>
+            <p>As we see we don't give a value to x that means undefined . We haven't defined any values to x.</p>
+
+            <h4>Null</h4>
+<pre><code class="language-javascript"><textarea readonly>
+var x = null;
+</textarea></code></pre>
+            <p>That's not undefined since it has value which that value is null. It means "nothing".</p>
+            <p>At operators section we will have full comparison to grasp the content.</p>
+
+    </section><!--End data types section-->
+
+    <hr>
+
+    <!--Operators-->
+    <section>
+        <h2>Operators</h2>
+        <h3>Arithmetic Operators</h3>
+        <ol>
+
+            <li>Addition
+<pre><code class="language-javascript"><textarea readonly>
+var x = 10;
+var y = 5;
+var result = x + y; //result is 15
+</textarea></code></pre>
+            </li>
+
+            <li>Subtraction
+<pre><code class="language-javascript"><textarea readonly>
+var x = 10;
+var y = 5;
+var result = x - y; //result is 5
+</textarea></code></pre>
+            </li>
+
+            <li>Multiplication
+<pre><code class="language-javascript"><textarea readonly>
+var x = 10;
+var y = 5;
+var result = x * y; //result is 50
+</textarea></code></pre>
+            </li>
+
+            <li>Division
+<pre><code class="language-javascript"><textarea readonly>
+var x = 10;
+var y = 5;
+var result = x / y; //result is 2
+</textarea></code></pre>
+            </li>
+
+            <li>Modulus
+            <p>This is a confusing operator that returns the remainder of the division.</p>
+<pre><code class="language-javascript"><textarea readonly>
+var x = 10;
+var y = 5;
+var result = x % y; //result is 0
+</textarea></code></pre>
+
+           <p>But if we have this :</p>
+<pre><code class="language-javascript"><textarea readonly>
+var x = 11;
+var y = 5;
+var result = x % y; //result is 1 because dividing 11 / 5 gives 2 and remainder is 1
+</textarea></code></pre>
+            <p><strong>What will be the result of 151 % 50 </strong></p>
+            <p><button>Show multiple choice</button></p>
+            </li>
+
+            <li>Incrementing and Decrementing
+                <p>Increment operator increases the value by 1 and decrement decreases it by 1.
+                    Very useful for loops when we reach there.</p>
+<pre><code class="language-javascript"><textarea readonly>
+var x = 10;
+//Post Increment operator by adding ++
+x++ ; //Now the x is 11. It's like saying x = x + 1
+
+var y = 5;
+//Post Decrement operator by adding --
+y-- ; //Now the y is 4. It's like saying y = y - 1
+
+</textarea></code></pre>
+            <div>and</div>
+<pre><code class="language-javascript"><textarea readonly>
+var x = 10;
+//Pre Increment operator by adding ++
+++x ; //The difference is that now x = 1 + x
+
+var y = 5;
+//Pre Decrement operator which decreases
+--y ; //And here first we will substract 1 by y and then we will have y
+</textarea></code></pre>
+
+                <section >
+                <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+                <p>We have one variable :</p>
+
+<pre><code class="language-javascript"><textarea readonly>
+var  x = 5 ;
+</textarea></code></pre>
+                <p>What the result will be of alert(x++) and alert(++x)?
+                <br><span class="alert-info">HINT: The first hasn't stored the new value but the second one first has stored the new value
+                </span></p>
+                <p>We will have the same result correct?</p>
+                <p><button>Show result and explanation</button></p>
+                </section>
+
+            </li>
+        </ol>
+
+        <section ><!--Mysterious code-->
+            <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+            <p>We have two variables :</p>
+<pre><code class="language-javascript"><textarea readonly>
+var  myName = "George";
+var  x = 5 ;
+</textarea></code></pre>
+            <p ><strong>Try to think the result myName + x by writing it first :</strong> <br><span class="alert-info">HINT: myName + x gives different result than x + myName
+                </span></p>
+<pre><code class="language-javascript"><textarea readonly>
+alert(myName + x);
+</textarea></code></pre>
+            <p><button>Show result and explanation</button></p>
+            <p>Also by having :</p>
+<pre><code class="language-javascript"><textarea readonly>
+alert(myName - x);
+</textarea></code></pre>
+            <div>or</div>
+<pre><code class="language-javascript"><textarea readonly>
+alert(myName * x);
+</textarea></code></pre>
+            <div>or</div>
+            <div>
+<pre><code class="language-javascript">
+alert(myName / x);
+</code></pre></div>
+            <p>We get a result of <strong>NaN</strong> which means not a number. Totally makes sense since javascript tells us
+                how I'm going to do this operation.
+            </p>
+
+        </section><!--End Mysterious code-->
+
+        <h3>Assignment Operators</h3>
+
+
+
+
+    </section><!--End Operators-->
+
 
     </article><!--End Full article-->
-    </div>
+  </div>
 </main><!--End main-->
 
 
