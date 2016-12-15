@@ -210,6 +210,12 @@ alert("Hello world");
 var  shippingUK;
 var  shippingEurope;
 </textarea></code></pre>
+            <p>Also we can declare them with comma between the variables names which is the same :</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Declaring variables
+var  shippingUK, shippingEurope;
+</textarea></code></pre>
+
             <p>Ok now to alert this variable value simple :</p>
 <pre><code class="language-javascript"><textarea readonly>
 //Alerting the variable's shippingUK value returns undefined
@@ -307,7 +313,6 @@ var y = false;
                     <p>Very important for all programming languages. <a>Covered here</a></p>
                 </li>
 
-
                 <!--Object-->
                 <li>Object
                 <p>In javascript almost everything is an object. <a>Full details here</a></p>
@@ -350,13 +355,39 @@ var x = null;
 
     <hr>
 
+        <section>
+            <h3>Let's start using our console before continuing</h3>
+            <p>All non mobile browsers have built in developer tools. Just open their options/settings and find something like Developer tools.</p>
+            <p>There find a tab that says Console. It's very important to learn to use developer tools since it will also help you
+                in your html/css A LOT!
+            </p>
+            <div><img class="img-responsive" src="assets/img/developer-tools.jpg"></div>
+            <p>A lot of times when I built or change something, I use it to find what html/css properties an item has and stuff like that.</p>
+            <p>Now to you main.js write :</p>
+<pre><code class="language-javascript"><textarea readonly>
+console.log("Hello from console");
+</textarea></code></pre>
+            <p>Now reload the page by having your developer tools -> console tab open and see what happens.</p>
+            <p>The marked with oval circle are :</p>
+            <ol>
+                <li>Developer Tools -> means we are in the developers tools mode</li>
+                <li>Console -> means that we have chosen the console tab</li>
+                <li>Hello from console -> the messages we get from console in current case the one we wrote with console.log</li>
+                <li>main.js -> it says the message was at main.js line 8</li>
+            </ol>
+
+        </section>
+
+        <hr>
+
     <!--Operators-->
     <section>
         <h2>Operators</h2>
+        <section>
         <h3>Arithmetic Operators</h3>
         <ol>
 
-            <li>Addition
+            <li><h4>Addition</h4>
 <pre><code class="language-javascript"><textarea readonly>
 var x = 10;
 var y = 5;
@@ -364,7 +395,7 @@ var result = x + y; //result is 15
 </textarea></code></pre>
             </li>
 
-            <li>Subtraction
+            <li><h4>Subtraction</h4>
 <pre><code class="language-javascript"><textarea readonly>
 var x = 10;
 var y = 5;
@@ -372,7 +403,7 @@ var result = x - y; //result is 5
 </textarea></code></pre>
             </li>
 
-            <li>Multiplication
+            <li><h4>Multiplication</h4>
 <pre><code class="language-javascript"><textarea readonly>
 var x = 10;
 var y = 5;
@@ -380,7 +411,7 @@ var result = x * y; //result is 50
 </textarea></code></pre>
             </li>
 
-            <li>Division
+            <li><h4>Division</h4>
 <pre><code class="language-javascript"><textarea readonly>
 var x = 10;
 var y = 5;
@@ -388,7 +419,7 @@ var result = x / y; //result is 2
 </textarea></code></pre>
             </li>
 
-            <li>Modulus
+            <li><h4>Modulus</h4>
             <p>This is a confusing operator that returns the remainder of the division.</p>
 <pre><code class="language-javascript"><textarea readonly>
 var x = 10;
@@ -406,7 +437,7 @@ var result = x % y; //result is 1 because dividing 11 / 5 gives 2 and remainder 
             <p><button>Show multiple choice</button></p>
             </li>
 
-            <li>Incrementing and Decrementing
+            <li><h4>Incrementing and Decrementing</h4>
                 <p>Increment operator increases the value by 1 and decrement decreases it by 1.
                     Very useful for loops when we reach there.</p>
 <pre><code class="language-javascript"><textarea readonly>
@@ -427,9 +458,15 @@ var x = 10;
 
 var y = 5;
 //Pre Decrement operator which decreases
---y ; //And here first we will substract 1 by y and then we will have y
+--y ; //And here first we will subtract 1 for y and then we will have y
 </textarea></code></pre>
+            </li>
+        </ol>
+            </section>
 
+        <hr>
+
+                <!--Mysterious code ++x vs x++-->
                 <section >
                 <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
                 <p>We have one variable :</p>
@@ -442,10 +479,9 @@ var  x = 5 ;
                 </span></p>
                 <p>We will have the same result correct?</p>
                 <p><button>Show result and explanation</button></p>
-                </section>
+                </section> <!--Mysterious code ++x vs x++-->
 
-            </li>
-        </ol>
+         <hr>
 
         <section ><!--Mysterious code-->
             <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
@@ -476,15 +512,308 @@ alert(myName / x);
             <p>We get a result of <strong>NaN</strong> which means not a number. Totally makes sense since javascript tells us
                 how I'm going to do this operation.
             </p>
+            <p><strong>BUT NOTICE THIS!!!</strong></p>
+<pre><code class="language-javascript"><textarea readonly>
+var  y = "5";
+var  x = 5 ;
+console.log( x + y );
+console.log( x - y );
+</textarea></code></pre>
+            <p>What the first line will it be and what the second?</p>
+            <p><button>Show result and explanation</button></p>
+
 
         </section><!--End Mysterious code-->
 
+        <hr>
+
+        <section>
         <h3>Assignment Operators</h3>
+        <p>The most common we saw is the = .Remember they assign a value. We also have :</p>
+        <table>
+            <tbody>
+             <tr>
+                <td>Operator</td>
+                <td>Example</td>
+                <td>Same as</td>
+             </tr>
+             <tr>
+                 <td>+=</td>
+                 <td>x += y</td>
+                 <td>x = x + y</td>
+             </tr>
+             <tr>
+                 <td>-=</td>
+                 <td>x -= y</td>
+                 <td>x = x - y</td>
+             </tr>
+             <tr>
+                 <td>*=</td>
+                 <td>x *= y</td>
+                 <td>x = x * y</td>
+             </tr>
+             <tr>
+                 <td>/=</td>
+                 <td>x /= y</td>
+                 <td>x = x / y</td>
+             </tr>
+             <tr>
+                 <td>%=</td>
+                 <td>x %= y</td>
+                 <td>x = x % y</td>
+             </tr>
+            </tbody>
+        </table>
+        <p>Code :</p>
+<pre><code class="language-javascript"><textarea readonly>
+var x = 5;
+var y = 10;
+x += y;
+alert(x);
+</textarea></code></pre>
+        <p>So every assignment operator works like that. Think of it like a shortcut.</p>
+            <p><button>Show multiple choice</button></p>
+
+        </section>
+
+        <hr>
+
+        <section><!--Comparison Operators-->
+            <h3>Comparison operators</h3>
+            <p>As the word says you compare two things not assign values to them like we had above.</p>
+            <ol>
+
+            <li>
+            <h4>Equality Operator</h4>
+<pre><code class="language-javascript"><textarea readonly>
+var x = 5;
+var y = 10;
+console.log(x==y);
+</textarea></code></pre>
+            <p>Returns false since x is not equal with y. <strong>Notice the == and not = since we are comparing NOT assigning a value.</strong></p>
+            </li>
+
+            <li>
+                <h4>Identity Operator</h4>
+<pre><code class="language-javascript"><textarea readonly>
+var x = 5;
+var y = 10;
+console.log(x===y);
+</textarea></code></pre>
+                <p>Again it returns false.</p>
+                <p>But here we have === which they also compare <strong>the type except the value</strong>. Most people suggest to use this
+                as safer way.
+                </p>
+            </li>
+                <li><h4>Not equal</h4>
+                    <p>In javascript if we put a ! it means NOT.</p>
+<pre><code class="language-javascript"><textarea readonly>
+var x = 5;
+var y = 10;
+console.log(x!=y);
+</textarea></code></pre>
+                    <p>Returns true since we are saying x is NOT equal y.</p>
+                    <p>You will find it very useful along your career.</p>
+                </li>
+                <li>
+                    <h4>Not equal value or type</h4>
+<pre><code class="language-javascript"><textarea readonly>
+var x = 10;
+var y = 10;
+console.log(x!==y);
+</textarea></code></pre>
+                    <p>Returns false since they are equal and same type.</p>
+                </li>
+
+                <li>
+                    <h4>Greater than and less than</h4>
+                    <p>Like maths we have the > and < symbols .</p>
+<pre><code class="language-javascript"><textarea readonly>
+var x = 10;
+var y = 8;
+console.log(x > y);
+</textarea></code></pre>
+                    <p>Returns true since x is greater than y.</p>
+                </li>
+
+                <li>
+                    <h4>Greater than or equal and less than or equal operators</h4>
+<pre><code class="language-javascript"><textarea readonly>
+var x = 10;
+var y = 8;
+console.log(x >= y);
+console.log(x <= y);
+</textarea></code></pre>
+                    <p>Returns true at first line false at second line.</p>
+
+                </li>
+            </ol>
+            <p><button>Show multiple choice</button></p>
+
+            <!--Mysterious code 5 vs '5'-->
+            <section >
+                <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+                <p>We have two variables :</p>
+
+<pre><code class="language-javascript"><textarea readonly>
+var  x =  5 ;
+var  y = '5';
+</textarea></code></pre>
+                <p>True or false</p>
+<pre><code class="language-javascript"><textarea readonly>
+console.log( x != y);
+</textarea></code></pre>
+                <p><button>Show result and explanation</button></p>
+            </section> <!--Mysterious code 5 vs '5'-->
 
 
 
+        </section><!--Comparison Operators-->
 
+        <hr>
+
+        <section><!--Logical Operators-->
+                <h3>Logical Operators</h3>
+                <p>Logical operators are used to determine the logic between variables or values.</p>
+                <ol>
+                    <li>
+                        <h4>&&</h4>
+                        <p>This operator is like saying and. It means that two conditions must be met.</p>
+<pre><code class="language-javascript"><textarea readonly>
+var x = 10;
+var y = 8;
+var k = 7 ;
+console.log(x >= y && k < y);
+
+</textarea></code></pre>
+                        <p>It returns true since x is greater or equal than y and at the same time k is less than y.</p>
+
+                    </li>
+
+
+                    <li>
+                        <h4>||</h4>
+                        <p>This operator means or. One or the other condition must be met.</p>
+<pre><code class="language-javascript"><textarea readonly>
+var x = 10;
+var y = 8;
+var k = 7 ;
+console.log(x >= y || k > y);
+
+</textarea></code></pre>
+                        <p>It returns true since x is greater or equal than y and that's enough.</p>
+
+                    </li>
+
+                    <li>
+                        <h4>!</h4>
+                        <p>We saw it again at comparison operators which means NOT.</p>
+<pre><code class="language-javascript"><textarea readonly>
+var x = 10;
+var y = 8;
+console.log( !(x > y) );
+</textarea></code></pre>
+
+                        <p>Returns false since it says that NOT(x > y). We see though and know that x is greater than y.</p>
+                        <p>Notice the parenthesis because we want the ! operator only for (x > y) and if we had more variables we will have wrong results. </p>
+                    </li>
+
+                </ol>
+            <p><button>Show multiple choice</button></p>
+
+            </section><!--Logical Operators-->
     </section><!--End Operators-->
+
+        <hr>
+
+        <!--Conditional statements-->
+        <section>
+            <h2>Conditional Statements</h2>
+            <p>These statements are very important in every programming language and if you understand the general idea here
+            you will be able to use them in any language since only some syntax changes will occur.
+            </p>
+            <ol>
+                <li>
+                <h3>If statement</h3>
+<pre><code class="language-javascript"><textarea readonly>
+//Variables
+var x = 10;
+var y = 8;
+//If statement
+if(x > y){
+    console.log("Yes x is greater than y");
+}
+</textarea></code></pre>
+                    <p>Pretty simple right? We start with if. Then inside the parenthesis we put the condition we want to meet.
+                    Finally between the curly brushes we say what we will do if the condition is met.
+                    </p>
+                    <p ><span class="alert-info">HINT : Remember always  open and close curly brushes and then put the code in it.
+                    </span>
+                    </p>
+                </li>
+
+                <li>
+                    <h3>Else statement</h3>
+<pre><code class="language-javascript"><textarea readonly>
+//Variables
+var x = 10;
+var y = 11;
+//If..else statement
+if(x > y){
+    console.log("Yes x is greater than y");
+}
+else{
+    console.log("No x is not greater than y");
+}
+</textarea></code></pre>
+                    <p>Here we just say to do something else in all other cases. Else doesn't work without if.
+                    </p>
+
+                </li>
+                <li>
+                    <h3>Else if statement</h3>
+<pre><code class="language-javascript"><textarea readonly>
+//Variables
+var x = 10;
+var y = 10;
+//If..else if statement
+if(x > y){
+    console.log("Yes x is greater than y");
+}
+else if(x===y){
+    console.log("x is equal to y");
+else{
+    console.log("No x is not greater than y");
+}
+</textarea></code></pre>
+                    <p>You see now we covered all possible conditions. </p>
+                </li>
+
+                <li>Switch</li>
+                <li>Conditional (Ternary) Operator</li>
+
+
+            </ol>
+            <p><button>Show multiple choice</button></p>
+
+
+
+            <!--Mysterious code if else if>-->
+            <section>
+                <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+                <p>We have one variable :</p>
+
+<pre><code class="language-javascript"><textarea readonly>
+var  x = 5 ;
+</textarea></code></pre>
+                <p>What the result will be of alert(x++) and alert(++x)?
+                    <br><span class="alert-info">HINT: The first hasn't stored the new value but the second one first has stored the new value
+                </span></p>
+                <p>We will have the same result correct?</p>
+                <p><button>Show result and explanation</button></p>
+            </section> <!--Mysterious code if else if-->
+
+        </section><!--Conditional statements-->
 
 
     </article><!--End Full article-->
