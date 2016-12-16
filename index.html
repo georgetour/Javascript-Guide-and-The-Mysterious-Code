@@ -789,31 +789,247 @@ else{
                     <p>You see now we covered all possible conditions. </p>
                 </li>
 
-                <li>Switch</li>
-                <li>Conditional (Ternary) Operator</li>
+
+
+                <!--Mysterious code if else if>-->
+                <section>
+                    <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+                    <p>We have three variables :</p>
+
+<pre><code class="language-javascript"><textarea readonly>
+var number1 = 5;
+var number2 = 10;
+var number3 = 11;
+</textarea></code></pre>
+                    <p>Then we have two conditions : </p>
+<pre><code class="language-javascript"><textarea readonly>
+if(number1 < number2){
+    number1 = 11;
+}
+
+if(number1 < number2 && number3 === number1){
+    number1 += 12;
+}
+</textarea></code></pre>
+                    <p>What you think number1 value will be? Please write it in paper first </p>
+
+                    <p><button>Show result and explanation</button></p>
+                </section> <!--Mysterious code if else if-->
+
+
+                <li>
+                    <h3>Switch</h3>
+                    <p>Switch is very powerful conditional statement that replaces having code with multiple if.</p>
+                    <p>Though in the beginning it might seem confusing if you get used to it you will love it.</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Variable
+var myName = "George";
+
+//Switch
+switch(myName){
+
+    case "George":
+        console.log("Your name is George");
+        break;
+    case "John" :
+        console.log("Your name is John");
+        break;
+    case "Alex" :
+        console.log("Your name is Alex");
+        break;
+    default :
+        console.log("I don't know your name");
+}//End switch
+</textarea></code></pre>
+                    <p>So we declared var myName = "George". Then we put into the parenthesis th variables name that we will
+                    need to check. We open and close curly braces and we say case "George" : do something. We finish this condition
+                      if it's the correct by adding break;.
+                    </p>
+                    <p>At the end as you can see we add the default keyword and then what to do. With default we are saying what we want to do
+                    if no case matches.
+                    </p>
+                    <p>Let's see how to do it with if. </p>
+<pre><code class="language-javascript"><textarea readonly>
+//Variable
+var myName = "George";
+
+if(myName==="George"){
+    console.log("Your name is George");
+}
+else if(myName==="John"){
+    console.log("Your name is John");
+}
+else if(myName==="Alex"){
+    console.log("Your name is Alex");
+}
+else{
+    console.log("I don't know your name");
+}
+</textarea></code></pre>
+                    <p>Imagine having many many conditions how many ifs you would have to put.</p>
+                    <p>Sometimes you want different switch cases to use same code. </p>
+<pre><code class="language-javascript"><textarea readonly>
+//Variable
+var number = 1;
+
+//Switch
+switch(number){
+
+    case 1:
+    case 2:
+    case 3:
+        console.log("We have a number smaller than 4");
+        break;
+    case 4 :
+        console.log("The number is 4");
+        break;
+    case 5 :
+    case 6 :
+        console.log("We have a number bigger than 4");
+        break;
+    default :
+        console.log("I don't know this number");
+}//End switch
+</textarea></code></pre>
+
+                </li>
+                <li>
+                    <h3>Conditional (Ternary) Operator</h3>
+                    <p>Conditional ternary operator is another shortcut for if statement.</p>
+<pre><code class="language-javascript"><textarea readonly>
+var x = 5;
+var y = 6;
+
+//After the condition a question mark then if true the left code : else right code
+(x < y)? console.log("x is smaller than y"): console.log("x is not smaller than y");
+
+</textarea></code></pre>
+                    <p>It has strange syntax but look what we are saying. </p>
+<pre><code class="language-javascript"><textarea readonly>
+//Same result as above
+if(x < y){
+    console.log("x is smaller than y");
+}
+else{
+    console.log("x is not smaller than y")
+}
+</textarea></code></pre>
+                    <p>Pretty cool right?</p>
+                </li>
 
 
             </ol>
             <p><button>Show multiple choice</button></p>
 
+            <hr>
+        </section><!--Conditional statements-->
+
+        <!--Functions-->
+        <section>
+            <h2>Functions</h2>
+            <p>A function is a block of code that we can call it by name if we want.</p>
+            <p>We do that so instead of writing again and again the code we just call the function.</p>
+            <p>First we add the keyword function then name, parenthesis and the curly brackets.  </p>
+<pre><code class="language-javascript"><textarea readonly>
+//Creating your first function
+function hello(){
+    console.log("Hello from function");
+}
+//To call a function you simply write it's name, parenthesis and we close the statement with semicolon
+hello();
+hello();
+hello();
+</textarea></code></pre>
+        <p>So instead of writing three times the code we just called the function hello three times.
+            Pretty useful and fundamental .</p>
+            <p>Also we can have a function have parameters and return us a value:</p>
+<pre><code class="language-javascript"><textarea readonly>
+//A function with two parameters that will return the division of them
+function divide(number1, number2){
+    return number1 / number2;
+}
+
+console.log(divide(6,3));
+console.log(divide(12,3));
+</textarea></code></pre>
+            <p>At console log we will have the result of 2 and 3 below. We simply called function divide and gave it the parameters values.
+                <strong>The values we give are called arguments.</strong> </p>
+            <p>So a parameter is a local variable that's inside the function and the argument is the value of that.</p>
+            <p>As you can see this is amazing since we only change the arguments of the function to have new result.</p>
+
+        </section>
+
+        <section>
+            <h2>Scope</h2>
+            <p>The scope is very confusing for newcomers to javascript but you will get used to it.</p>
+            <p>The scope are variables, objects(we will talk later) and functions that you have access to.</p>
 
 
-            <!--Mysterious code if else if>-->
-            <section>
-                <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
-                <p>We have one variable :</p>
+                <!--Mysterious code if else if>-->
+                <section>
+                    <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+                <p>Question : What is the scope, how many we have and describe them. </p>
+                <ol>
+                   <li>
+                <h3>Global scope</h3>
 
 <pre><code class="language-javascript"><textarea readonly>
-var  x = 5 ;
+//Global variable
+var x = 5;
 </textarea></code></pre>
-                <p>What the result will be of alert(x++) and alert(++x)?
-                    <br><span class="alert-info">HINT: The first hasn't stored the new value but the second one first has stored the new value
-                </span></p>
-                <p>We will have the same result correct?</p>
-                <p><button>Show result and explanation</button></p>
-            </section> <!--Mysterious code if else if-->
+                        <p>We can use the var x anywhere we want so it has global scope. </p>
+<pre><code class="language-javascript"><textarea readonly>
+function showGlobal(){
+    //Can be used inside here
+    console.log(x); //It will show normally our x value when we call the function where we want
 
-        </section><!--Conditional statements-->
+    //To change a global variable inside a function with a new value
+    x = 3;
+}
+</textarea></code></pre>
+                  <p>What will be the value of x IF WE WRITE ONLY THIS CODE below our function:</p>
+<pre><code class="language-javascript"><textarea readonly>
+console.log(x);
+</textarea></code></pre>
+                       <p><strong>Remember FIRST write the answer and then see it!</strong></p>
+                       <p><button>Show result and explanation</button></p>
+
+                   </li>
+                    <li>
+                        <h3>Local Scope</h3>
+                    <p>In local scope we declare the variable inside a function so it can be used only
+                    in it.
+                    </p>
+<pre><code class="language-javascript"><textarea readonly>
+//Global variable
+var x = 5;
+</textarea></code></pre>
+<pre><code class="language-javascript"><textarea readonly>
+function somethingHidden(){
+    var y = 10; //It can be used only inside the function
+}
+//But you can't use it here even if you call the function
+console.log(y);//It will show y is not defined
+</textarea></code></pre>
+                    </li>
+                    <li>
+                        <h3>Automatically Global<span class="alert">Don't do it...</span></h3>
+                        <p>If you declare a variable like that :</p>
+<pre><code class="language-javascript"><textarea readonly>
+function pollution(){
+    y = 10;
+}
+//And then
+pollution(); //y becomes a global variable which can use
+</textarea></code></pre>
+                    </li>
+
+                </ol>
+
+                    </section>
+            <p><button>Show multiple choice</button></p>
+        </section><!--End scope-->
+        <hr>
 
 
     </article><!--End Full article-->
