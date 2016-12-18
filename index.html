@@ -260,7 +260,7 @@ alert(shippingUK);
      <ol>
 
                 <!--Number-->
-                <li>Number.</li>
+                <li><h3>Number</h3>
                 <p>Javascript has only one kind of number. Numbers can be written with, or without, decimals </p>
 <pre><code class="language-javascript"><textarea readonly>
 //Some number variables
@@ -273,9 +273,9 @@ var  totalPrice = ( shoePrice * tax) + shippingUK;
 //Alerting the variable's totalPrice value
 alert(totalPrice);
 </textarea></code></pre>
-
+                </li>
                 <!--String-->
-                <li>String
+                <li><h3>String</h3>
                 <p>You can use single or double quotes to declare a string.</p>
 <pre><code class="language-javascript"><textarea readonly>
 //String
@@ -298,7 +298,7 @@ var  myName = George;
 
 
                 <!--Boolean-->
-                <li>Boolean
+                <li><h3>Boolean</h3>
                 <p>Boolean is a type that returns true or false. Imagine it like yes/no or a switch on/off.</p>
                 <p>Booleans are often used in conditional testing which we will see later.</p>
 
@@ -310,17 +310,17 @@ var y = false;
                 </li><!--Boolean-->
 
                 <!--Arrays-->
-                <li>Arrays
+                <li><h3>Arrays</h3>
                     <p>Very important for all programming languages. <a>Covered here</a></p>
                 </li>
 
                 <!--Object-->
-                <li>Object
+                <li><h3>Object</h3>
                 <p>In javascript almost everything is an object. <a>Full details here</a></p>
                 </li>
 
                 <!--Null-->
-                <li>Null
+                <li><h3>Null</h3>
                 <p>We can give a variable the value of null. It means it's null,nothing,empty but null also is an object in javascript.</p>
 
 
@@ -350,7 +350,7 @@ var x; //undefined
 var x = null;
 </textarea></code></pre>
             <p>That's not undefined since it has value which that value is null. It means "nothing".</p>
-            <p>At operators section we will have full comparison to grasp the content.</p>
+
 
     </section><!--End data types section-->
 
@@ -1057,11 +1057,24 @@ x();
                 </p>
                 <p><strong>Remember FIRST write the answer and then see it !</strong></p>
                 <p><button>Show result and explanation</button></p>
+                <p>What the console will show true or false?</p>
+                <p><span class="alert">Please use brackets instead of the below code</span></p>
+<pre><code class="language-javascript"><textarea readonly>
+function cheat(a,b){
+    if(a==b)
+        return true;
+        return false;
+}
 
+console.log(cheat(5,4));
+</textarea></code></pre>
+                <p><button>Show result and explanation</button></p>
 
             </section><!--End Mysterious code functions-->
 
         </section><!--End functions-->
+
+        <hr>
 
         <!--Scope-->
         <section>
@@ -1128,12 +1141,212 @@ function pollution(){
 pollution(); //y becomes a global variable which can use
 </textarea></code></pre>
                     </li>
-
                 </ol>
 
                     </section>
             <p><button>Show multiple choice</button></p>
         </section><!--End scope-->
+
+        <!--Objects-->
+        <section>
+            <h2>Objects</h2>
+            <p>In javascript almost everything is an object. Objects are containers for storing variables and functions.</p>
+            <p>An object's function is called a method. </p>
+            <p>An object's variable is a property . </p>
+            <p>Also remember that in functions/methods you have to use ().</p>
+            <p><strong>To access an object's property you simply add to the object the dot as we were doing with console.log</strong></p>
+            <h3>Let's use our first object :</h3>
+            <p>Create a div in your page at body and give it an id :</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltdiv id="jsManipulation">JS manipulation&lt/div&gt
+</textarea></code></pre>
+            <p>Then at our script we will use the object document and the method getElementById which we have in all browsers :</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Storing the object document with the method getElementByID and id jsManipulation
+   var div = document.getElementById("jsManipulation");
+//Now let't use a property of div object
+    div.innerHTML = "I changed thanks to javascript!";
+</textarea></code></pre>
+            <p>So we created an object that in document had id jsManipulation. Then we used
+            a property that's already created in all browsers innerHTML which means the html text.
+            </p>
+            <p>Find more methods and properties below :</p>
+            <h4>
+                <a href="http://www.w3schools.com/jsref/dom_obj_document.asp">Document object Properties and Methods</a>
+            </h4>
+            <h4><a href="http://www.w3schools.com/jsref/dom_obj_all.asp">HTML elements methods and properties</a></h4>
+
+            <h3>Let's create our first object!</h3>
+            <p>You name a variable, then open and close curly brushes. Inside of it name of property and with : value of property. </p>
+<pre><code class="language-javascript"><textarea readonly>
+var client = {
+    name : "George",
+    lastName : "Tourtsinakis" ,
+    job : "Full Stack Developer"
+}
+
+document.getElementById('jsManipulation').innerHTML = client.name;
+</textarea></code></pre>
+
+            <p>Now refresh and look your div with id jsManipulation</p>
+            <p>Also you can change the property value : </p>
+<pre><code class="language-javascript"><textarea readonly>
+client.name = "John";
+</textarea></code></pre>
+            <p>Let 's create new methods and have a taste of <strong>this</strong> keyword:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var client = {
+    name : "George",
+    lastName : "Tourtsinakis" ,
+    job : "Full Stack Developer",
+    orders : 100,
+    giveDiscount : function(){
+        if(this.orders > 99){
+           document.getElementById('jsManipulation').innerHTML= "Discount 3%";
+        }
+        else{
+           document.getElementById('jsManipulation').innerHTML= "No discount";
+        }
+    }
+};
+//Calling the method giveDiscount from client object
+client.giveDiscount();
+</textarea></code></pre>
+            <p>We have an object called client some properties and a method called giveDiscount. When we say this.orders we are saying with javascript
+                the property orders which is in this object which in our current case is client. It's the same with :
+            </p>
+ <pre><code class="language-javascript"><textarea readonly>
+var client = {
+    name : "George",
+    lastName : "Tourtsinakis" ,
+    job : "Full Stack Developer",
+    orders : 100,
+    giveDiscount : function(){
+        if(client.orders > 99){
+           document.getElementById('jsManipulation').innerHTML= "Discount 3%";
+        }
+        else{
+            document.getElementById('jsManipulation').innerHTML= "No discount";
+        }
+    }
+
+};
+//Calling the method giveDiscount from client object
+client.giveDiscount();
+</textarea></code></pre>
+
+
+            <!--Object Constructor-->
+            <h3>Object Constructor</h3>
+            <p>We saw above how to create objects. We need more clients though correct?</p>
+            <p>It would be bad writing :</p>
+<pre><code class="language-javascript"><textarea readonly>
+var client = {
+    name : "George",
+    lastName : "Tourtsinakis" ,
+    job : "Full Stack Developer"
+}
+
+var client2 = {
+    name : "Elisabeth",
+    lastName : "Of Egypt" ,
+    job : "Queen"
+}
+
+var client3 = {
+    name : "Leo",
+    lastName : "Cool" ,
+    job : "unknown"
+}
+
+</textarea></code></pre>
+
+        <p>So much repeating code and what if you wanted to change a property or add new? You should change it to each object.</p>
+        <p>But we have a solution for that and it's called a constructor:</p>
+<pre><code class="language-javascript"><textarea readonly>
+function client(name,lastName,job) {
+    this.name = name ;
+    this.lastName =lastName ;
+    this.job = job ;
+}
+</textarea></code></pre>
+
+            <p>Remember we said that in javascript almost everything is an object? Well now we have an object called client.
+            Though you will be confused and say "Why this.name"  equals with name?
+            </p>
+            <p>With this.name we are referring to the object client and equals name is the local variable we have as parameters.</p>
+            <p>And to create a new client we simply use the new keyword and we pass the arguments we want:</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Creating a new clients
+var client1 = new client("George","Tourtsinakis","Full Stack Developer");
+var client2 = new client("Elisabeth","Of Egypt","Queen");
+
+document.getElementById('jsManipulation').innerHTML = client1.name;//It will show George
+</textarea></code></pre>
+
+            <p>It was like writing :</p>
+<pre><code class="language-javascript"><textarea readonly>
+function client(localVarName,localVarLastName,localVarJob) {
+    this.name = localVarName ;
+    this.lastName = localVarLastName ;
+    this.job = localVarJob ;
+}
+
+</textarea></code></pre>
+            <p>You see how this is used and what is referred to? For name convenience we give the property name the same as our local variables
+            names. Amazing isn't it?
+            </p>
+            <p>Let's have a method from this object constructor :</p>
+<pre><code class="language-javascript"><textarea readonly>
+function client(name,lastName,job,orders) {
+    this.name = name ;
+    this.lastName =lastName ;
+    this.job = job ;
+    this.orders = orders;
+    this.giveDiscount = function(){
+        if(this.orders > 99){
+            document.getElementById('jsManipulation').innerHTML= "Discount 3%";
+        }
+        else{
+            document.getElementById('jsManipulation').innerHTML= "No discount";
+        }
+    }
+}
+
+var client1 = new client("George","Tourtsis","Full Stack Developer",100);
+client1.giveDiscount();
+</textarea></code></pre>
+
+            <!--Object mysterious code-->
+            <section>
+                <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+                <p>What will we have in our id jsManipulation with the below code?</p>
+                <p><strong>Remember to WRITE it first and then see it in your browser or the answer!</strong></p>
+
+<pre><code class="language-javascript"><textarea readonly>
+function client(name,lastName,job,orders) {
+    this.name = name ;
+    this.lastName =lastName ;
+    this.job = job ;
+    this.orders = orders;
+    this.giveDiscount = function(){
+        if(this.orders > 99){
+            document.getElementById('jsManipulation').innerHTML= "3% discount";
+        }
+        else{
+            document.getElementById('jsManipulation').innerHTML= "No discount";
+        }
+    }
+}
+
+var client1 = new client("George","Tourtsinakis","Full Stack Developer",100);
+document.getElementById('jsManipulation').innerHTML = client1.giveDiscount();
+</textarea></code></pre>
+                <p><button>Show result and explanation</button></p>
+            </section> <!--End Object Mysterious code -->
+
+
+        </section><!--End Objects-->
 
         <hr>
 
