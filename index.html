@@ -21,10 +21,11 @@
 
         <!--Starting words about the guide-->
         <section>
-            <h1>A Javascript Guide and The Mysterious Code.</h1>
+            <h1>Javascript Guide and The Mysterious Code.</h1>
             <p>A guide to javascript that will help you learn javascript and some mysterious code
-            it hides. I will try to explain as simple as possible for beginners or even for those need a refreshing.
+            it hides that newcomers find it confusing. I will try to explain as simple as possible for beginners or even for those need a refreshing.
             </p>
+            <p>Finally, you will see interview questions/answers and multiple choice. Maybe at the end we will built an app also.</p>
         </section>
         <!--End Starting words about the guide-->
 
@@ -928,21 +929,25 @@ else{
         <section>
             <h2>Functions</h2>
             <p>A function is a block of code that we can call it by name if we want.</p>
-            <p>We do that so instead of writing again and again the code we just call the function.</p>
-            <p>First we add the keyword function then name, parenthesis and the curly brackets.  </p>
+            <p>We do that so instead of writing again and again the code we just call/invoke the function.</p>
+            <p>Some people say call a function some others invoke a function. It's what fits you.</p>
+            <ol>
+                <li>
+                    <h3>Function declarations</h3>
+                    <p>First we add the keyword function then name, parenthesis and the curly brackets.  </p>
 <pre><code class="language-javascript"><textarea readonly>
 //Creating your first function
 function hello(){
     console.log("Hello from function");
 }
-//To call a function you simply write it's name, parenthesis and we close the statement with semicolon
+//To call/invoke a function you simply write it's name, parenthesis and we close the statement with semicolon
 hello();
 hello();
 hello();
 </textarea></code></pre>
-        <p>So instead of writing three times the code we just called the function hello three times.
-            Pretty useful and fundamental .</p>
-            <p>Also we can have a function have parameters and return us a value:</p>
+                    <p>So instead of writing three times the code we just called/invoked the function hello three times.
+                        Pretty useful and fundamental .</p>
+                    <p>Also we can have a function have parameters and return us a value:</p>
 <pre><code class="language-javascript"><textarea readonly>
 //A function with two parameters that will return the division of them
 function divide(number1, number2){
@@ -952,13 +957,113 @@ function divide(number1, number2){
 console.log(divide(6,3));
 console.log(divide(12,3));
 </textarea></code></pre>
-            <p>At console log we will have the result of 2 and 3 below. We simply called function divide and gave it the parameters values.
-                <strong>The values we give are called arguments.</strong> </p>
-            <p>So a parameter is a local variable that's inside the function and the argument is the value of that.</p>
-            <p>As you can see this is amazing since we only change the arguments of the function to have new result.</p>
+                    <p>At console log we will have the result of 2 and 3 below. We simply called function divide and gave it the parameters values.
+                        <strong>The values we give are called arguments.</strong> </p>
+                    <p>So a parameter is a local variable that's inside the function and the argument is the value of that.</p>
+                    <p>As you can see this is amazing since we only change the arguments of the function to have new result.</p>
+                </li>
+                <li>
+                    <h3>Function expressions</h3>
+                    <p>In javascript you can store a function expression in a variable.</p>
+<pre><code class="language-javascript"><textarea readonly>
+//A function with two parameters that will return the division of them stored in var division
+var division = function divide(number1, number2){
+    return number1 / number2;
+}
 
-        </section>
+//You can't call/invoke it by the function name but only with the variable name like this
+console.log(division(6,3));
+</textarea></code></pre>
+                </li>
+                <li>
+                    <h3>Anonymous function</h3>
+                    <p>Also we can have an anonymous function in javascript like that :</p>
+<pre><code class="language-javascript"><textarea readonly>
+//An anonymous function with two parameters that will return the division of them stored in var division
+var division = function (number1, number2){
+    return number1 / number2;
+}
 
+//And you call it like that
+console.log(division(6,3));
+</textarea></code></pre>
+                </li>
+            </ol>
+            <h3>Using functions as parameters</h3>
+            <p>We can have functions as parameters in javascript.</p>
+<pre><code class="language-javascript"><textarea readonly>
+//A function with first parameter a variable and second a function
+function advanced(id, update){
+    update();//if we don't call it it won't work
+}
+//New function called updateList
+function updateList() {
+    console.log("List updated");
+}
+//Now we call the function advanced, pass first argument 1 and second the function updateList
+advanced(1 , updateList);
+</textarea></code></pre>
+        <h3>Return functions inside a function </h3>
+        <p>Now things become a little complicated but you should know it so you can understand if you see it somewhere.</p>
+<pre><code class="language-javascript"><textarea readonly>
+//A more advanced function that returns functions
+var order = function(specialClient){
+
+    if(specialClient === true){
+        return function(name){
+            console.log("Discount for " + name);
+        };
+    }
+    else{
+        return function (name) {
+            console.log("Normal order for " + name);
+        };
+    }
+};
+
+//By calling the function like this nothing happens
+order(true);
+
+//Now we store it in a variable
+var startOrdering = order(true);
+
+//Calling the function
+startOrdering(); // But we get undefined since the return has nothing in it
+
+//And the correct way
+startOrdering("George");
+
+</textarea></code></pre>
+            <p><button>Show multiple choice</button></p>
+
+            <!--Mysterious code functions-->
+            <section>
+                <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+                <p>Question : What is a function expression and a function declaration ?</p>
+                <p>What will the console output by the code below ?</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Console output x
+ console.log(x);
+
+var x = function() {
+    console.log("Hello I'm x");
+}
+
+//Calling function x
+x();
+</textarea></code></pre>
+                <p class="alert-info">HINT: That's the major difference between a function expression and declaration. The
+                function declaration after is called you have it in all the script
+                </p>
+                <p><strong>Remember FIRST write the answer and then see it !</strong></p>
+                <p><button>Show result and explanation</button></p>
+
+
+            </section><!--End Mysterious code functions-->
+
+        </section><!--End functions-->
+
+        <!--Scope-->
         <section>
             <h2>Scope</h2>
             <p>The scope is very confusing for newcomers to javascript but you will get used to it.</p>
@@ -981,7 +1086,7 @@ var x = 5;
 <pre><code class="language-javascript"><textarea readonly>
 function showGlobal(){
     //Can be used inside here
-    console.log(x); //It will show normally our x value when we call the function where we want
+    console.log(x); //It will show normally our x value when we call/invoke the function where we want
 
     //To change a global variable inside a function with a new value
     x = 3;
@@ -1008,7 +1113,7 @@ var x = 5;
 function somethingHidden(){
     var y = 10; //It can be used only inside the function
 }
-//But you can't use it here even if you call the function
+//But you can't use it here even if you call/invoke the function
 console.log(y);//It will show y is not defined
 </textarea></code></pre>
                     </li>
@@ -1029,6 +1134,7 @@ pollution(); //y becomes a global variable which can use
                     </section>
             <p><button>Show multiple choice</button></p>
         </section><!--End scope-->
+
         <hr>
 
 
