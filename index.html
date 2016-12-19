@@ -336,7 +336,7 @@ alert (x); //Will alert null
 
             <!--Undefined vs null-->
             <h2>Undefined vs Null</h2>
-            <h3>Mysterious Code(interview question)</h3>
+            <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
             <p>So a lot of people confuse those two meanings in javascript.</p>
 
             <h4>Undefined</h4>
@@ -1345,10 +1345,167 @@ document.getElementById('jsManipulation').innerHTML = client1.giveDiscount();
                 <p><button>Show result and explanation</button></p>
             </section> <!--End Object Mysterious code -->
 
+            <hr>
+        <h3>Javascript Object protoypes</h3>
+        <p>Every object in javascript has a prototype.</p>
+        <p>Remember this code?</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Storing the object document with the method getElementByID and id jsManipulation
+   var div = document.getElementById("jsManipulation");
+//Now let't use a property of div object
+    div.innerHTML = "I changed thanks to javascript!";
+</textarea></code></pre>
+        <p>We created an object that already had some pre created properties like innerHTML.
+        Without us doing anything div inherited everything(properties,methods)from its prototype.
+        </p>
+        <p><strong>This is called prototype inheritance.</strong></p>
+        <p>All javascript objects inherit from their prototype.</p>
+        <p>The top in chain is Object.prototype so all inherit from this.</p>
+        <p>What if we want to add a new property in an object?</p>
+        <p>We can add it directly to our constructor.</p>
+<pre><code class="language-javascript"><textarea readonly>
+function client(name,lastName,job,orders,address) {
+    this.name = name ;
+    this.lastName =lastName ;
+    this.job = job ;
+    this.orders = orders;
+    this.address = address;
+}
+var client1 = new client();
+</textarea></code></pre>
+            <p>And we can add directly to client1 a new property but then only client1 will have it :</p>
+<pre><code class="language-javascript"><textarea readonly>
+client1.newProperty = 5 ;
+</textarea></code></pre>
+          <p>Many times we work with other teams,use frameworks,libraries etc which would be bad directly
+          inserting into the function the new property or method. Also maybe you want to create a plugin
+          for a library or framework.
+          </p>
+          <p>This is achieved by using the prototype property :</p>
+<pre><code class="language-javascript"><textarea readonly>
+client.prototype.newProperty = 5 ;
+</textarea></code></pre>
+
+            <!--Mysterious code objects and prototype-->
+            <section >
+                <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+                <p>Question : What is the best way to create an object and describe prototype inheritance?</p>
+                <p><button>Show result and explanation</button></p>
+            </section> <!--Mysterious code objects and prototype-->
 
         </section><!--End Objects-->
-
         <hr>
+
+
+        <!--Arrays-->
+        <section>
+            <h2>Arrays</h2>
+            <p>Arrays are fundamentals and very very useful for all programming languages.</p>
+            <p>Array is a special variable that can hold more than one value at a time.</p>
+            <p>Imagine it like having a storage with products in it.</p>
+            <p>Without using an array you would write:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var product1 = "mobile-phones";
+var product2 = "air-conditions";
+var product3 = "tvs";
+
+</textarea></code></pre>
+            <p>Well if you have 2-3 products this will work but what if you add more products or you have more than 100-200?</p>
+            <p>This is where arrays come in.</p>
+            <p>You declare a var then equals  opening closing brackets: </p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = ["mobile-phones","air-conditions","tvs"];
+</textarea></code></pre>
+            <p>For better readability you can write it like this:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs"
+];
+</textarea></code></pre>
+            <p>Also we can create an array using the new keyword:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = new Array("mobile-phones","air-conditions","tvs");
+</textarea></code></pre>
+        <p>Arrays in javascript are zero indexed so in position 0 we have mobile phones and
+        you call it like that:
+        </p>
+<pre><code class="language-javascript"><textarea readonly>
+console.log(products[0]);
+</textarea></code></pre>
+            <p>And for the whole array:</p>
+<pre><code class="language-javascript"><textarea readonly>
+console.log(products);
+</textarea></code></pre>
+            <p>To see how many elements an array has in it you just use the length property:</p>
+<pre><code class="language-javascript"><textarea readonly>
+console.log(products.length);
+</textarea></code></pre>
+            <p>It returns 3 since we have mobile phones, air conditions and tvs.</p>
+            <p>To add new element in our array we use the method push:</p>
+<pre><code class="language-javascript"><textarea readonly>
+products.push("books");
+</textarea></code></pre>
+            <p>It means pushing a new element at the end of the array.</p>
+            <p><strong>Remember arrays are objects.</strong> </p>
+
+            <!--Mysterious code objects and prototype-->
+            <section >
+                <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+                <p>Question : What is the result of the below code?</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Products array
+var products = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs"
+];
+//Show us a specific element value
+console.log(products[3]);
+</textarea></code></pre>
+                <p><button>Show result and explanation</button></p>
+            <p>Since arrays are object we can have the following syntax:</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Products array
+var products = [];
+
+products["mobile-phones"] = "iphone";
+
+console.log(products["mobile-phones"]);
+</textarea></code></pre>
+<p>And it will give us iphone...</p>
+            </section> <!--Mysterious code arrays-->
+            <p>Now let's create an unordered list with some items in our body html.</p>
+<pre><code class="language-javascript"><textarea readonly>
+<ul id="mobilePhones">
+    <li>iphone</li>
+    <li>galaxy</li>
+    <li>xperia</li>
+
+</ul>
+</textarea></code></pre>
+            <p>We can grab anything we want in our script:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var mobilePhones = document.getElementById("mobilePhones").getElementsByTagName("li");
+
+console.log(mobilePhones[0].innerHTML);
+</textarea></code></pre>
+            <p>So we grabbed something from out page that had the id of mobilePhones and at this
+            id we needed from li tag the zero element.
+            </p>
+            <p>Pretty cool right?</p>
+            <p><button>Show multiple choice</button></p>
+        <p>According to w3schools you should:</p>
+            <p>Use objects when you want the element names to be strings (text).
+               Use arrays when you want the element names to be numbers.</p>
+        </section><!--End Arrays-->
+
+
+
+
+
+        <div id="jsManipulation"></div>
 
 
     </article><!--End Full article-->
