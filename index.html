@@ -1158,16 +1158,16 @@ pollution(); //y becomes a global variable which can use
             <h3>Let's use our first object :</h3>
             <p>Create a div in your page at body and give it an id :</p>
 <pre><code class="language-javascript"><textarea readonly>
-&ltdiv id="jsManipulation">JS manipulation&lt/div&gt
+&ltdiv id="products">JS manipulation&lt/div&gt
 </textarea></code></pre>
             <p>Then at our script we will use the object document and the method getElementById which we have in all browsers :</p>
 <pre><code class="language-javascript"><textarea readonly>
-//Storing the object document with the method getElementByID and id jsManipulation
-   var div = document.getElementById("jsManipulation");
+//Storing the object document with the method getElementByID and id products
+   var div = document.getElementById("products");
 //Now let't use a property of div object
     div.innerHTML = "I changed thanks to javascript!";
 </textarea></code></pre>
-            <p>So we created an object that in document had id jsManipulation. Then we used
+            <p>So we created an object that in document had id products. Then we used
             a property that's already created in all browsers innerHTML which means the html text.
             </p>
             <p>Find more methods and properties below :</p>
@@ -1185,10 +1185,10 @@ var client = {
     job : "Full Stack Developer"
 }
 
-document.getElementById('jsManipulation').innerHTML = client.name;
+document.getElementById('products').innerHTML = client.name;
 </textarea></code></pre>
 
-            <p>Now refresh and look your div with id jsManipulation</p>
+            <p>Now refresh and look your div with id products</p>
             <p>Also you can change the property value : </p>
 <pre><code class="language-javascript"><textarea readonly>
 client.name = "John";
@@ -1202,10 +1202,10 @@ var client = {
     orders : 100,
     giveDiscount : function(){
         if(this.orders > 99){
-           document.getElementById('jsManipulation').innerHTML= "Discount 3%";
+           document.getElementById('products').innerHTML= "Discount 3%";
         }
         else{
-           document.getElementById('jsManipulation').innerHTML= "No discount";
+           document.getElementById('products').innerHTML= "No discount";
         }
     }
 };
@@ -1223,10 +1223,10 @@ var client = {
     orders : 100,
     giveDiscount : function(){
         if(client.orders > 99){
-           document.getElementById('jsManipulation').innerHTML= "Discount 3%";
+           document.getElementById('products').innerHTML= "Discount 3%";
         }
         else{
-            document.getElementById('jsManipulation').innerHTML= "No discount";
+            document.getElementById('products').innerHTML= "No discount";
         }
     }
 
@@ -1281,7 +1281,7 @@ function client(name,lastName,job) {
 var client1 = new client("George","Tourtsinakis","Full Stack Developer");
 var client2 = new client("Elisabeth","Of Egypt","Queen");
 
-document.getElementById('jsManipulation').innerHTML = client1.name;//It will show George
+document.getElementById('products').innerHTML = client1.name;//It will show George
 </textarea></code></pre>
 
             <p>It was like writing :</p>
@@ -1305,10 +1305,10 @@ function client(name,lastName,job,orders) {
     this.orders = orders;
     this.giveDiscount = function(){
         if(this.orders > 99){
-            document.getElementById('jsManipulation').innerHTML= "Discount 3%";
+            document.getElementById('products').innerHTML= "Discount 3%";
         }
         else{
-            document.getElementById('jsManipulation').innerHTML= "No discount";
+            document.getElementById('products').innerHTML= "No discount";
         }
     }
 }
@@ -1320,7 +1320,7 @@ client1.giveDiscount();
             <!--Object mysterious code-->
             <section>
                 <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
-                <p>What will we have in our id jsManipulation with the below code?</p>
+                <p>What will we have in our id products with the below code?</p>
                 <p><strong>Remember to WRITE it first and then see it in your browser or the answer!</strong></p>
 
 <pre><code class="language-javascript"><textarea readonly>
@@ -1331,16 +1331,16 @@ function client(name,lastName,job,orders) {
     this.orders = orders;
     this.giveDiscount = function(){
         if(this.orders > 99){
-            document.getElementById('jsManipulation').innerHTML= "3% discount";
+            document.getElementById('products').innerHTML= "3% discount";
         }
         else{
-            document.getElementById('jsManipulation').innerHTML= "No discount";
+            document.getElementById('products').innerHTML= "No discount";
         }
     }
 }
 
 var client1 = new client("George","Tourtsinakis","Full Stack Developer",100);
-document.getElementById('jsManipulation').innerHTML = client1.giveDiscount();
+document.getElementById('products').innerHTML = client1.giveDiscount();
 </textarea></code></pre>
                 <p><button>Show result and explanation</button></p>
             </section> <!--End Object Mysterious code -->
@@ -1350,8 +1350,8 @@ document.getElementById('jsManipulation').innerHTML = client1.giveDiscount();
         <p>Every object in javascript has a prototype.</p>
         <p>Remember this code?</p>
 <pre><code class="language-javascript"><textarea readonly>
-//Storing the object document with the method getElementByID and id jsManipulation
-   var div = document.getElementById("jsManipulation");
+//Storing the object document with the method getElementByID and id products
+   var div = document.getElementById("products");
 //Now let't use a property of div object
     div.innerHTML = "I changed thanks to javascript!";
 </textarea></code></pre>
@@ -1450,32 +1450,7 @@ products.push("books");
             <p>It means pushing a new element at the end of the array.</p>
             <p><strong>Remember arrays are objects.</strong> </p>
 
-            <!--Mysterious code objects and prototype-->
-            <section >
-                <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
-                <p>Question : What is the result of the below code?</p>
-<pre><code class="language-javascript"><textarea readonly>
-//Products array
-var products = [
-    "mobile-phones",
-    "air-conditions",
-    "tvs"
-];
-//Show us a specific element value
-console.log(products[3]);
-</textarea></code></pre>
-                <p><button>Show result and explanation</button></p>
-            <p>Since arrays are object we can have the following syntax:</p>
-<pre><code class="language-javascript"><textarea readonly>
-//Products array
-var products = [];
 
-products["mobile-phones"] = "iphone";
-
-console.log(products["mobile-phones"]);
-</textarea></code></pre>
-<p>And it will give us iphone...</p>
-            </section> <!--Mysterious code arrays-->
             <p>Now let's create an unordered list with some items in our body html.</p>
 <pre><code class="language-javascript"><textarea readonly>
 <ul id="mobilePhones">
@@ -1495,17 +1470,145 @@ console.log(mobilePhones[0].innerHTML);
             id we needed from li tag the zero element.
             </p>
             <p>Pretty cool right?</p>
-            <p><button>Show multiple choice</button></p>
-        <p>According to w3schools you should:</p>
+            <p>According to w3schools you should:</p>
             <p>Use objects when you want the element names to be strings (text).
                Use arrays when you want the element names to be numbers.</p>
+            <p><button>Show multiple choice</button></p>
+            <!--Mysterious code objects and prototype-->
+            <section >
+                <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+                <p>Question : What is the result of the below code?</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Products array
+var products = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs"
+];
+//Show us a specific element value
+console.log(products[3]);
+</textarea></code></pre>
+                <p><button>Show result and explanation</button></p>
+                <p>Since arrays are object we can have the following syntax:</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Products array
+var products = [];
+
+products["mobile-phones"] = "iphone";
+
+console.log(products["mobile-phones"]);
+</textarea></code></pre>
+                <p>And it will give us iphone...</p>
+            </section> <!--Mysterious code arrays-->
+
+            <h3>Some useful array methods and properties</h3>
+            <ol>
+                <li>
+                    <h4>Join</h4>
+                    <p>The join method returns the string of the array and by default separates them by comma.
+                        You can give the value you want between the arrays elements like  that: </p>
+<pre><code class="language-javascript"><textarea readonly>
+//Array
+var products = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs"
+];
+
+//Our html
+&ltdiv id="products">&lt/div>
+
+//Showing the array to our html with join and &ltbr> tags
+document.getElementById("products").innerHTML = products.join("<br>");
+
+</textarea></code></pre>
+                </li>
+                <li>
+                    <h4>Length</h4>
+                    <p>The length property which can be used with an array or an object:</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Array
+var products = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs"
+];
+
+//Our html
+&ltdiv id="products">&lt/div>
+
+//Showing the array to our html with join and &ltbr> tags
+document.getElementById("products").innerHTML = products.length;
+</textarea></code></pre>
+                <p>Will show 3 since we have 3 elements in our array.</p>
+                </li>
+                <li><h4>Concat</h4></li>
+                <p>The concat method is used to join two or more arrays each other in one.</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Array
+var products = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs"
+];
+
+//Second array
+var newProducts = [
+    "books",
+    "laptops"
+
+];
+
+//Concat the two arrays and show them in our HTML
+document.getElementById("products").innerHTML= products.concat(newProducts).join("<br>");
+</textarea></code></pre>
+            <p>Now you will say WOW man stop it what you did here?</p>
+            <p>In javascript this is called <strong>method chaining</strong>.
+                We simply add multiple methods by what order we want them to be executed.</p>
+                <p>So in our example in our document we got the content of id products.
+                    Then we had the array products and we added(concat) the array newProducts to it and then
+                    we separated with &ltbr> the new  array.
+                </p>
+                <p class="alert-warning">
+                    Though we don't have the newly created array anywhere so we must store it somewhere:
+                </p>
+<pre><code class="language-javascript"><textarea readonly>
+//New value for products that has the newProducts  also
+products = products.concat(newProducts);
+
+//Show products and line break each
+document.getElementById("products").innerHTML= products.join("<br>");
+</textarea></code></pre>
+            </ol>
+
+            <!--Arrays mysterious code-->
+            <section>
+                    <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+                    <p>We have the following code:</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Array
+var products = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs"
+];
+</textarea></code></pre>
+
+                    <p>Question: What the result will be of the following code?</p>
+<pre><code class="language-javascript"><textarea readonly>
+document.getElementById("products").innerHTML += "-Split items-";
+</textarea></code></pre>
+            </section> <!--Mysterious code ++x vs x++-->
+
+
+
         </section><!--End Arrays-->
 
 
 
 
 
-        <div id="jsManipulation"></div>
+        <div id="products"></div>
 
 
     </article><!--End Full article-->
