@@ -1502,11 +1502,11 @@ console.log(products["mobile-phones"]);
             </section> <!--Mysterious code arrays-->
 
             <h3>Some useful array methods and properties</h3>
+
             <ol>
-                <li>
-                    <h4>Join</h4>
+                <li><h4>Join</h4>
                     <p>The join method returns the string of the array and by default separates them by comma.
-                        You can give the value you want between the arrays elements like  that: </p>
+                        You can give the parameter value you want: </p>
 <pre><code class="language-javascript"><textarea readonly>
 //Array
 var products = [
@@ -1523,8 +1523,8 @@ document.getElementById("products").innerHTML = products.join("<br>");
 
 </textarea></code></pre>
                 </li>
-                <li>
-                    <h4>Length</h4>
+
+                <li><h4>Length</h4>
                     <p>The length property which can be used with an array or an object:</p>
 <pre><code class="language-javascript"><textarea readonly>
 //Array
@@ -1537,12 +1537,13 @@ var products = [
 //Our html
 &ltdiv id="products">&lt/div>
 
-//Showing the array to our html with join and &ltbr> tags
+//Showing the length array
 document.getElementById("products").innerHTML = products.length;
 </textarea></code></pre>
                 <p>Will show 3 since we have 3 elements in our array.</p>
                 </li>
-                <li><h4>Concat</h4></li>
+
+                <li><h4>Concat</h4>
                 <p>The concat method is used to join two or more arrays each other in one.</p>
 <pre><code class="language-javascript"><textarea readonly>
 //Array
@@ -1579,7 +1580,188 @@ products = products.concat(newProducts);
 //Show products and line break each
 document.getElementById("products").innerHTML= products.join("<br>");
 </textarea></code></pre>
+                </li>
+
+                <li><h4>Pop</h4>
+                <p>This method removes the last element from the array and changes the length of it.</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs"
+];
+//Removing the last array
+products.pop();
+
+//Storing the arrays length to a variable
+var productsLength = products.length;
+
+//Showing to out HTML the productsLength
+document.getElementById("products").innerHTML = productsLength;
+</textarea></code></pre>
+                <p>The length of the array now will be 2.</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs"
+];
+//Removing the last array
+products.();
+
+//Storing the arrays length to a variable
+var productsLength = products.length;
+
+//Showing to out HTML the productsLength
+document.getElementById("products").innerHTML = productsLength;
+</textarea></code></pre>
+            </li>
+
+                <li><h4>Push</h4>
+                    <p>This adds an element at the end of the array.</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs"
+];
+
+//Add new element at the end of the array
+products.push("books");
+
+//Showing products separated with comma since its the default behavior
+document.getElementById("products").innerHTML = products;
+</textarea></code></pre>
+                </li>
+
+                <li><h4>Shift</h4>
+                    <p>Remove an element from the start of the array:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs"
+];
+
+//Add new element at the end of the array
+products.shift();
+
+</textarea></code></pre>
+                    <p>We will have 2 items without mobile-phones</p>
+                </li>
+
+                <li><h4>Unshift</h4>
+                    <p>This will add at the start of the array an element.</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs"
+];
+
+//Add at start books
+products.unshift("books");
+
+document.getElementById("products").innerHTML = products;
+</textarea></code></pre>
+                    <p>Our first element will be books now.</p>
+                </li>
+
+
+                <li><h4>Sort</h4>
+                    <p>By default,
+                        the sort() method sorts the values as strings in alphabetical and ascending order.
+                    </p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs"
+];
+
+//Add at start books
+products.sort();
+
+document.getElementById("products").innerHTML = products;
+</textarea></code></pre>
+                    <p>We will have air-conditions,mobile-phones,tvs. Awesome!</p>
+                    <p class="alert-warning">But if we want to return numbers from the smaller to the bigger  it won't work like that.</p>
+                    <p>We need to add a function in our method:</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Array with numbers
+var clientId = [
+    1,
+    2,
+    3,
+    4,
+    31
+];
+
+//With this function we will show them in correct order
+products.sort(function(a, b){return a-b});
+</textarea></code></pre>
+
+                    <p>Now from bigger to smaller:</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Array with numbers
+var clientId = [
+    1,
+    2,
+    3,
+    4,
+    31
+];
+
+//With this function we will show them in correct order
+products.sort(function(a, b){return b-a});
+</textarea></code></pre>
+                    <p>We will have 31,4,3,2,1</p>
+
+                </li>
+
+                <li><h4>Reverse</h4>
+                    <p>The opposite of sort since it reverses the array in descending order!</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs"
+];
+
+//Reverse in descending order
+products.reverse();
+
+document.getElementById("products").innerHTML = products;
+</textarea></code></pre>
+                    <p>We will have tvs,air-conditions,mobile-phones</p>
+                </li>
+
+                <li><h4>Slice</h4>
+                    <p>This method returns the elements we want only: </p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs",
+    "books",
+    "laptops"
+];
+
+var sliced = products.slice(3,6)
+
+
+
+document.getElementById("products").innerHTML = sliced;
+</textarea></code></pre>
+                    <p class="alert-warning">It doesn't include the starting element we put and .</p>
+
+                </li>
+
+
             </ol>
+            <p><button>Show multiple choice</button></p>
+
+
 
             <!--Arrays mysterious code-->
             <section>
@@ -1598,13 +1780,14 @@ var products = [
 <pre><code class="language-javascript"><textarea readonly>
 document.getElementById("products").innerHTML += "-Split items-";
 </textarea></code></pre>
-            </section> <!--Mysterious code ++x vs x++-->
+                <p><button>Show result and explanation</button></p>
+            </section> <!--Arrays mysterious code-->
 
 
 
         </section><!--End Arrays-->
 
-
+        <hr>
 
 
 
