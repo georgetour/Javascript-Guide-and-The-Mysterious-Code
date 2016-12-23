@@ -1632,6 +1632,11 @@ products.push("books");
 //Showing products separated with comma since its the default behavior
 document.getElementById("products").innerHTML = products;
 </textarea></code></pre>
+                    <p>More correct way but not needed:</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Showing products separated with toString method
+document.getElementById("products").innerHTML = products.toString();
+</textarea></code></pre>
                 </li>
 
                 <li><h4>Shift</h4>
@@ -1643,7 +1648,7 @@ var products = [
     "tvs"
 ];
 
-//Add new element at the end of the array
+//Remove element at the start of the array
 products.shift();
 
 </textarea></code></pre>
@@ -1679,7 +1684,7 @@ var products = [
     "tvs"
 ];
 
-//Add at start books
+//Alphabetical and ascending order
 products.sort();
 
 document.getElementById("products").innerHTML = products;
@@ -1737,7 +1742,7 @@ document.getElementById("products").innerHTML = products;
                 </li>
 
                 <li><h4>Slice</h4>
-                    <p>This method returns the elements we want only: </p>
+                    <p>This method returns the elements we want only from what index how many to show: </p>
 <pre><code class="language-javascript"><textarea readonly>
 var products = [
     "mobile-phones",
@@ -1747,14 +1752,47 @@ var products = [
     "laptops"
 ];
 
-var sliced = products.slice(3,6)
-
-
+var sliced = products.slice(0,2)
 
 document.getElementById("products").innerHTML = sliced;
 </textarea></code></pre>
-                    <p class="alert-warning">It doesn't include the starting element we put and .</p>
+                    <p class="alert-warning">It doesn't include the last element we put so it will show
+                        mobile-phones,air-conditions.</p>
 
+                </li>
+                <li>
+                    <h4>Splice</h4>
+                    <p>The splice method adds/removes elements to an array and returns the removed. </p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs",
+    "books",
+    "laptops"
+];
+//First argument which place to start removing, second argument how many to remove from that position and so on
+    products.splice(1,2)
+
+document.getElementById("products").innerHTML = products;
+</textarea></code></pre>
+                    <p>So the result will be air-conditions,tvs.</p>
+                    <p>We can add to the removed something new like this:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs",
+    "books",
+    "laptops"
+];
+//First argument which place to start removing second argument how many to remove from that position and so on
+products.splice(1,2,"monitors","drones");
+
+document.getElementById("products").innerHTML = products;
+</textarea></code></pre>
+                    <p>We will have mobile-phones,monitors,drones,books,laptops since we said at
+                    index 1 remove 2 and add monitors,drones and then continue the array.</p>
                 </li>
 
 
@@ -1778,7 +1816,27 @@ var products = [
 
                     <p>Question: What the result will be of the following code?</p>
 <pre><code class="language-javascript"><textarea readonly>
-document.getElementById("products").innerHTML += "-Split items-";
+document.getElementById("products").innerHTML += "-New line-";
+</textarea></code></pre>
+                <p><button>Show result and explanation</button></p>
+                <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+                <p>We have the following code:</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Array
+var products = [
+     "mobile-phones",
+     "air-conditions",
+     "tvs",
+     "books",
+     "laptops"
+];
+</textarea></code></pre>
+
+                <p>Question: What the result will be of the following code?</p>
+<pre><code class="language-javascript"><textarea readonly>
+var spliced = products.splice(1,2,"monitors","drones");
+
+document.getElementById("products").innerHTML = products;
 </textarea></code></pre>
                 <p><button>Show result and explanation</button></p>
             </section> <!--Arrays mysterious code-->
