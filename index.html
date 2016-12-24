@@ -1847,9 +1847,202 @@ document.getElementById("products").innerHTML = products;
 
         <hr>
 
+        <!--Loops-->
+        <section>
+            <h2>Loops</h2>
+            <p>A loop is something that executes continuously while a condition is true. </p>
+            <p>Loops are very useful in all programming world and fundamental.</p>
+            <p>Our array:</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Array
+var product = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs",
+    "books",
+    "laptops"
+];
+</textarea></code></pre>
+            <p>Let's store our documents id to a variable:</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Store id to variable
+var products = document.getElementById("products");
+</textarea></code></pre>
+            <p>Show one by one its array index with line breaks:</p>
+<pre><code class="language-javascript"><textarea readonly>
+products.innerHTML += product[0]+ "<br>";
+products.innerHTML += product[1]+ "<br>";
+products.innerHTML += product[2]+ "<br>";
+products.innerHTML += product[3]+ "<br>";
+products.innerHTML += product[4];
+</textarea></code></pre>
+            <p>Pretty bad code right? What if we have 100-200 or thousands of indexes? </p>
+            <p>That's where loops come:</p>
+            <ol>
+
+                <li><h3>While loop</h3>
+<pre><code class="language-javascript"><textarea readonly>
+//Array
+var product = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs",
+    "books",
+    "laptops"
+];
+
+//Storing the length of the array to variable
+var productLength = product.length;
+
+//Store id to variable
+var products = document.getElementById('products');
+
+//The loop comparison var we will use to our loop
+var i = 0;
+
+//While loop
+while(i < productLength){
+        products.innerHTML += product[i]+"<br>";
+        i++;
+}
+</textarea></code></pre>
+                    <p>So here we declared a var i = 0. Imagine it like the start for our loop.</p>
+                    <p>Then we said while i value is less than our productLength at
+                    products.innerHTML add the value product[0] + line break. After that give i + 1.
+                    </p>
+                    <p>Now the script goes to
+<pre><code class="language-javascript"><textarea readonly>
+products.innerHTML += product[i]+"<br>";
+</textarea></code></pre>
+                        <p>but now i is 1. After that i++ so i becomes 2 back again to</p>
+<pre><code class="language-javascript"><textarea readonly>
+products.innerHTML += product[i]+"<br>";
+</textarea></code></pre>
+                    <p>but i now is 3 and so on.</p>
+                    <p>So to finalize i becomes 0,1,2,3,4 until it reaches the array length and then the loop stops.</p>
+                    <p class="alert"><strong>Remember to make i++ or i-- always else
+                    it will never stop.
+                    </strong></p>
+
+                    <p>We can use a loop to take stuff from a page of course.</p>
+                    <p>Let' s say we have some products in our html:</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltdiv class="container">
+    &ltul id="pageProducts">
+        &ltli> mobile-phones &lt/li>
+        &ltli> air-conditions &lt/li>
+        &ltli> tvs &lt/li>
+    &lt/ul>
+&lt/div>
+</textarea></code></pre>
+                    <p>In our javascript:</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Where to show pageProducts
+var products = document.getElementById("products");
+
+//pageProducts in our html
+var pageProducts = document.getElementById('pageProducts').getElementsByTagName("li");
+
+//While loop with dynamically creating a list item for each product
+var i = 0;
+while(i < pageProducts.length){
+        products.innerHTML +="&ltli>" +pageProducts[i].innerHTML+"&lt/li>";
+        i++;
+}
+</textarea></code></pre>
+                    <p>So the newly created html code will look like this:</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltdiv class="container">
+    &ltul id="products">
+        <!--Inserted dynamically-->
+        &ltli> mobile-phones &lt/li>
+        &ltli> air-conditions &lt/li>
+        &ltli> tvs &lt/li>
+    &lt/ul>
+&lt/div>
+</textarea></code></pre>
+                    <p>Pretty amazing right?</p>
+                    <p>Let's make it even cooler with functions and parameters:</p>
+<pre><code class="language-javascript"><textarea readonly>
+function showProducts(takeFrom,showTo){
+    //Where to show
+    var products = document.getElementById(showTo);
+
+    //What to take
+    var pageProducts = document.getElementById(takeFrom).getElementsByTagName("li");
+
+    //Loop to show them all
+    var i = 0;
+    while(i < pageProducts.length){
+        products.innerHTML +="&ltli>" +pageProducts[i].innerHTML+"&lt/li>";
+                i++;
+    }
+}
+</textarea></code></pre>
+                    <p>We simple call the function where we want and give arguments:</p>
+<pre><code class="language-javascript"><textarea readonly>
+showProducts("pageProducts","products");
+</textarea></code></pre>
+                    <p>Yes now you are the programmer!</p>
+                </li>
 
 
-        <div id="products"></div>
+
+
+                <li><h3>Do...While loop</h3>
+                <p>The do while loop works almost the same but do will run at least one time even if the while condition is false: </p>
+<pre><code class="language-javascript"><textarea readonly>
+function showProducts(takeFrom,showTo){
+    //Where to show
+    var products = document.getElementById(showTo);
+
+    //What to take
+    var pageProducts = document.getElementById(takeFrom).getElementsByTagName("li");
+
+    //Loop to show them all
+    var i = 0;
+    while(i < pageProducts.length){
+        products.innerHTML +="&ltli>" +pageProducts[i].innerHTML+"&lt/li>";
+                i++;
+    }
+}
+</textarea></code></pre>
+                </li>
+                <li></li>
+                <li></li>
+            </ol>
+            <!--Mysterious code while loops-->
+            <section >
+                <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+                <p>We have one variable :</p>
+
+<pre><code class="language-javascript"><textarea readonly>
+var  x = 5 ;
+</textarea></code></pre>
+                <p>What the result will be of alert(x++) and alert(++x)?
+                    <br><span class="alert-info">HINT: The first hasn't stored the new value but the second one first has stored the new value
+                </span></p>
+                <p>We will have the same result correct?</p>
+                <p><button>Show result and explanation</button></p>
+            </section> <!--Mysterious code while loops-->
+
+
+
+        </section><!--End loops-->
+        <div >
+            <ul id="pageProducts">
+                <li> mobile-phones </li>
+                <li> air-conditions </li>
+                <li> tvs </li>
+
+
+        </ul>
+
+        </div>
+
+
+
+        <ul id="products"></ul>
 
 
     </article><!--End Full article-->
