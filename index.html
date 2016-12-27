@@ -959,6 +959,22 @@ console.log(divide(12,3));
 </textarea></code></pre>
                     <p>At console log we will have the result of 2 and 3 below. We simply called function divide and gave it the parameters values.
                         <strong>The values we give are called arguments.</strong> </p>
+                    <p>When you create a function you also create the arguments built in object
+                    and you can see it's length or access a specific argument: </p>
+<pre><code class="language-javascript"><textarea readonly>
+var division = function divide(number1, number2){
+    //Will show us the length when we will give arguments
+    console.log(arguments.length);
+
+    //It will show us the 0 indexed argument which in current case is 1
+    console.log(arguments[0]);
+
+};
+
+//First argument is 1 second argument is 2
+division(1,2);
+
+</textarea></code></pre>
                     <p>So a parameter is a local variable that's inside the function and the argument is the value of that.</p>
                     <p>As you can see this is amazing since we only change the arguments of the function to have new result.</p>
                 </li>
@@ -1187,7 +1203,17 @@ var client = {
 
 document.getElementById('products').innerHTML = client.name;
 </textarea></code></pre>
+            <p>Also we can access a property with this syntax:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var client = {
+    name : "George",
+    lastName : "Tourtsinakis" ,
+    job : "Full Stack Developer"
+}
 
+//Different syntax for accessing a property of an object
+document.getElementById('products').innerHTML = client["name"];
+</textarea></code></pre>
             <p>Now refresh and look your div with id products</p>
             <p>Also you can change the property value : </p>
 <pre><code class="language-javascript"><textarea readonly>
@@ -2038,12 +2064,127 @@ for(var i=0; i < products.length; i++){
                     <p>So we declared a var i=0 then we said if i < products.length then do i++.
                         Pretty straightforward and clean code right?</p>
                 </li>
-                <li></li>
+                <li><h3>Break and continue</h3>
+                <p>We have already seen break with switch which means jumping out when condition is met.
+                    Continue ignores current condition and jumps over it. </p>
+<pre><code class="language-javascript"><textarea readonly>
+for(var i=0; i < 5; i++){
+    if(i===2){
+        break;
+    }
+    document.getElementById("products").innerHTML += i + "<br>";
+}
+</textarea></code></pre>
+                    <p>A simple loop which when i === 2 it jumps out the loop and stops. </p>
+                    <p>If we wrote:</p>
+<pre><code class="language-javascript"><textarea readonly>
+for(var i=0; i < 5; i++){
+    if(i===2){
+        continue;
+    }
+    document.getElementById("products").innerHTML += i + "<br>";
+}
+</textarea></code></pre>
+                    <p>Then we will had all numbers less than 5 except 2. </p>
+                    <p>Why this is useful?</p>
+<pre><code class="language-javascript"><textarea readonly>
+for(var i=0; i < 5; i++){
+    if(i===2){
+        continue;
+    }
+    document.getElementById("products").innerHTML += i + "<br>";
+}
+</textarea></code></pre>
+                </li>
+                <li><h3>For/in loop</h3>
+                    <p>This loops through the properties of an object.</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Create an object
+var client ={
+    id:1,
+    name:"George",
+    lastName:"Tourtsinakis"
+};
+
+//Search for the properties of the objct and show them at console
+for (var property in client){
+    console.log(property);
+}
+</textarea></code></pre>
+                    <p>And to access the properties values:</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Create an object
+var client ={
+    id:1,
+    name:"George",
+    lastName:"Tourtsinakis"
+};
+
+//Search for the properties of the objct and show them at console
+for (var property in client){
+    console.log(client[property]);
+}
+</textarea></code></pre>
+                    <p>But what if you want to loop with for/in in our html document?</p>
+                    <p>We have a list of items in our html like this:</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltdiv class="container">
+    &ltul id="products">
+        <!--Inserted dynamically-->
+        &ltli> mobile-phones &lt/li>
+        &ltli> air-conditions &lt/li>
+        &ltli> tvs &lt/li>
+    &lt/ul>
+&lt/div>
+</textarea></code></pre>
+                    <p>The below code will show us HTML Object,function etc..</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = document.getElementById("products").getElementsByTagName("li");
+
+for (var property in products){
+    //Let's see what type is each products property with typeOf
+    console.log(typeOf products[property]);
+}
+</textarea></code></pre>
+                    <p>To fix this we do this:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = document.getElementById("products").getElementsByTagName("li");
+
+for (var property in products){
+    if(typeof products[property] !=="object"){
+        break;
+    }
+    else{
+        console.log (products[property].innerHTML);
+    }
+
+}
+</textarea></code></pre>
+                    <p>You see how useful break is since we don't need to continue if there are not objects in.</p>
+                <p>We can use loops in arguments:</p>
+<pre><code class="language-javascript"><textarea readonly>
+function addNumbers(){
+    var sum = 0;
+
+    for(var property in arguments){
+        sum += arguments[property];
+    }
+    return sum;
+
+}
+
+console.log(addNumbers(6,2));
+</textarea></code></pre>
+                    <p>We are adding each arguments property to sum we return sum and then give arguments
+                    to the function in our console.
+                    </p>
+                </li>
             </ol>
+            <p><button>Show multiple choice</button></p>
             <!--Mysterious code while loops-->
             <section >
                 <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
-                <p>What the result will be of our two console.logs?</p>
+                <p>What we will get of our two console.logs?</p>
 
 <pre><code class="language-javascript"><textarea readonly>
 //Loop variable
@@ -2051,6 +2192,7 @@ var i = 6;
 
 function doWhile(){
     //Show the value of i in console
+    console.log(i);
 
     //Total products
     var pageProducts = 5;
@@ -2059,21 +2201,40 @@ function doWhile(){
     do{
         i++;
     }
-    while(i < pageProducts.length);
+    while(i < pageProducts);
 }
 
 console.log(i);
-
-
 </textarea></code></pre>
                 <p><button>Show result and explanation</button></p>
             </section> <!--Mysterious code while loops-->
 
+            <!--Mysterious code for/in loops-->
+            <section >
+                <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+                <p>What x will be in the following code at our console?</p>
+
+<pre><code class="language-javascript"><textarea readonly>
+var x ;
+
+var client ={
+    name:"George",
+    lastName:"Tourtsinakis"
+};
+
+for (var property in client){
+    x += client[property];
+}
+
+console.log(x);
+</textarea></code></pre>
+                <p><button>Show result and explanation</button></p>
+            </section> <!--Mysterious code for/in loops-->
 
 
         </section><!--End loops-->
         <div >
-            <ul id="pageProducts">
+            <ul id="products">
                 <li> mobile-phones </li>
                 <li> air-conditions </li>
                 <li> tvs </li>
@@ -2085,7 +2246,6 @@ console.log(i);
 
 
 
-        <ul id="products"></ul>
 
 
     </article><!--End Full article-->
