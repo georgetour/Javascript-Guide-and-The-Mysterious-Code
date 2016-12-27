@@ -1836,7 +1836,7 @@ var products = [
 <pre><code class="language-javascript"><textarea readonly>
 var spliced = products.splice(1,2,"monitors","drones");
 
-document.getElementById("products").innerHTML = products;
+document.getElementById("products").innerHTML = spliced;
 </textarea></code></pre>
                 <p><button>Show result and explanation</button></p>
             </section> <!--Arrays mysterious code-->
@@ -1986,12 +1986,13 @@ showProducts("pageProducts","products");
                     <p>Yes now you are the programmer!</p>
                 </li>
 
-
-
-
                 <li><h3>Do...While loop</h3>
                 <p>The do while loop works almost the same but do will run at least one time even if the while condition is false: </p>
 <pre><code class="language-javascript"><textarea readonly>
+//Loop variable
+var i = 6;
+
+//Function that takes from an id the content and shows it somewhere else
 function showProducts(takeFrom,showTo){
     //Where to show
     var products = document.getElementById(showTo);
@@ -1999,30 +2000,72 @@ function showProducts(takeFrom,showTo){
     //What to take
     var pageProducts = document.getElementById(takeFrom).getElementsByTagName("li");
 
-    //Loop to show them all
-    var i = 0;
-    while(i < pageProducts.length){
-        products.innerHTML +="&ltli>" +pageProducts[i].innerHTML+"&lt/li>";
-                i++;
+    //Even while condition isn't true the code block in do will execute once
+    do{
+        products.innerHTML +="&ltli>" +pageProducts[0].innerHTML+"&lt/li>";
+        i++;
     }
+    while(i < pageProducts.length);
 }
+
+showProducts("pageProducts","products");
 </textarea></code></pre>
+                <p>We have given pageProduct[0] since if we put i it will return undefined because the
+                pageProduct length is smaller than 6.
+                </p>
+
                 </li>
-                <li></li>
+
+
+                <li><h3>For loop</h3>
+                <p>Works like the while loops but with its own syntax:</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Array
+var products = [
+    "mobile-phones",
+    "air-conditions",
+    "tvs",
+    "books",
+    "laptops"
+];
+
+//Loop through the array index and show in our document id everything
+for(var i=0; i < products.length; i++){
+    document.getElementById("products").innerHTML +=  products[i]+ "<br>";
+}
+
+</textarea></code></pre>
+                    <p>So we declared a var i=0 then we said if i < products.length then do i++.
+                        Pretty straightforward and clean code right?</p>
+                </li>
                 <li></li>
             </ol>
             <!--Mysterious code while loops-->
             <section >
                 <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
-                <p>We have one variable :</p>
+                <p>What the result will be of our two console.logs?</p>
 
 <pre><code class="language-javascript"><textarea readonly>
-var  x = 5 ;
+//Loop variable
+var i = 6;
+
+function doWhile(){
+    //Show the value of i in console
+
+    //Total products
+    var pageProducts = 5;
+
+    //Even while condition isn't true the code block in do will execute once
+    do{
+        i++;
+    }
+    while(i < pageProducts.length);
+}
+
+console.log(i);
+
+
 </textarea></code></pre>
-                <p>What the result will be of alert(x++) and alert(++x)?
-                    <br><span class="alert-info">HINT: The first hasn't stored the new value but the second one first has stored the new value
-                </span></p>
-                <p>We will have the same result correct?</p>
                 <p><button>Show result and explanation</button></p>
             </section> <!--Mysterious code while loops-->
 
