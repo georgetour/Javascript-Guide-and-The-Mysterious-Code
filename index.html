@@ -2231,16 +2231,77 @@ console.log(x);
                 <p><button>Show result and explanation</button></p>
             </section> <!--Mysterious code for/in loops-->
 
-
         </section><!--End loops-->
+
+        <!--DOM-->
+        <section >
+            <h2>DOM - Document Object Model</h2>
+            <p>Probably you have already heard with javascript you will be able to manipulate the DOM
+             and do wonderful stuff.
+            </p>
+            <p>But what's the point of manipulating something if you don't know what it is?</p>
+            <p>When a web page is loaded it creates a Document Object Model of the page.  </p>
+            <p>It's a world standard that was created from W3C so every browser can show you html and xml content.</p>
+            <p>The objects are what we have in our document from head, body, elements and they have properties, methods, events.</p>
+            <p>Imagine the DOM as the tree which the document has roots and branches
+            <a href="http://www.w3schools.com/js/js_htmldom.asp">as you can see here.</a>
+            </p>
+            <p>The model defines those standards. With javascript you can change anything in the DOM.</p>
+            <p>That's why it is called the DOM. You have the document, objects in it and the model. So they
+            named it DOM - Document Object Model.
+            </p>
+            <p><strong>Everything in the DOM is a node.</strong></p>
+            <p>To see DOM properties, methods etc in chrome you can see them in properties tab at right when you have chosen an
+            element, in mozilla with firebug or the add-on DOM inspector a tab that's called DOM.
+            </p>
+            <h3>DOM properties</h3>
+            <p>Let's say we have this html code so we use it with DOM properties below:</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltsection id="mainSection">
+    &ltdiv>I am a div &lt/div>
+&lt/section>
+</textarea></code></pre>
+            <ol>
+                <li><h4>nodeName</h4>
+                    <p>Name of node. Most times the tag name.</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Store the nodeName of id mainSection
+var products = document.getElementById("mainSection").nodeName;
+//It will show us SECTION
+console.log(products);
+</textarea></code></pre>
+                </li>
+                <li>nodeValue</li>
+                <p>It returns the value of the node </p>
+                <li><h4>parentNode</h4>
+                    <p>Every node has a parent. For example the parent of body tag is html.
+                        The parent of html is the document itself.</p>
+                </li>
+                <li><h4>childNodes</h4>
+                    <p>A child node is where the tag belongs.
+                        So we have a hierarchy with the top of all the document. </p>
+                </li>
+
+                <li><h4>childNodes</h4>
+                <p>A child node is where the tag belongs.
+                    So we have a hierarchy with the top of all the document. </p>
+                </li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+
+
+        </section>
+
+        <section id="mainSection">
+            <div>I am a div </div>
+        </section>
+
+
         <div >
-            <ul id="products">
-                <li> mobile-phones </li>
-                <li> air-conditions </li>
-                <li> tvs </li>
-
-
-        </ul>
+            <h4 id="products">
+dada</h4>
 
         </div>
 
