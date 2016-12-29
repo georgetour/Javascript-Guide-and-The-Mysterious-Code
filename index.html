@@ -2254,6 +2254,7 @@ console.log(x);
             <p>To see DOM properties, methods etc in chrome you can see them in properties tab at right when you have chosen an
             element, in mozilla with firebug or the add-on DOM inspector a tab that's called DOM.
             </p>
+            <section>
             <h3>DOM properties</h3>
             <p>Let's say we have this html code so we use it with DOM properties below:</p>
 <pre><code class="language-javascript"><textarea readonly>
@@ -2271,39 +2272,250 @@ var products = document.getElementById("mainSection").nodeName;
 console.log(products);
 </textarea></code></pre>
                 </li>
-                <li>nodeValue</li>
-                <p>It returns the value of the node </p>
+
+                <li><h4>Attributes</h4>
+                <p>The attributes property returns the node's attributes.</p>
+                    <p>In our html:</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltdiv id="productsId">Item1&lt/div>
+</textarea></code></pre>
+                    <p>In javascript:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = document.getElementById("productsId").attributes[0].nodeValue;
+
+console.log(products);
+</textarea></code></pre>
+                    <p>It will return productsId since this is the value of our 0 indexed attribute</p>
+                </li>
+                <li><h4>nodeValue</h4>
+                <p>It returns the value of the node but you must call the index of the attributes array which was
+                created as you can see in your tools:
+                </p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = document.getElementById("mainSection").attributes[0].nodeValue;
+
+console.log(products);
+</textarea></code></pre>
+                    <p>It will return the id which id mainSection.</p>
+                    <p>Though this is a confusing way so we better use the getAttribute method:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = document.getElementById("mainSection");
+
+console.log(products.getAttribute("id"));
+</textarea></code></pre>
+                    <p>We are just saying to get the id attribute.You can find classes or any attribute.</p>
+                </li>
+                <li><h4>setAttribute</h4>
+                    <p>This is more powerful since we can search the whole document and add an attribute dynamically.</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = document.getElementById("mainSection");
+
+
+//Adding attribute class with value addedClass
+products.setAttribute("class","addedClass");
+</textarea></code></pre>
+                    <p>Now check your developer tools the mainSection id that has the class addedClass.</p>
+
+                </li>
+                <li><h4>removeAttribute</h4>
+                <p>This is the opposite and you remove an attribute that you don't want anymore:</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Removing a class attribute
+products.removeAttribute("class");
+</textarea></code></pre>
+
+                </li>
+
                 <li><h4>parentNode</h4>
                     <p>Every node has a parent. For example the parent of body tag is html.
                         The parent of html is the document itself.</p>
                 </li>
-                <li><h4>childNodes</h4>
-                    <p>A child node is where the tag belongs.
-                        So we have a hierarchy with the top of all the document. </p>
-                </li>
 
                 <li><h4>childNodes</h4>
-                <p>A child node is where the tag belongs.
-                    So we have a hierarchy with the top of all the document. </p>
+                    <p>The childNodes property returns a collection of a node's child nodes, which are lower in the hierarchy
+                        and belong to a parent node. </p>
                 </li>
-                <li></li>
-                <li></li>
-                <li></li>
+
+                <li><h4>firstChild</h4>
+                    <p>First node child.</p>
+                    <p>Suppose we have in our html:</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltul id="mainSection">
+    &ltli>Item1&lt/li>
+    &ltli>Item2&lt/li>
+    &ltli>Item3&lt/li>
+    &lt/ul>
+</textarea></code></pre>
+                    <p>In javascript:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = document.getElementById("mainSection").firstChild;
+
+console.log(products);
+</textarea></code></pre>
+                    <p>You will notice that it returns #text. This because of the empty space we have.
+                    If we do:
+                    </p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltul id="mainSection">&ltli>Item1&lt/li>
+    &ltli>Item2&lt/li>
+    &ltli>Item3&lt/li>
+    &lt/ul>
+</textarea></code></pre>
+                    <p>Now you get the first child which is:</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltli>Item1&lt/li>
+</textarea></code></pre>
+                    <p>Our html code:</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltul id="mainSection">
+    &ltli>Item1&lt/li>
+    &ltli>Item2&lt/li>
+    &ltli>Item3&lt/li>
+    &lt/ul>
+</textarea></code></pre>
+                    <p>To access the text in it you should do something like:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = document.getElementById("mainSection").childNodes[1].firstChild.nodeValue;
+
+
+console.log(products);
+</textarea></code></pre>
+                    <p class="alert">The above code is bad and hard to understand.
+                        Don't try to access nodes like that since you and your team will get lost, even if
+                        you are the best programmers.</p>
+                </li>
+
+
+                <li><h4>lastChild</h4>
+                    <p>Last node child.</p>
+                </li>
+                <li><h4>innerHTML</h4>
+                <p>We have already see it and it's a property for the content of an element. </p>
+                    <p>Let's improve our above bad code:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = document.getElementById("mainSection").getElementsByTagName("li")[0].innerHTML;
+
+console.log(products);
+</textarea></code></pre>
+
+
+                </li>
+                <li><h4>textContent</h4>
+                <p>Textcontent works like innerHTML with the disadvantage of being supported in IE>9
+                and one major advantage that shows only the text we have nothing else.
+                </p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltdiv id="products">&ltspan>I'm inside div.&lt/span>&lt/div>
+</textarea></code></pre>
+
+                <p>With innerHTML </p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = document.getElementById("products").innerHTML;
+</textarea></code></pre>
+                    <p>We would have &ltspan>I'm inside div.&lt/span></p>
+                    <p>But with textContent we get only the content which will be:<strong> I'm inside div.</strong></p>
+                </li>
+                <li><h4>previousSibling and nextSibling</h4>
+<pre><code class="language-javascript"><textarea readonly>
+&ltul id="products">&ltli id="item1">Item1&lt/li>&ltli id="item2">Item2&lt/li>&ltli id="item3">Item3&lt/li>
+&lt/ul>
+</textarea></code></pre>
+                    <p>And in our javascript:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = document.getElementById("item1").nextSibling.innerHTML;
+
+console.log(products);
+</textarea></code></pre>
+                    <p>We wil get Item2.</p>
+                    <p class="alert-warning">Note that I made the html code without white spaces
+                    else it counts differently.
+                    </p>
+
+                </li>
             </ol>
 
+            </section><!--End DOM properties-->
 
-        </section>
+            <!--DOM methods-->
+            <section>
+            <h3>DOM methods</h3>
+                <ol>
 
-        <section id="mainSection">
-            <div>I am a div </div>
-        </section>
+                    <li><h4>getElementById() Method</h4>
+                    <p>We have used it and many times until now and I hope you have
+                        understand what it does. You select an element by its id.</p>
+                    </li>
+
+                    <li><h4>getElementsByTagName() Method</h4>
+                    <p>Also we have used it. You select an element by tag name.</p>
+                    </li>
+
+                    <li><h4>getElementsByClassName() Method</h4>
+                    <p>Simple and clear you select an element by class name.</p>
+                    <p class="alert-warning">Not supported in IE 6,7,8</p>
+                    </li>
+
+                    <li><h4>getElementsByName() Method</h4>
+<pre><code class="language-javascript"><textarea readonly>
+&ltinput name="firstName" type="text" value="George">
+</textarea></code></pre>
+                        <p>It will search for all elements with the attribute name and the value we want.</p>
+<pre><code class="language-javascript"><textarea readonly>
+var firstName = document.getElementsByName("firstName");
+
+//Will return George
+console.log(firstName);
+</textarea></code></pre>
+                    </li>
+                    <li><h4>querySelectorAll() Method</h4>
+                        <p>A pretty strong method that returns all CSS selectors like id and classes.
+                            Also it creates an array you can access by index. </p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltul id="mainSection">
+    &ltli class="products">Item1&lt/li>
+    &ltli class="products">Item2&lt/li>
+    &ltli class="products">Item3&lt/li>
+    &lt/ul>
+</textarea></code></pre>
+                        <p>Of course we can see how many items have with this class:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = document.querySelectorAll('.products');
+
+//Will return how many items have the class products
+console.log(products.length);
+</textarea></code></pre>
+                        <p>It will return 3.</p>
+                    </li>
+                    <li><h4>querySelector() Method</h4>
+                    <p>The difference with querySelectorAll() is that it returns the first selector
+                    it finds and it's better to use since it doesn't create array like
+                    querySelectorAll().
+                    </p>
+                    <p class="alert-warning">The query selectors are not supported in older
+                    browsers <= IE 8.
+                    </p>
+                        <p>Also you can do something more advanced like this:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = document.querySelector('#mainSection li ');
 
 
-        <div >
-            <h4 id="products">
-dada</h4>
+console.log(products);
+</textarea></code></pre>
+                        <p>It will show the first list of id mainSection.</p>
+                    </li>
+                </ol>
+            </section><!--End DOM methods-->
 
-        </div>
+        </section><!--End DOM-->
+
+        <ul id="mainSection">
+            <li id="item1" class="products">Item1</li>
+            <li id="item2" class="products">Item2</li>
+            <li id="item3" class="products">Item3</li>
+        </ul>
+
+
+        <div id="products"><span>I'm inside div.</span></div>
 
 
 
