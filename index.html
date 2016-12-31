@@ -646,10 +646,10 @@ console.log(x >= y);
 console.log(x <= y);
 </textarea></code></pre>
                     <p>Returns true at first line false at second line.</p>
-
+                    <p><button>Show multiple choice</button></p>
                 </li>
             </ol>
-            <p><button>Show multiple choice</button></p>
+
 
             <!--Mysterious code 5 vs '5'-->
             <section >
@@ -1163,6 +1163,8 @@ pollution(); //y becomes a global variable which can use
             <p><button>Show multiple choice</button></p>
         </section><!--End scope-->
 
+        <hr>
+
         <!--Objects-->
         <section>
             <h2>Objects</h2>
@@ -1342,6 +1344,7 @@ function client(name,lastName,job,orders) {
 var client1 = new client("George","Tourtsis","Full Stack Developer",100);
 client1.giveDiscount();
 </textarea></code></pre>
+            <p><button>Show multiple choice</button></p>
 
             <!--Object mysterious code-->
             <section>
@@ -2233,6 +2236,8 @@ console.log(x);
 
         </section><!--End loops-->
 
+        <hr>
+
         <!--DOM-->
         <section >
             <h2>DOM - Document Object Model</h2>
@@ -2502,20 +2507,123 @@ var products = document.querySelector('#mainSection li ');
 console.log(products);
 </textarea></code></pre>
                         <p>It will show the first list of id mainSection.</p>
+                        <p><button>Show multiple choice</button></p>
                     </li>
                 </ol>
+
+
             </section><!--End DOM methods-->
+
+            <!--Manipulation with javascript-->
+            <section>
+            <h3>Manipulate CSS with javascript</h3>
+                <p>We will start applying what we learned to change some styling in CSS.</p>
+                <p>Our html:</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltul id="mainSection">
+    &ltli class="products">Item1&lt/li>
+    &ltli class="products">Item2&lt/li>
+    &ltli class="products">Item3&lt/li>
+&lt/ul>
+</textarea></code></pre>
+                <p>In javascript:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var products = document.querySelector('#mainSection');
+
+products.style.backgroundColor = "#f2e6d9";
+
+products.style.borderRadius = "25px";
+</textarea></code></pre>
+                <p>Style is an object and you access its properties like above.</p>
+                <p>Result:</p>
+                <ul id="mainSection">
+                    <li id="item1" class="products">Item1</li>
+                    <li id="item2" class="products">Item2</li>
+                    <li id="item3" class="products">Item3</li>
+                </ul>
+
+                <p class="note alert-info">Note: The style properties are exactly like CSS but they use
+                    uppercase convention. The CSS would be background-color and in javascript the property
+                    is backgroundColor.
+                </p>
+                <p><button>Show multiple choice</button></p>
+                <h3>Adding or removing elements dynamically with javascript</h3>
+                <ol>
+                    <li><h4>createElement()</h4>
+                    <p>In our javascript:</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Storing the created p to a var
+var p= document.createElement("p");
+</textarea></code></pre>
+                        <p>We used the method createElement to create p.
+                        </p>
+                        <p>But we have just created it without putting anywhere.</p>
+
+                    </li>
+                    <li><h4>appendChild() and removeChild()</h4>
+                    <p>To have it in our html you must append it:</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltdiv id="text">&lt/div>
+</textarea></code></pre>
+
+                <p>In javascript:</p>
+<pre><code class="language-javascript"><textarea readonly>
+p.style.backgroundColor = "lightblue";
+p.style.padding = "5px";
+p.textContent ="Appended with javascript! How cool you are?";
+var text= document.querySelector("#text");
+
+text.appendChild(p);
+</textarea></code></pre>
+                    <p>Result:</p>
+                    <div id="text"></div>
+                        <p>Check with your developer tools that it has all attributes and values
+                        we gave it with javascript.
+                        </p>
+                        <p>And to remove it:</p>
+<pre><code class="language-javascript"><textarea readonly>
+text.removeChild(p);
+</textarea></code></pre>
+                        <!--Mysterious code ++x vs x++-->
+                        <section >
+                            <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+                            <p>Our html:</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltarticle id="mainArticle">&ltarticle>
+</textarea></code></pre>
+
+                            <p>Inside let's create a section:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var mainArticle = document.getElementById("mainArticle");
+var newSection = document.createElement("section");
+newSection.innerHTML = "<p id='sectionParagraph'>Dynamically created paragraph</p>";
+mainArticle.appendChild(newSection);
+</textarea></code></pre>
+                            <p>Manipulate the sectionParagraph with javascript:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var sectionParagraph = document.getElementById("sectionParagraph");
+sectionParagraph.style.border = "1px solid black";
+</textarea></code></pre>
+                            <p>Result:</p>
+                            <article id="mainArticle">
+
+                            </article>
+                            <p>See with your developers tools that's created correctly.</p>
+                            <p>What we will get by having this:</p>
+<pre><code class="language-javascript"><textarea readonly>
+newSection.innerHTML += "hello";
+sectionParagraph.style.border = "1px solid black";
+</textarea></code></pre>
+                            <p class="alert-info">HINT: when you use again innerHTML it resets the content.</p>
+                            <p><button>Show result and explanation</button></p>
+                        </section> <!--Mysterious code ++x vs x++-->
+                    </li>
+                </ol>
+            </section>
+            <!--End Manipulation with javascript-->
 
         </section><!--End DOM-->
 
-        <ul id="mainSection">
-            <li id="item1" class="products">Item1</li>
-            <li id="item2" class="products">Item2</li>
-            <li id="item3" class="products">Item3</li>
-        </ul>
-
-
-        <div id="products"><span>I'm inside div.</span></div>
 
 
 
