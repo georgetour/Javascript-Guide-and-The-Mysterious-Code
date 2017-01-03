@@ -2619,14 +2619,94 @@ sectionParagraph.style.border = "1px solid black";
                         </section> <!--Mysterious code ++x vs x++-->
                     </li>
                 </ol>
+
             </section>
             <!--End Manipulation with javascript-->
+            <section>
+                <h3>Exercise</h3>
+                <p>Requirements:</p>
+                <ol>
+                    <li>Create a multiplication table that will look like this:
+                        <div id="loopInsideLoop">
+                        </div>
+                    </li>
+                    <li>You will have to use a loop inside a loop. The first loop
+                    will loop from 1-10 and the second multiplies 1-10 to first loop.
+                    </li>
+                    <li>
+                        Check your developers tools to see how html is structured for this
+                        multiplication table.
+                    </li>
+
+                </ol>
+                <p><button>Show code and explanation</button></p>
+            </section>
 
         </section><!--End DOM-->
 
+        <hr>
+
+        <!--Events-->
+        <section>
+            <h2>Events</h2>
+            <p>Events are "things" that happen to your website. Websites/apps have many events
+                happening.
+                The most common event we all have used is when clicking a button and something happens.
+            </p>
+            <p>To use an event you call its name. All events can be found here:
+                <a href="http://www.w3schools.com/js/js_events.asp">Javascript events</a>
+            </p>
+            <ol>
+                <li><h3>onclick Event</h3>
+                    <p>Create a div and give it an id and inline onclick event: </p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltdiv id="firstEvent" onclick="alert('your first event!')">click me &lt/div>
+</textarea></code></pre>
+                    <p>When you click the div in your page, onclick event triggers the alert method. </p>
+                    <p><strong>But as we said putting something inline is bad practice and you should avoid it.</strong> </p>
+                    <p>Let's create it in our javascript by using documentGetElementByID. </p>
+
+                    <!--Mysterious code event triggering-->
+                    <section >
+                        <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+                        <p>Will alert trigger normally when we click firstEvent?</p>
+<pre><code class="language-javascript"><textarea readonly>
+var firstEvent = document.getElementById("firstEvent");
+
+firstEvent.onclick = alert('your first event!');
+</textarea></code></pre>
+                        <p><button>Show result and explanation</button></p>
+                    </section> <!--End Mysterious code event triggering-->
 
 
 
+
+                </li>
+            </ol>
+            <!--Mysterious code overriding inline event with external script-->
+            <section >
+                <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+                <p>Our html code</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltdiv id="firstEvent" onclick="alert('red wins!')">click me &lt/div>
+</textarea></code></pre>
+                <p>What we will get in our screen if we have also this external javascript with defer?</p>
+<pre><code class="language-javascript"><textarea readonly>
+var firstEvent = document.getElementById("firstEvent");
+
+firstEvent.onclick = function(){
+    alert('blue wins!');
+}
+</textarea></code></pre>
+                <p><button>Show result and explanation</button></p>
+            </section> <!--End Mysterious code event triggering-->
+        </section><!--End events-->
+            <p><button>Show code and explanation</button></p>
+
+
+
+
+<div id="firstEvent" onclick="alert('red wins!')">click me</div>
 
 
     </article><!--End Full article-->

@@ -39,5 +39,11 @@ td{
     margin-top: 10px;
 }
 
+.multiplicationTable td{
+    padding: 4px;
+    border:1px solid black;
+    text-align: center;
+}
+
 
 
