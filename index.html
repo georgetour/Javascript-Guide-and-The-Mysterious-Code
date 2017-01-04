@@ -2657,6 +2657,7 @@ sectionParagraph.style.border = "1px solid black";
                 <a href="http://www.w3schools.com/js/js_events.asp">Javascript events</a>
             </p>
             <ol>
+
                 <li><h3>onclick Event</h3>
                     <p>Create a div and give it an id and inline onclick event: </p>
 <pre><code class="language-javascript"><textarea readonly>
@@ -2677,12 +2678,119 @@ firstEvent.onclick = alert('your first event!');
 </textarea></code></pre>
                         <p><button>Show result and explanation</button></p>
                     </section> <!--End Mysterious code event triggering-->
-
-
-
-
                 </li>
+
+
+
+                <li><h3><strong>this</strong> keyword</h3>
+                    <p>The "this" keyword is VERY VERY important and you must get used to it.</p>
+                    <p>It refers to the object that's inside it but let's see it in action.</p>
+
+                    <p>Let's have two fixed width images in our html inside two divs :</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltdiv class="productsLayout ">
+    &ltimg  class="productImg" src="assets/img/turntable.jpg" alt="Turntable">
+    &ltbutton class="buyMe">Buy Me&lt/button>
+&lt/div >
+&ltdiv class="productsLayout ">
+    &ltimg  class="productImg"  src="assets/img/amplifier.png" alt="Amplifier">
+    &ltbutton class="buyMe">Buy Me&lt/button>
+&lt/div>
+</textarea></code></pre>
+
+
+                    <p><h3>onmouseover and onmouseout</h3></p>
+                    <p>Your client wants when you hover a product an effect and buy button to appear.</p>
+                    <p class="alert-info">Note : This can be done with CSS also using the selector hover.</p>
+                    <p>In our javascript:</p>
+<pre><code class="language-javascript"><textarea readonly>
+//Remember that querySelectorAll creates an array
+var product = document.querySelectorAll(".productsLayout");
+
+//This function changes the background color and make button to appear
+function greyEffect() {
+    this.style.backgroundColor = "#f2f2f2";
+    this.children[1].style.display = "inline-block";
+}
+
+//Resets the products to appear normally
+function normalImg(){
+    this.style.backgroundColor = "white";
+    this.children[1].style.display = "none";
+}
+
+//Apply in each product in hover the greyEffect in mouseout the reset
+function productHoverEffect() {
+    //We will access which index we want from product array to run our functions
+    product[0].onmouseover = zoomIn;
+    product[0].onmouseout = normalImg;
+    product[1].onmouseover = zoomIn;
+    product[1].onmouseout = normalImg;
+}
+
+//Start the function for effects
+productHoverEffect();
+</textarea></code></pre>
+                    <p>Now we said : this element invoked the function so run your code for this element. It's like showing this, this, this.  </p>
+                    <p>Remember we used "this" in constructor when we wanted to refer to "this" object.</p>
+                    <p>If we didn't have this we would have to write for each element id a function or use
+                    parameters and have really terrible code like that:
+                    </p>
+                    <p class="alert-danger"><strong >Bad bad bad code without this keyword</strong></p>
+<pre><code class="language-javascript"><textarea readonly>
+function greyEffect() {
+    product[0].style.backgroundColor = "#f2f2f2";
+    product[0].children[1].style.display = "inline-block";
+
+}
+
+function normalImg(){
+    product[0].style.backgroundColor = "white";
+    product[0].children[1].style.display = "none";
+}
+</textarea></code></pre>
+                    <p>How would we do that for each element like that?</p>
+                    <p>That's why "this" is the COOLEST keyword you must learn. It says Heyyyy
+                    I want only <strong>this</strong>  don't give me anything else!
+                    </p>
+
+                    <div class="container">
+                    <div class="row">
+
+                        <div class="productsLayout ">
+                           <img  class="productImg" src="assets/img/turntable.jpg" alt="Turntable">
+                            <button class="buyMe">Buy Me</button>
+                        </div >
+                        <div class="productsLayout ">
+                           <img  class="productImg"  src="assets/img/amplifier.png" alt="Amplifier">
+                            <button class="buyMe">Buy Me</button>
+                        </div>
+
+                    </div>
+                    </div>
+                    <p>Don't forget to look your developer tools for details for your front end code like html,CSS and javascrit.</p>
+                </li>
+
             </ol>
+
+            <section>
+                <h3>Exercise</h3>
+                <p>Requirements :</p>
+                <ol>
+                <li>Have a total of five products with images.</li>
+                <li>Improve the productHoverEffect() by using a loop that will give to all products the hoverEffect.</li>
+                <li>Test your code and write comments...</li>
+                </ol>
+                <p><button>Show code and explanation</button></p>
+            </section>
+
+
+
+
+
+
+
+
             <!--Mysterious code overriding inline event with external script-->
             <section >
                 <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>

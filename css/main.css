@@ -45,5 +45,28 @@ td{
     text-align: center;
 }
 
+.productImg{
+    width: 200px;
+    height: 180px;
+    display: block;
+    margin: 0 auto;
+}
+
+.buyMe{
+    display: none;
+}
+
+.productsLayout{
+    float: left;
+    text-align: center;
+    height: 250px;
+    width: 300px;
+    border: 1px solid black;
+
+
+}
+
+
+
 
 

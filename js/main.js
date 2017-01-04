@@ -75,3 +75,29 @@ function runEvent(){
 }
 
 firstEvent.onclick = runEvent;
+
+
+//=========Product hover effect==============
+var product = document.querySelectorAll(".productsLayout");
+
+function greyEffect() {
+    this.style.backgroundColor = "#f2f2f2";
+    this.children[1].style.display = "inline-block";
+
+}
+
+function normalImg(){
+    this.style.backgroundColor = "white";
+    this.children[1].style.display = "none";
+}
+
+function productHoverEffect() {
+    product[0].onmouseover = greyEffect;
+    product[0].onmouseout = normalImg;
+    product[1].onmouseover = greyEffect;
+    product[1].onmouseout = normalImg;
+}
+
+productHoverEffect();
+//=========End Product hover effect===========
+
