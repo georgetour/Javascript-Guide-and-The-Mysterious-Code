@@ -67,16 +67,6 @@ table += "</table>";
 loopInsideLoop.innerHTML = table;
 //====End Multiplication table========
 
-//====onclick event code====
-var firstEvent = document.getElementById("firstEvent");
-
-function runEvent(){
-    console.log('blue wins!');
-}
-
-firstEvent.onclick = runEvent;
-
-
 //=========Product hover effect==============
 var product = document.querySelectorAll(".productsLayout");
 
@@ -101,3 +91,32 @@ function productHoverEffect() {
 productHoverEffect();
 //=========End Product hover effect===========
 
+
+
+//=====Event listener=====
+var canYouHearMe = document.getElementById("canYouHearMe");
+
+function changeText(){
+    this.innerHTML = "YES I CAN HEAR YOU!";
+}
+
+function changeColor() {
+    this.style.color = "darkblue";
+}
+
+function reset(){
+    this.innerHTML = "Can you hear me?";
+    this.style.color = "black";
+}
+
+
+canYouHearMe.addEventListener("mouseover",changeText);
+canYouHearMe.addEventListener("mouseover",changeColor);
+canYouHearMe.addEventListener("mouseout",reset);
+
+var  currentColor = window.getComputedStyle(canYouHearMe).getPropertyValue("color");
+console.log(currentColor);
+
+var s = 5;
+s++;
+alert(s);

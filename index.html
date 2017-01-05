@@ -9,8 +9,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="css/main.css" rel="stylesheet" type="text/css">
 
-    <script defer src="js/main.js" type="text/javascript"></script>
-    <script defer src="js/prism.js" type="text/javascript"></script>
+    <script src="js/main.js"   defer  type="text/javascript"></script>
+    <script src="js/prism.js"  defer  type="text/javascript"></script>
 </head>
 <body>
 
@@ -25,7 +25,7 @@
             <p>A guide to javascript that will help you learn javascript and some mysterious code
             it hides that newcomers find it confusing. I will try to explain as simple as possible for beginners or even for those need a refreshing.
             </p>
-            <p>Finally, you will see interview questions/answers and multiple choice. Maybe at the end we will built an app also.</p>
+            <p>Finally, you will see interview questions/answers, multiple choice and exercises. Maybe at the end we will built an app also.</p>
         </section>
         <!--End Starting words about the guide-->
 
@@ -475,7 +475,11 @@ var y = 5;
 <pre><code class="language-javascript"><textarea readonly>
 var  x = 5 ;
 </textarea></code></pre>
-                <p>What the result will be of alert(x++) and alert(++x)?
+                <p>What we will see in our screen with this code?
+<pre><code class="language-javascript"><textarea readonly>
+alert(x++);
+alert(++x);
+</textarea></code></pre>
                 <br><span class="alert-info">HINT: The first hasn't stored the new value but the second one first has stored the new value
                 </span></p>
                 <p>We will have the same result correct?</p>
@@ -2452,12 +2456,14 @@ console.log(products);
                     </li>
 
                     <li><h4>getElementsByTagName() Method</h4>
-                    <p>Also we have used it. You select an element by tag name.</p>
+                    <p>Also we have used it. You select an element by tag name. Returns a node list. A node list is an array-like collection of nodes.</p>
                     </li>
 
                     <li><h4>getElementsByClassName() Method</h4>
                     <p>Simple and clear you select an element by class name.</p>
-                    <p class="alert-warning">Not supported in IE 6,7,8</p>
+                    <p class="alert-warning">Not supported in IE 6,7,8 and it's not used much since it returns
+                    a NodeList and doesn't behave as you wanted to all the times.
+                    </p>
                     </li>
 
                     <li><h4>getElementsByName() Method</h4>
@@ -2665,7 +2671,7 @@ sectionParagraph.style.border = "1px solid black";
 </textarea></code></pre>
                     <p>When you click the div in your page, onclick event triggers the alert method. </p>
                     <p><strong>But as we said putting something inline is bad practice and you should avoid it.</strong> </p>
-                    <p>Let's create it in our javascript by using documentGetElementByID. </p>
+                    <p>Let's create it in our javascript by using documentGetElementById. </p>
 
                     <!--Mysterious code event triggering-->
                     <section >
@@ -2684,7 +2690,7 @@ firstEvent.onclick = alert('your first event!');
 
                 <li><h3><strong>this</strong> keyword</h3>
                     <p>The "this" keyword is VERY VERY important and you must get used to it.</p>
-                    <p>It refers to the object that's inside it but let's see it in action.</p>
+                    <p>It refers to the object or element that's owns the current code but let's see it in action.</p>
 
                     <p>Let's have two fixed width images in our html inside two divs :</p>
 <pre><code class="language-javascript"><textarea readonly>
@@ -2722,16 +2728,16 @@ function normalImg(){
 //Apply in each product in hover the greyEffect in mouseout the reset
 function productHoverEffect() {
     //We will access which index we want from product array to run our functions
-    product[0].onmouseover = zoomIn;
+    product[0].onmouseover = greyEffect;
     product[0].onmouseout = normalImg;
-    product[1].onmouseover = zoomIn;
+    product[1].onmouseover = greyEffect;
     product[1].onmouseout = normalImg;
 }
 
 //Start the function for effects
 productHoverEffect();
 </textarea></code></pre>
-                    <p>Now we said : this element invoked the function so run your code for this element. It's like showing this, this, this.  </p>
+                    <p>Now we said : this element(in our case product[0] or product[1]) invoked the function so run your code for this element. It's like showing this, this, this.  </p>
                     <p>Remember we used "this" in constructor when we wanted to refer to "this" object.</p>
                     <p>If we didn't have this we would have to write for each element id a function or use
                     parameters and have really terrible code like that:
@@ -2754,7 +2760,7 @@ function normalImg(){
                     I want only <strong>this</strong>  don't give me anything else!
                     </p>
 
-                    <div class="container">
+                    <div class="container-fluid">
                     <div class="row">
 
                         <div class="productsLayout ">
@@ -2769,53 +2775,112 @@ function normalImg(){
                     </div>
                     </div>
                     <p>Don't forget to look your developer tools for details for your front end code like html,CSS and javascrit.</p>
-                </li>
+                    <section>
+                        <h3>Exercise</h3>
+                        <p>Requirements :</p>
+                        <ol>
+                            <li>Have a total of five products with images.</li>
+                            <li>Improve the productHoverEffect() by using a loop that will give to all products the hoverEffect.</li>
+                            <li>Test your code and write comments...</li>
+                        </ol>
+                        <p><button>Show code and explanation</button></p>
+                    </section>
 
-            </ol>
-
-            <section>
-                <h3>Exercise</h3>
-                <p>Requirements :</p>
-                <ol>
-                <li>Have a total of five products with images.</li>
-                <li>Improve the productHoverEffect() by using a loop that will give to all products the hoverEffect.</li>
-                <li>Test your code and write comments...</li>
-                </ol>
-                <p><button>Show code and explanation</button></p>
-            </section>
-
-
-
-
-
-
-
-
-            <!--Mysterious code overriding inline event with external script-->
-            <section >
-                <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
-                <p>Our html code</p>
+                    <!--Mysterious code overriding inline event with external script-->
+                    <section >
+                        <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+                        <p>Our html code:</p>
 <pre><code class="language-javascript"><textarea readonly>
 &ltdiv id="firstEvent" onclick="alert('red wins!')">click me &lt/div>
 </textarea></code></pre>
-                <p>What we will get in our screen if we have also this external javascript with defer?</p>
+                        <p>What we will get in our console if we have also this external javascript with defer?</p>
 <pre><code class="language-javascript"><textarea readonly>
 var firstEvent = document.getElementById("firstEvent");
 
 firstEvent.onclick = function(){
-    alert('blue wins!');
+    console.log('blue wins!');
 }
 </textarea></code></pre>
-                <p><button>Show result and explanation</button></p>
-            </section> <!--End Mysterious code event triggering-->
+                        <p><button>Show result and explanation</button></p>
+                    </section> <!--End Mysterious code event triggering-->
+
+                </li>
+
+                <li><h3>onload Event</h3>
+                <p>The onload event is VERY VERY important and it says only when an object have finished
+                loading trigger.
+                </p>
+<pre><code class="language-javascript"><textarea readonly>
+window.onload = function(){
+
+    //Put your code here
+
+}
+</textarea></code></pre>
+                    <p>With this code we are saying to run the code after the entire page has loaded(everything).
+                    </p>
+                    <p>So even if you remove the defer attribute from the script(since some older browsers
+                        don't support it) your code will run fine after everything is loaded.</p>
+                    <p>Libraries like jquery solve these issues but first you must totally understand
+                    pure javascript and <strong>then</strong> move to a library or a framework.
+                    </p>
+                </li>
+
+                <li><h3>addEventListener and removeEventListener</h3>
+                <p>The addEventListener is needed if we wanted for example to add another function
+                    to run also onmouseover or onmouseout. We could have a function that
+                    will run all our functions but that's not clean and descriptive code.
+                </p>
+                <p>Our html:</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltdiv id="canYouHearMe">Can you hear me? &lt/div >
+</textarea></code></pre>
+
+                    <p>In javascript:</p>
+<pre><code class="language-javascript"><textarea readonly>
+//=====Event listener=====
+var canYouHearMe = document.getElementById("canYouHearMe");
+
+function changeText(){
+    this.innerHTML = "YES I CAN HEAR YOU!";
+}
+
+function changeColor() {
+    this.style.color = "darkblue";
+}
+
+function reset(){
+    this.innerHTML = "Can you hear me?";
+    this.style.color = "black";
+}
+
+
+canYouHearMe.addEventListener("mouseover",changeText);
+canYouHearMe.addEventListener("mouseover",changeColor);
+canYouHearMe.addEventListener("mouseout",reset);
+</textarea></code></pre>
+                    <p>Result:</p>
+                    <div id="canYouHearMe">Can you hear me? </div >
+                    <p>Pretty clean and understandable code without saying on just mouseover or mouseout.</p>
+
+                    <p class="alert-info">If we want to get the value of a CSS property we have to do this:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var canYouHearMe = document.getElementById("canYouHearMe");
+var  currentColor = window.getComputedStyle(canYouHearMe).getPropertyValue("color");
+console.log(currentColor);
+</textarea></code></pre>
+                    <p>You see it returns the rgb color. You can convert RGB, hex <a href="http://www.w3schools.com/colors/colors_picker.asp">here in color picker</a>. </p>
+
+                </li>
+
+            </ol>
+
+
+
+
+
+
         </section><!--End events-->
-            <p><button>Show code and explanation</button></p>
-
-
-
-
-<div id="firstEvent" onclick="alert('red wins!')">click me</div>
-
 
     </article><!--End Full article-->
   </div>
