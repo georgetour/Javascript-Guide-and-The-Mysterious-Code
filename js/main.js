@@ -114,9 +114,6 @@ canYouHearMe.addEventListener("mouseover",changeText);
 canYouHearMe.addEventListener("mouseover",changeColor);
 canYouHearMe.addEventListener("mouseout",reset);
 
-var  currentColor = window.getComputedStyle(canYouHearMe).getPropertyValue("color");
-console.log(currentColor);
 
-var s = 5;
-s++;
-alert(s);
+
+
