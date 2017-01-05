@@ -115,5 +115,9 @@ canYouHearMe.addEventListener("mouseover",changeColor);
 canYouHearMe.addEventListener("mouseout",reset);
 
 
+var stopChangingColor = document.getElementById("stopChangingColor");
 
+stopChangingColor.addEventListener("click",function () {
+   canYouHearMe.removeEventListener("mouseover",changeColor) ;
+});
 

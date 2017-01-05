@@ -1054,8 +1054,10 @@ startOrdering(); // But we get undefined since the return has nothing in it
 startOrdering("George");
 
 </textarea></code></pre>
-            <p><button>Show multiple choice</button></p>
 
+            <p>Find some built in javascript global properties and functions here:</p>
+            <h4><a href="http://www.w3schools.com/jsref/jsref_obj_global.asp" target="_blank">BuiltGlobal Functions</a></h4>
+            <p><button>Show multiple choice</button></p>
             <!--Mysterious code functions-->
             <section>
                 <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
@@ -1091,6 +1093,7 @@ console.log(cheat(5,4));
                 <p><button>Show result and explanation</button></p>
 
             </section><!--End Mysterious code functions-->
+
 
         </section><!--End functions-->
 
@@ -2870,7 +2873,24 @@ var  currentColor = window.getComputedStyle(canYouHearMe).getPropertyValue("colo
 console.log(currentColor);
 </textarea></code></pre>
                     <p>You see it returns the rgb color. You can convert RGB, hex <a href="http://www.w3schools.com/colors/colors_picker.asp">here in color picker</a>. </p>
-
+                    <p>Now let's see how to removeEventListener:</p>
+                    <p>Our html:</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltdiv id="stopChangingColor">Stop changing color&lt/div >
+</textarea></code></pre>
+                    <p>Javascript:</p>
+<pre><code class="language-javascript"><textarea readonly>
+stopChangingColor.addEventListener("click",function () {
+   canYouHearMe.removeEventListener("mouseover",changeColor) ;
+});
+</textarea></code></pre>
+                    <button id="stopChangingColor">Stop changing color </button>
+                    <p>If you press the button you will see at "Can You Hear Me" that color won't change anymore.</p>
+                <p class="alert-warning">Note : IE 6 ,7 ,8 don't support addEventListener and removeEventListener.
+                    You have to use attachEvent and detachEvent with on before like onclick, onmouseover etc.
+                    Libraries like jquery solve this kind of problems but remember first you
+                    must be comfortable with javascript and then use libraries and frameworks.
+                    </p>
                 </li>
 
             </ol>
