@@ -121,3 +121,26 @@ stopChangingColor.addEventListener("click",function () {
    canYouHearMe.removeEventListener("mouseover",changeColor) ;
 });
 
+
+//===Event Object created by first argument===
+var coolDiv = document.getElementById("coolDiv");
+
+function doSomething(event){
+        coolDiv.innerHTML = event.altKey;
+        console.log(event.target.nodeName);
+
+}
+
+coolDiv.onclick = doSomething ;
+
+var menuItem3 = document.getElementById("menuItem3");
+
+function prevent(event) {
+    event.preventDefault();
+}
+
+
+menuItem3.onclick = prevent;
+
+
+

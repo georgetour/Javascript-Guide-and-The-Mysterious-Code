@@ -62,8 +62,31 @@ td{
     height: 250px;
     width: 300px;
     border: 1px solid black;
+}
 
+.navbarCustom{
 
+    background-color: blue;
+    height: 50px;
+}
+.navList {
+    padding: 0;
+
+}
+
+.navList li {
+    padding:15px;
+    float: left;
+    list-style: none;
+}
+
+.navList li a{
+    color: white
+}
+
+#coolDiv{
+    padding: 20px;
+    font-weight: bold;
 }
 
 

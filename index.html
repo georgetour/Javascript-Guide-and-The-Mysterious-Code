@@ -9,13 +9,13 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="css/main.css" rel="stylesheet" type="text/css">
 
+
     <script src="js/main.js"   defer  type="text/javascript"></script>
     <script src="js/prism.js"  defer  type="text/javascript"></script>
 </head>
 <body>
 
-<main>
-    <div class="container">
+<main class="container">
     <!--Full article-->
     <article >
 
@@ -2745,6 +2745,22 @@ productHoverEffect();
                     <p>If we didn't have this we would have to write for each element id a function or use
                     parameters and have really terrible code like that:
                     </p>
+                    <p>And below the result of out code:</p>
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <div class="productsLayout ">
+                                <img  class="productImg" src="assets/img/turntable.jpg" alt="Turntable">
+                                <button class="buyMe">Buy Me</button>
+                            </div >
+                            <div class="productsLayout ">
+                                <img  class="productImg"  src="assets/img/amplifier.png" alt="Amplifier">
+                                <button class="buyMe">Buy Me</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <p>Don't forget to look your developer tools for details for your front end code like html,CSS and javascrit.</p>
                     <p class="alert-danger"><strong >Bad bad bad code without this keyword</strong></p>
 <pre><code class="language-javascript"><textarea readonly>
 function greyEffect() {
@@ -2763,21 +2779,7 @@ function normalImg(){
                     I want only <strong>this</strong>  don't give me anything else!
                     </p>
 
-                    <div class="container-fluid">
-                    <div class="row">
 
-                        <div class="productsLayout ">
-                           <img  class="productImg" src="assets/img/turntable.jpg" alt="Turntable">
-                            <button class="buyMe">Buy Me</button>
-                        </div >
-                        <div class="productsLayout ">
-                           <img  class="productImg"  src="assets/img/amplifier.png" alt="Amplifier">
-                            <button class="buyMe">Buy Me</button>
-                        </div>
-
-                    </div>
-                    </div>
-                    <p>Don't forget to look your developer tools for details for your front end code like html,CSS and javascrit.</p>
                     <section>
                         <h3>Exercise</h3>
                         <p>Requirements :</p>
@@ -2893,17 +2895,121 @@ stopChangingColor.addEventListener("click",function () {
                     </p>
                 </li>
 
+                <li><h3>Event object created by first argument</h3>
+                    <p>The first argument of the function that's assigned to an event is always an event object.
+                    <a href="http://www.w3schools.com/jsref/dom_obj_event.asp" target="_blank">Find all event objects here.</a>
+                    </p>
+                    <p>The event argument is needed only if you are gonna use it.</p>
+
+                    <p>Out html:</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltdiv id="coolDiv">Click the cool div to see the event object &lt/div >
+</textarea></code></pre>
+                    <p>Javascript:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var coolDiv = document.getElementById("coolDiv");
+
+//Since we have an event on coolDiv the first argument e is an event object with properties
+function doSomething(event){
+        coolDiv.innerHTML = event.altKey;
+}
+
+//onmousemove event for cooldDiv
+coolDiv.onclick = doSomething ;
+</textarea></code></pre>
+                    <p>The altKey property checks if alt is pressed. So if you click the cool div without
+                    having pressed alt it returns false else true.</p>
+                    <p>Result:</p>
+                    <div id="coolDiv">Click here the cool div to see the event object</div>
+
+                    <p class="alert-info">Try to use some properties of the event object like button ,
+                    clientX(try it with onmousemove), clientY(try it with onmousemove), keyCode, target or anything you want from the link I gave you to practice more.</p>
+                    <p class="alert-warning">Note : IE <=8 you need to type window.event. Still libraries like jquery will fix those kind of problems.
+                    </p>
+
+                    <section><h4>Event target</h4>
+                        <p>The target event property returns the element that triggered the event:</p>
+<pre><code class="language-javascript"><textarea readonly>
+function doSomething(event){
+    console.log(event.target.nodeName);
+}
+</textarea></code></pre>
+                        <p>We will see at our console div</p>
+
+                    </section>
+
+                    <section><h4>Passing second argument in </h4>
+                    <p>We said that the first argument is always an event object and created automatically. If you want to pass
+                    extra arguments you have to do this:
+
+                    </p>
+<pre><code class="language-javascript"><textarea readonly>
+coolDiv.onclick = function(event){
+   doSomething(event ,"second argument passed");
+
+};
+
+function doSomething(event, secondArgument){
+        coolDiv.innerHTML = secondArgument;
+}
+</textarea></code></pre>
+                    <p>Now you will see second argument passed to appear when you click in your cooldDiv. Try it!</p>
+                    <p>We created an anonymous function for onclick event which we passed the second argument and as first argument "event".</p>
+                    </section>
+
+
+
+                    <section>
+                    <h4>preventDefault()</h4>
+                    <p>The preventDefault method is very common used with the event object. It prevents the default
+                    behavior but let's see it in action.
+                    </p>
+                    <p>Suppose you have a nav bar that is created dynamically from Wordpress or your own CMS which adds ids and links:</p>
+
+                    <nav class="navbarCustom">
+                        <ul class="navList">
+                            <li><a id="menuItem1" href="index.html">Home </a></li>
+                            <li><a id="menuItem2" href="/">Blog </a></li>
+                            <li><a id="menuItem3" href="/">Check My Work</a></li>
+                        </ul>
+                    </nav>
+                    <p>But this bar is in your blog which has an external link to your main cool portfolio site.
+                    Users don't like redirection so it would be better to inform them if they need to be redirected.
+                    </p>
+                    <p>In our javascript:</p>
+<pre><code class="language-javascript"><textarea readonly>
+function prevent(event) {
+    event.preventDefault();
+}
+
+menuItem3.onclick = prevent;
+</textarea></code></pre>
+                    <p>You will see that nothing happens when we click our menuItem3.</p>
+                    </section>
+
+
+                    <section>
+                        <h3>Exercise</h3>
+                        <p>Create a nice looking modal window that will appear when you click Check My work
+                        that will inform user about redirection.</p>
+                        <p>We need a button that onclick the user will go at your portfolio
+                        page in a new page without closing your page.
+                        </p>
+                        <p>Finally, the user will be informed also that if he clicks outside the modal or an x
+                        the modal window will close and no redirection will occur.
+                        </p>
+                        <p><button>Show code and explanation</button></p>
+                    </section>
+
+                </li>
+
+
             </ol>
-
-
-
-
 
 
         </section><!--End events-->
 
     </article><!--End Full article-->
-  </div>
 </main><!--End main-->
 
 
