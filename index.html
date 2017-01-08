@@ -2934,7 +2934,7 @@ function doSomething(event){
     console.log(event.target.nodeName);
 }
 </textarea></code></pre>
-                        <p>We will see at our console div</p>
+                        <p>We will see at our console "div".</p>
 
                     </section>
 
@@ -2953,7 +2953,7 @@ function doSomething(event, secondArgument){
         coolDiv.innerHTML = secondArgument;
 }
 </textarea></code></pre>
-                    <p>Now you will see second argument passed to appear when you click in your cooldDiv. Try it!</p>
+                    <p>Now you will see second argument passed to appear when you click in your coolDiv. Try it!</p>
                     <p>We created an anonymous function for onclick event which we passed the second argument and as first argument "event".</p>
                     </section>
 
@@ -3001,6 +3001,83 @@ menuItem3.onclick = prevent;
                         <p><button>Show code and explanation</button></p>
                     </section>
 
+                </li>
+                <li>
+
+
+                    <p>If we wanted to stop the propagation(bubbling) and trigget </p>
+                    <!--Event bubbling-->
+                    <section >
+                        <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
+                        <h3>Describe event bubbling(event propagation)...</h3>
+                        <p>By this terminology we mean that a user interacts with a nested element and the event propagates up (“bubbles”)
+                            through all of the higher in hierarchy elements. You know that top in hierarchy is the document then html,
+                            then body and inside body everything at lower levels.
+                        </p>
+                        <p>Sounds little confusing so let't see it in action.</p>
+                        <p>Our html:</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltdiv id="bigCircle">
+    &ltdiv id="medCircle">
+        &ltdiv id="smallCircle">&lt/div>
+    &lt/div>
+&lt/div>
+</textarea></code></pre>
+                        <p>Check your developer tools for CSS and here is the result:</p>
+                        <div id="bigCircle">
+                            <div id="medCircle">
+                                <div id="smallCircle"></div>
+                            </div>
+                        </div>
+                        <p>And javascript:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var bigCircle = document.getElementById("bigCircle");
+
+function increaseCircle(event,whatCircle){
+    //For all browsers else for modern we can do only e = event
+    var e = event || window.event;
+    whatCircle = e.target || e.srcElement;
+    whatCircle.style.width = "300px";
+    whatCircle.style.height = "300px";
+}
+
+bigCircle.onclick = function(event){
+    increaseCircle(event,this);
+};
+</textarea></code></pre>
+                        <p>As you can see even if we have only the bigCircle's id the event works for
+                        all elements inside it.
+                            Also notice that we are storing event || window.event(for IE<=8) to a var.
+                            Then we say our paramater wharCircle will be e.target || e.srcElement(which is
+                            again used for IE<=8)
+                        </p>
+                        <p>But what if you had this code:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var bigCircle = document.getElementById("bigCircle");
+var medCircle = document.getElementById("medCircle");
+var smallCircle = document.getElementById("smallCircle");
+
+function increaseCircle(event,whatCircle){
+    whatCircle.style.width = "300px";
+    whatCircle.style.height = "300px";
+}
+
+bigCircle.onclick = function(event){
+    increaseCircle(event,bigCircle);
+};
+
+medCircle.onclick = function(event){
+    increaseCircle(event,medCircle);
+};
+
+smallCircle.onclick = function(event){
+    increaseCircle(event,smallCircle);
+};
+</textarea></code></pre>
+                        <p>You will notice that if you click the small circle all circles change.
+                            But how since you clicked only the id you wanted?</p>
+                        <p><button>Explanation and how to stop it</button></p>
+                    </section> <!--Bubbling-->
                 </li>
 
 

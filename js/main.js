@@ -141,6 +141,33 @@ function prevent(event) {
 
 
 menuItem3.onclick = prevent;
+//===End Event Object created by first argument===
+
+
+//==Bubbling==
+var bigCircle = document.getElementById("bigCircle");
+
+
+function increaseCircle(event,whatCircle){
+    //For all browsers else for modern we can do only e = event
+    var e = event || window.event;
+    whatCircle = e.target || e.srcElement;
+    whatCircle.style.width = "300px";
+    whatCircle.style.height = "300px";
+}
+
+
+
+
+bigCircle.onclick = function(event){
+    increaseCircle(event,this);
+};
+
+
+
+
+
+
 
 
 
