@@ -14,11 +14,7 @@ h1{
     font-size: 2em;
 }
 
-pre{
 
-
-
-}
 
 .alert{
     color: red;
@@ -119,6 +115,53 @@ td{
     left: 5px;
     z-index:3;
 }
+
+#backToTop{
+    width : 100px;
+    height: 30px;
+    background-color: black;
+    color: orange;
+    line-height: 30px;;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    display:none;
+    position: fixed;
+    bottom: 5px;
+    right: 5px ;
+}
+
+.snowflake{
+    width: 5px;
+    height: 5px;
+
+    position: absolute;
+    border-radius: 100%;
+}
+
+.fixed{
+
+    width :30%;
+    height:300px;
+    border:1px solid black;
+    position: fixed;
+    left:0px;
+
+}
+
+#counter{
+    font-size:30em;
+    position: fixed;
+    top:0;
+    left: 50%;
+    color:black;
+    text-shadow: 2px 4px 5px blue;
+    transform: translate(-50%, 0);
+    display: none;
+    background: url('')no-repeat center center  ;
+
+}
+
 
 
 

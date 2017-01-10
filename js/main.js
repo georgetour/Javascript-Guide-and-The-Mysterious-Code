@@ -67,6 +67,7 @@ table += "</table>";
 loopInsideLoop.innerHTML = table;
 //====End Multiplication table========
 
+
 //=========Product hover effect==============
 var product = document.querySelectorAll(".productsLayout");
 
@@ -147,7 +148,6 @@ menuItem3.onclick = prevent;
 //==Bubbling==
 var bigCircle = document.getElementById("bigCircle");
 
-
 function increaseCircle(event,whatCircle){
     //For all browsers else for modern we can do only e = event
     var e = event || window.event;
@@ -162,6 +162,75 @@ function increaseCircle(event,whatCircle){
 bigCircle.onclick = function(event){
     increaseCircle(event,this);
 };
+//========End bubbling=============
+
+
+//===Back To top and onscroll====
+var backToTop = document.getElementById("backToTop");
+var pageOffSet = document.getElementById("pageOffSetY");
+
+
+backToTop.onclick = function () {
+  window.scrollBy(0, -1 * window.pageYOffset)  ;
+};
+
+window.onscroll = function () {
+    if(window.pageYOffset > 2000){
+        backToTop.style.display = "block";
+    }
+    else{
+        backToTop.style.display = "none";
+    }
+    pageOffSet.innerHTML = parseInt(window.pageYOffset);
+};//===End Back To top and onscroll====
+
+
+var startCounting = document.getElementById("startCounting");
+var counter = document.getElementById("counter");
+
+
+function directorThree(){
+    counter.innerHTML = "3";
+}
+
+function directorTwo(){
+    counter.innerHTML = "2";
+}
+
+function directorOne(){
+    counter.innerHTML = "1";
+}
+
+function directorAction(){
+    counter.innerHTML = " action";
+    counter.style.backgroundImage = "url('action-director.png')";
+
+}
+
+function byeCrazyDirector(){
+    counter.style.display = "none";
+    counter.style.backgroundImage = "url('')";
+}
+
+function timerStart(three,two,one,action){
+    counter.style.display = "block";
+    setTimeout(three,0);
+    setTimeout(two,1000);
+    setTimeout(one,2000);
+    setTimeout(action,3000);
+    setTimeout(byeCrazyDirector,4000);
+}
+
+
+
+    startCounting.onclick = function () {
+        timerStart(directorThree,directorTwo,directorOne,directorAction);
+    };
+
+
+
+
+
 
 
 

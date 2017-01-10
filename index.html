@@ -3079,6 +3079,66 @@ smallCircle.onclick = function(event){
                         <p><button>Explanation and how to stop it</button></p>
                     </section> <!--Bubbling-->
                 </li>
+                <li><h3>onscroll Event, scrollBy() and pageYOffset </h3>
+                    <p>Let's create a back to top button and see where our scroll bar is:</p>
+                    <p>Our html:</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltdiv id="backToTop">Back To Top&lt/div>
+&ltdiv>Your scroll pageYOffset is: &ltspan id="pageOffSetY">&lt/span>&lt/div>
+</textarea></code></pre>
+                    <p>Remember to check your developer tools to see the styling!</p>
+
+
+                    <div id="backToTop">Back To Top</div>
+                    <div>Move slowly your scroll bar and you pageYOffset is : <span id="pageOffSetY"></span></div>
+                    <p>Our javascript:</p>
+<pre><code class="language-javascript"><textarea readonly>
+var backToTop = document.getElementById("backToTop");
+var pageOffSet = document.getElementById("pageOffSetY");
+
+
+backToTop.onclick = function () {
+    window.scrollBy(0, -1 * window.pageYOffset)  ;
+};
+
+window.onscroll = function () {
+    if(window.pageYOffset > 2000){
+        backToTop.style.display = "block";
+    }
+    else{
+        backToTop.style.display = "none";
+    }
+
+    pageOffSet.innerHTML = parseInt(window.pageYOffset);
+};
+</textarea></code></pre>
+                    <p>We are saying when we click backToTop change scroll which the first parameter is x axis the second y axis. Try
+                    to change it to a value like 100 200 or something to see what happens so you can understand. Now we are saying
+                    to go to top.
+                    </p>
+
+                    <p>Then we say if window.onscroll window.pageYOffset > 2000 then backToTop display block
+                    in all other cases make it disappear. You see the Back To Top div appear and it's in right corner
+                        only when we are below 2000.
+                    </p>
+                    <p>Finally, show us with innerHTML the window.pageYOffset inside the ParseInt method which makes it
+                    a clear integer. Yes you created something like that!
+                    </p>
+                </li>
+                <li><h3>Timing events - setTimeout() and setInterval()</h3>
+                    <p>Timing events are events that will start based on an internal timer.</p>
+                     <p>They have two parameters which the first is the function to be executed
+                      and the second milliseconds.</p>
+                    <p> The difference between the two is that setInterval repeats the
+                    function continuously.</p>
+                    <p>Let's become directors and create a 3,2,1,action numbering: </p>
+                    <p>Our html:</p>
+                    <button id="startCounting">Start Counting!</button>
+                    <div id="counter">3</div>
+
+
+
+                </li>
 
 
             </ol>
