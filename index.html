@@ -1079,6 +1079,10 @@ x();
                 </p>
                 <p><strong>Remember FIRST write the answer and then see it !</strong></p>
                 <p><button>Show result and explanation</button></p>
+            </section><!--End Mysterious code functions-->
+
+            <section><!--Mysterious code functions-->
+                <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
                 <p>What the console will show true or false?</p>
                 <p><span class="alert">Please use brackets instead of the below code</span></p>
 <pre><code class="language-javascript"><textarea readonly>
@@ -1091,8 +1095,8 @@ function cheat(a,b){
 console.log(cheat(5,4));
 </textarea></code></pre>
                 <p><button>Show result and explanation</button></p>
-
             </section><!--End Mysterious code functions-->
+
 
 
         </section><!--End functions-->
@@ -3131,13 +3135,67 @@ window.onscroll = function () {
                       and the second milliseconds.</p>
                     <p> The difference between the two is that setInterval repeats the
                     function continuously.</p>
+                    <h4>setTimeout()</h4>
                     <p>Let's become directors and create a 3,2,1,action numbering: </p>
-                    <p>Our html:</p>
                     <button id="startCounting">Start Counting!</button>
-                    <div id="counter">3</div>
+                    <p>Our html:</p>
+<pre><code class="language-javascript"><textarea readonly>
+&ltdiv id="counter">&lt/div>
+</textarea></code></pre>
+                    <p>And the code for timer in javascript:</p>
+<pre><code class="language-javascript">var startCounting = document.getElementById("startCounting");
+var counter = document.getElementById("counter");
 
 
+function directorThree(){
+    counter.innerHTML = "3";
+}
 
+function directorTwo(){
+    counter.innerHTML = "2";
+}
+
+function directorOne(){
+    counter.innerHTML = "1";
+}
+
+function directorAction(){
+    counter.innerHTML = " action";
+    counter.style.backgroundImage = "url('assets/img/action-director.png')";
+}
+
+function byeCrazyDirector(){
+    counter.style.display = "none";
+    counter.style.backgroundImage = "url('')";
+}
+
+//We call each second a function with setTimeout and make visible the counter
+function timerStart(){
+    counter.style.display = "block";
+    setTimeout(directorThree,0);
+    setTimeout(directorTwo,1000);
+    setTimeout(directorOne,2000);
+    setTimeout(directorAction,3000);
+    setTimeout(byeCrazyDirector,4000);
+}
+
+startCounting.onclick = function () {
+    timerStart();
+};
+</code></pre>
+                    <div id="counter"></div>
+                    <p>The first functions are for what we will give at each second. Then we store
+                    our setTimeouts to a function that we will call by clicking startCounting. </p><p> So at 0
+                        milliseconds function directorThree will run, at 1000 directorTwo etc. etc.
+                    </p>
+                    <p class="alert-info">Note : Though we can change the numbers more easily
+                    as we will see below and not so many functions I wanted to give you this,
+                    so you can put anything you want in your timing functions.
+                    </p>
+                    <h4>setInterval()</h4>
+                    <p>Let's create a cool TimeWatch for your workouts since you must train your body also
+                    not only your mind.
+                    </p>
                 </li>
 
 

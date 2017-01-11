@@ -69,7 +69,10 @@ loopInsideLoop.innerHTML = table;
 
 
 //=========Product hover effect==============
+
 var product = document.querySelectorAll(".productsLayout");
+
+
 
 function greyEffect() {
     this.style.backgroundColor = "#f2f2f2";
@@ -185,6 +188,8 @@ window.onscroll = function () {
 };//===End Back To top and onscroll====
 
 
+
+//====Timer====
 var startCounting = document.getElementById("startCounting");
 var counter = document.getElementById("counter");
 
@@ -203,7 +208,7 @@ function directorOne(){
 
 function directorAction(){
     counter.innerHTML = " action";
-    counter.style.backgroundImage = "url('action-director.png')";
+    counter.style.backgroundImage = "url('assets/img/action-director.png')";
 
 }
 
@@ -212,20 +217,52 @@ function byeCrazyDirector(){
     counter.style.backgroundImage = "url('')";
 }
 
-function timerStart(three,two,one,action){
+function timerStart(){
     counter.style.display = "block";
-    setTimeout(three,0);
-    setTimeout(two,1000);
-    setTimeout(one,2000);
-    setTimeout(action,3000);
+    setTimeout(directorThree,0);
+    setTimeout(directorTwo,1000);
+    setTimeout(directorOne,2000);
+    setTimeout(directorAction,3000);
     setTimeout(byeCrazyDirector,4000);
 }
 
+startCounting.onclick = function () {
+    timerStart();
+};
 
 
+
+
+/*var startCounting = document.getElementById("startCounting");
+
+
+
+    var startingValue = 3;
+
+    function lower(){
+        counter.innerHTML = -- startingValue;
+    }
+
+
+    var counter = document.getElementById("counter");
+    counter.innerHTML= startingValue;
+
+    function director(){
+
+        counter.innerHTML= startingValue;
+        setInterval(lower,1000)
+
+    }
     startCounting.onclick = function () {
-        timerStart(directorThree,directorTwo,directorOne,directorAction);
+        director();
     };
+
+
+*/
+
+
+
+
 
 
 
