@@ -233,34 +233,33 @@ startCounting.onclick = function () {
 
 //===TimerWatch=====
 var minutes = document.getElementById("minutes");
-minutes.innerHTML =0;
+minutes.innerHTML = 0;
 var addMinutes = document.getElementById("addMinutes");
 
 function moreMinutes(){
     addMinutes.onclick = function () {
-        var test= parseInt(minutes.innerHTML);
-        test++;
-        minutes.innerHTML = test;
-        console.log(minutes);
+        var minutesInteger= parseInt(minutes.innerHTML);
+        minutesInteger++;
+        minutes.innerHTML = minutesInteger;
     }
 }
 moreMinutes();
 
 var seconds = document.getElementById("seconds");
-var startValue = 5;
-seconds.value = startValue;
 
 
+
+var startValue = 60;
 function reduceSeconds(){
-    seconds.value--;
-    console.log(seconds.value);
-    seconds.innerHTML = seconds.value;
-    for(i = 0; i < 5; i++){
+    startValue--;
+    console.log(startValue);
+    seconds.innerHTML = startValue;
 
-        if(seconds.value == 0){
+    for(i = 0; i < 5; i++){
+        if(startValue == 0){
             console.log("seconds 0");
             reduceMinutes();
-            seconds.value = 5;
+            startValue = 60;
         }
     }
 
@@ -270,17 +269,24 @@ function reduceMinutes(){
     minutes.innerHTML--;
 }
 
+
+var timer;
 function startTimer(){
-    var startTimerWatch = document.getElementById("startTimerWatch");
-    startTimerWatch.onclick = function () {
-        setInterval(reduceSeconds,1000);
-
-    };
-
-
+       timer = setInterval(reduceSeconds,1000);
 }
 
+var startTimerWatch = document.getElementById("startTimerWatch");
+startTimerWatch.onclick = function () {
 startTimer();
+
+};
+
+
+
+var stop = document.getElementById("stopTimer");
+stop.onclick = function () {
+    clearInterval(timer);
+};
 
 
 
