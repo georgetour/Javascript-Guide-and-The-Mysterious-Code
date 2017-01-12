@@ -189,7 +189,7 @@ window.onscroll = function () {
 
 
 
-//====Timer====
+//====Director Timer====
 var startCounting = document.getElementById("startCounting");
 var counter = document.getElementById("counter");
 
@@ -228,7 +228,59 @@ function timerStart(){
 
 startCounting.onclick = function () {
     timerStart();
-};
+};//====End Director Timer====
+
+
+//===TimerWatch=====
+var minutes = document.getElementById("minutes");
+minutes.innerHTML =0;
+var addMinutes = document.getElementById("addMinutes");
+
+function moreMinutes(){
+    addMinutes.onclick = function () {
+        var test= parseInt(minutes.innerHTML);
+        test++;
+        minutes.innerHTML = test;
+        console.log(minutes);
+    }
+}
+moreMinutes();
+
+var seconds = document.getElementById("seconds");
+var startValue = 5;
+seconds.value = startValue;
+
+
+function reduceSeconds(){
+    seconds.value--;
+    console.log(seconds.value);
+    seconds.innerHTML = seconds.value;
+    for(i = 0; i < 5; i++){
+
+        if(seconds.value == 0){
+            console.log("seconds 0");
+            reduceMinutes();
+            seconds.value = 5;
+        }
+    }
+
+}
+
+function reduceMinutes(){
+    minutes.innerHTML--;
+}
+
+function startTimer(){
+    var startTimerWatch = document.getElementById("startTimerWatch");
+    startTimerWatch.onclick = function () {
+        setInterval(reduceSeconds,1000);
+
+    };
+
+
+}
+
+startTimer();
 
 
 

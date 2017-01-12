@@ -68,11 +68,10 @@
             <h2>Let's start! Your first Hello world with javascript!</h2>
             <p>Create an html page and add these lines at head tag:</p>
             <pre>
-<code class="language-javascript"><textarea readonly>
-<script>
+<code class="language-javascript">&lt;script>
     alert("Hello world");
-</script>
-</textarea></code></pre>
+&lt;/script>
+</code></pre>
             <p>This is an inline script and you can insert it anywhere in our HTML.
                 Though inline scripting is not recommended.
             </p>
@@ -90,18 +89,16 @@
             </p>
             <p>Create a folder in your project called js. Then create a file called main.js</p>
             <p>At main.js write</p>
-<pre><code class="language-javascript"><textarea readonly>
-alert("Hello world");
-</textarea></code></pre>
+<pre><code class="language-javascript">alert("Hello world");
+</code></pre>
 
             <p>Now we should call it!</p>
             <h3>4 ways to call it :</h3>
 
             <!--First way -->
             <h4>First not recommended to add these lines at head tag.</h4>
-<pre><code class="language-javascript"><textarea readonly>
-<script src="js/main.js" ></script>
-</textarea></code></pre>
+<pre><code class="language-javascript">&lt;script src="js/main.js" >&lt;/script>
+</code></pre>
 
 
         <p>So we are saying to our HTML to use an external script since we have the src attribute at js/main.js which is of type text/javascript.</p>
@@ -118,10 +115,9 @@ alert("Hello world");
         <h4>Second way old school but correct and no browser problems.</h4>
         <p>Just put the external script code at the end of the body.</p>
 
-<pre><code class="language-javascript"><textarea readonly>
-<script src="js/main.js" ></script>
+<pre><code class="language-javascript">&lt;script src="js/main.js" >&lt/script>
 &lt;/body>
-</textarea></code></pre>
+</code></pre>
             <p>It will load the script when everything have finished so no problems with that. If you have many scripts just put them
             below and they will run from top to bottom.
             </p>
@@ -131,9 +127,8 @@ alert("Hello world");
             <p>Just put the external script code at the head of the body with async attribute.</p>
 
 
-<pre><code class="language-javascript"><textarea readonly>
-<script async src="js/main.js" ></script>
-</textarea></code></pre>
+<pre><code class="language-javascript">&lt;script async src="js/main.js" >&lt;/script>
+</code></pre>
             <p>This is a good way that doesn't stop page loading. It loads the script asynchronous with the page. Though you might see some strange
                 behaviors if you have many scripts that are depended each other.
             </p>
@@ -144,10 +139,9 @@ alert("Hello world");
             <p>Just put the external script code at the head of the body with defer attribute.</p>
 
 
-<pre><code class="language-javascript"><textarea readonly>
-<script defer src="js/main.js" ></script>
-<script defer src="js/main2.js" ></script>
-</textarea></code></pre>
+<pre><code class="language-javascript">&lt;script defer src="js/main.js" >&lt;/script>
+&lt;script defer src="js/main2.js" >&lt;/script>
+</code></pre>
             <p>This is a recommended way to load the script since it won't stop the page from loading. It loads the script at the end in order.
                 So we will have after the page load main.js and then main2.js.
             </p>
@@ -168,17 +162,15 @@ alert("Hello world");
             </strong>
             </p>
             <p>We have multi line commenting and single line commenting in javascript like this.</p>
-<pre><code class="language-javascript"><textarea readonly>
-//I am single line comment
+<pre><code class="language-javascript">//I am single line comment
 /*Multi line comments
     I love coding
     Do you? */
-</textarea></code></pre>
+</code></pre>
 
             <p>Also we use them, so something doesn't get executed to see how our program behaves or just we don't want that to run for now.</p>
-<pre><code class="language-javascript"><textarea readonly>
-//alert("Hello world");
-</textarea></code></pre>
+<pre><code class="language-javascript">//alert("Hello world");
+</code></pre>
             <p>As you can see nothing happens now that the code is commented. </p>
 
 
@@ -190,10 +182,9 @@ alert("Hello world");
         <section><h2>Statements and semicolons</h2>
             <p>In HTML, JavaScript statements are "instructions" to be "executed" by the web browser.
             </p>
-            <p>For example the line we wrote was a statement </p>
-<pre><code class="language-javascript"><textarea readonly>
-alert("Hello world");
-</textarea></code></pre>
+            <p>For example the line we wrote was a statement: </p>
+<pre><code class="language-javascript">alert("Hello world");
+</code></pre>
 
             <p>Also you might noticed semicolons at the end and it's common usage in many programming languages. Semicolons are used to separate our statements.</p>
 
@@ -206,47 +197,42 @@ alert("Hello world");
             <p>Variables are very important. You store something into a variable so you can easily call it or make changes.
             </p>
             <p>Let's see how we declare a variable in javascript by simpling adding the keyword var. </p>
-<pre><code class="language-javascript"><textarea readonly>
-//Declaring variables
+<pre><code class="language-javascript">//Declaring variables
 var  shippingUK;
 var  shippingEurope;
-</textarea></code></pre>
+</code></pre>
             <p>Also we can declare them with comma between the variables names which is the same :</p>
-<pre><code class="language-javascript"><textarea readonly>
-//Declaring variables
+<pre><code class="language-javascript">//Declaring variables
 var  shippingUK, shippingEurope;
-</textarea></code></pre>
+</code></pre>
 
             <p>Ok now to alert this variable value simple :</p>
-<pre><code class="language-javascript"><textarea readonly>
-//Alerting the variable's shippingUK value returns undefined
+<pre><code class="language-javascript">//Alerting the variable's shippingUK value returns undefined
 alert(shippingUK);
-</textarea></code></pre>
+</code></pre>
             <p>You will notice now it alerts undefined. Makes sense since our shippingUK variable doesn't have any values and it says to us :</p>
                <p><strong>"Hey man I don't have anything stored in me what I'm supposed to show?"</strong></p>
 
             <p>But what if you had 100 products and the shipping price changed ? You would have to change every product shipping price</p>
             <p>With variables you simply change one value. </p>
-<pre><code class="language-javascript"><textarea readonly>
-//Giving variables values
+<pre><code class="language-javascript">//Giving variables values
 var  shippingUK = 20 ;
 var  shippingEurope = 50;
-</textarea></code></pre>
+</code></pre>
             <p>Now see that we will get from alert message the value as supposed to :</p>
-<pre><code class="language-javascript"><textarea readonly>
-//Alerting the variable's shippingUK value
+<pre><code class="language-javascript">//Alerting the variable's shippingUK value
 alert(shippingUK);
-</textarea></code></pre>
+</code></pre>
 
 
             <h5>Side notes for variables:</h5>
-            <ol><i>
+            <ol>
                 <li>Variables must start with letters only.</li>
                 <li>You can' t use as name keywords like var, function etc...</li>
                 <li>Javascript is case sensitive so var HELLO  is different than var hello.</li>
                 <li>You can't use spaces for naming.</li>
                 <li>Also it is used in programming to use camel case practice so you understand we have different word after.</li>
-                </i>
+
             </ol>
 
             </section><!--End variables section-->
@@ -262,37 +248,31 @@ alert(shippingUK);
                 <!--Number-->
                 <li><h3>Number</h3>
                 <p>Javascript has only one kind of number. Numbers can be written with, or without, decimals </p>
-<pre><code class="language-javascript"><textarea readonly>
-//Some number variables
+<pre><code class="language-javascript">//Some number variables
 var  shippingUK = 20 ;
 var  shoePrice = 50;
 var  tax =  1.23//Which equals +23% ;
 var  totalPrice = ( shoePrice * tax) + shippingUK;
-</textarea></code></pre>
-<pre><code class="language-javascript"><textarea readonly>
-//Alerting the variable's totalPrice value
+</code></pre>
+<pre><code class="language-javascript">//Alerting the variable's totalPrice value
 alert(totalPrice);
-</textarea></code></pre>
+</code></pre>
                 </li>
                 <!--String-->
                 <li><h3>String</h3>
                 <p>You can use single or double quotes to declare a string.</p>
-<pre><code class="language-javascript"><textarea readonly>
-//String
+<pre><code class="language-javascript">//String
 var  myName = "George";
-</textarea></code></pre>
-<pre><code class="language-javascript"><textarea readonly>
-//Alerting myName
+</code></pre>
+<pre><code class="language-javascript">//Alerting myName
 alert (myName);//Will alert George
-</textarea></code></pre>
+</code></pre>
                 <p>It's the same with :</p>
-<pre><code class="language-javascript"><textarea readonly>
-var  myName = 'George';
-</textarea></code></pre>
+<pre><code class="language-javascript">var  myName = 'George';
+</code></pre>
                 <p>But don't get confused if you declare it like this :</p>
-<pre><code class="language-javascript"><textarea readonly>
-var  myName = George;
-</textarea></code></pre>
+<pre><code class="language-javascript">var  myName = George;
+</code></pre>
                 <p>It will declare the var myName equal to the variable George which we don't have.</p>
                 </li><!--String-->
 
@@ -303,10 +283,9 @@ var  myName = George;
                 <p>Booleans are often used in conditional testing which we will see later.</p>
 
 
-<pre><code class="language-javascript"><textarea readonly>
-var x = true;
+<pre><code class="language-javascript">var x = true;
 var y = false;
-</textarea></code></pre>
+</code></pre>
                 </li><!--Boolean-->
 
                 <!--Arrays-->
@@ -324,12 +303,8 @@ var y = false;
                 <p>We can give a variable the value of null. It means it's null,nothing,empty but null also is an object in javascript.</p>
 
 
-<pre><code class="language-javascript"><textarea readonly>
-var x = null;
-</textarea></code></pre>
-<pre><code class="language-javascript"><textarea readonly>
-alert (x); //Will alert null
-</textarea></code></pre>
+<pre><code class="language-javascript">var x = null;</code></pre>
+<pre><code class="language-javascript">alert (x); //Will alert null</code></pre>
                 </li><!--Null-->
 
      </ol><!--End ordered list types of variables-->
@@ -340,15 +315,11 @@ alert (x); //Will alert null
             <p>So a lot of people confuse those two meanings in javascript.</p>
 
             <h4>Undefined</h4>
-<pre><code class="language-javascript"><textarea readonly>
-var x; //undefined
-</textarea></code></pre>
+<pre><code class="language-javascript">var x; //undefined</code></pre>
             <p>As we see we don't give a value to x that means undefined . We haven't defined any values to x.</p>
 
             <h4>Null</h4>
-<pre><code class="language-javascript"><textarea readonly>
-var x = null;
-</textarea></code></pre>
+<pre><code class="language-javascript">var x = null;</code></pre>
             <p>That's not undefined since it has value which that value is null. It means "nothing".</p>
 
 
@@ -365,9 +336,7 @@ var x = null;
             <div><img class="img-responsive" src="assets/img/developer-tools.jpg"></div>
             <p>A lot of times when I built or change something, I use it to find what html/css properties an item has and stuff like that.</p>
             <p>Now to you main.js write :</p>
-<pre><code class="language-javascript"><textarea readonly>
-console.log("Hello from console");
-</textarea></code></pre>
+<pre><code class="language-javascript">console.log("Hello from console");</code></pre>
             <p>Now reload the page by having your developer tools -> console tab open and see what happens.</p>
             <p>The marked with oval circle are :</p>
             <ol>
@@ -389,51 +358,45 @@ console.log("Hello from console");
         <ol>
 
             <li><h4>Addition</h4>
-<pre><code class="language-javascript"><textarea readonly>
-var x = 10;
+<pre><code class="language-javascript">var x = 10;
 var y = 5;
 var result = x + y; //result is 15
-</textarea></code></pre>
+</code></pre>
             </li>
 
             <li><h4>Subtraction</h4>
-<pre><code class="language-javascript"><textarea readonly>
-var x = 10;
+<pre><code class="language-javascript">var x = 10;
 var y = 5;
 var result = x - y; //result is 5
-</textarea></code></pre>
+</code></pre>
             </li>
 
             <li><h4>Multiplication</h4>
-<pre><code class="language-javascript"><textarea readonly>
-var x = 10;
+<pre><code class="language-javascript">var x = 10;
 var y = 5;
 var result = x * y; //result is 50
-</textarea></code></pre>
+</code></pre>
             </li>
 
             <li><h4>Division</h4>
-<pre><code class="language-javascript"><textarea readonly>
-var x = 10;
+<pre><code class="language-javascript">var x = 10;
 var y = 5;
 var result = x / y; //result is 2
-</textarea></code></pre>
+</code></pre>
             </li>
 
             <li><h4>Modulus</h4>
             <p>This is a confusing operator that returns the remainder of the division.</p>
-<pre><code class="language-javascript"><textarea readonly>
-var x = 10;
+<pre><code class="language-javascript">var x = 10;
 var y = 5;
 var result = x % y; //result is 0
-</textarea></code></pre>
+</code></pre>
 
            <p>But if we have this :</p>
-<pre><code class="language-javascript"><textarea readonly>
-var x = 11;
+<pre><code class="language-javascript">var x = 11;
 var y = 5;
 var result = x % y; //result is 1 because dividing 11 / 5 gives 2 and remainder is 1
-</textarea></code></pre>
+</code></pre>
             <p><strong>What will be the result of 151 % 50 </strong></p>
             <p><button>Show multiple choice</button></p>
             </li>
@@ -441,8 +404,7 @@ var result = x % y; //result is 1 because dividing 11 / 5 gives 2 and remainder 
             <li><h4>Incrementing and Decrementing</h4>
                 <p>Increment operator increases the value by 1 and decrement decreases it by 1.
                     Very useful for loops when we reach there.</p>
-<pre><code class="language-javascript"><textarea readonly>
-var x = 10;
+<pre><code class="language-javascript">var x = 10;
 //Post Increment operator by adding ++
 x++ ; //Now the x is 11. It's like saying x = x + 1
 
@@ -450,9 +412,9 @@ var y = 5;
 //Post Decrement operator by adding --
 y-- ; //Now the y is 4. It's like saying y = y - 1
 
-</textarea></code></pre>
+</code></pre>
             <div>and</div>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var x = 10;
 //Pre Increment operator by adding ++
 ++x ; //The difference is that now x = 1 + x
@@ -460,7 +422,7 @@ var x = 10;
 var y = 5;
 //Pre Decrement operator which decreases
 --y ; //And here first we will subtract 1 for y and then we will have y
-</textarea></code></pre>
+</code></pre>
             </li>
         </ol>
             </section>
@@ -472,15 +434,12 @@ var y = 5;
                 <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
                 <p>We have one variable :</p>
 
-<pre><code class="language-javascript"><textarea readonly>
-var  x = 5 ;
-</textarea></code></pre>
+<pre><code class="language-javascript">var  x = 5 ;</code></pre>
                 <p>What we will see in our screen with this code?
-<pre><code class="language-javascript"><textarea readonly>
-alert(x++);
+<pre><code class="language-javascript">alert(x++);
 alert(++x);
-</textarea></code></pre>
-                <br><span class="alert-info">HINT: The first hasn't stored the new value but the second one first has stored the new value
+</code></pre>
+                <p><br><span class="alert-info">HINT: The first hasn't stored the new value but the second one first has stored the new value
                 </span></p>
                 <p>We will have the same result correct?</p>
                 <p><button>Show result and explanation</button></p>
@@ -491,39 +450,29 @@ alert(++x);
         <section ><!--Mysterious code-->
             <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
             <p>We have two variables :</p>
-<pre><code class="language-javascript"><textarea readonly>
-var  myName = "George";
+<pre><code class="language-javascript">var  myName = "George";
 var  x = 5 ;
-</textarea></code></pre>
+</code></pre>
             <p ><strong>Try to think the result myName + x by writing it first :</strong> <br><span class="alert-info">HINT: myName + x gives different result than x + myName
                 </span></p>
-<pre><code class="language-javascript"><textarea readonly>
-alert(myName + x);
-</textarea></code></pre>
+<pre><code class="language-javascript">alert(myName + x);</code></pre>
             <p><button>Show result and explanation</button></p>
             <p>Also by having :</p>
-<pre><code class="language-javascript"><textarea readonly>
-alert(myName - x);
-</textarea></code></pre>
+<pre><code class="language-javascript">alert(myName - x);</code></pre>
             <div>or</div>
-<pre><code class="language-javascript"><textarea readonly>
-alert(myName * x);
-</textarea></code></pre>
+<pre><code class="language-javascript">alert(myName * x);</code></pre>
             <div>or</div>
             <div>
-<pre><code class="language-javascript">
-alert(myName / x);
-</code></pre></div>
+<pre><code class="language-javascript">alert(myName / x);</code></pre></div>
             <p>We get a result of <strong>NaN</strong> which means not a number. Totally makes sense since javascript tells us
                 how I'm going to do this operation.
             </p>
             <p><strong>BUT NOTICE THIS!!!</strong></p>
-<pre><code class="language-javascript"><textarea readonly>
-var  y = "5";
+<pre><code class="language-javascript">var  y = "5";
 var  x = 5 ;
 console.log( x + y );
 console.log( x - y );
-</textarea></code></pre>
+</code></pre>
             <p>What the first line will it be and what the second?</p>
             <p><button>Show result and explanation</button></p>
 
@@ -570,12 +519,11 @@ console.log( x - y );
             </tbody>
         </table>
         <p>Code :</p>
-<pre><code class="language-javascript"><textarea readonly>
-var x = 5;
+<pre><code class="language-javascript">var x = 5;
 var y = 10;
 x += y;
 alert(x);
-</textarea></code></pre>
+</code></pre>
         <p>So every assignment operator works like that. Think of it like a shortcut.</p>
             <p><button>Show multiple choice</button></p>
 
@@ -590,21 +538,19 @@ alert(x);
 
             <li>
             <h4>Equality Operator</h4>
-<pre><code class="language-javascript"><textarea readonly>
-var x = 5;
+<pre><code class="language-javascript">var x = 5;
 var y = 10;
 console.log(x==y);
-</textarea></code></pre>
+</code></pre>
             <p>Returns false since x is not equal with y. <strong>Notice the == and not = since we are comparing NOT assigning a value.</strong></p>
             </li>
 
             <li>
                 <h4>Identity Operator</h4>
-<pre><code class="language-javascript"><textarea readonly>
-var x = 5;
+<pre><code class="language-javascript">var x = 5;
 var y = 10;
 console.log(x===y);
-</textarea></code></pre>
+</code></pre>
                 <p>Again it returns false.</p>
                 <p>But here we have === which they also compare <strong>the type except the value</strong>. Most people suggest to use this
                 as safer way.
@@ -612,43 +558,39 @@ console.log(x===y);
             </li>
                 <li><h4>Not equal</h4>
                     <p>In javascript if we put a ! it means NOT.</p>
-<pre><code class="language-javascript"><textarea readonly>
-var x = 5;
+<pre><code class="language-javascript">var x = 5;
 var y = 10;
 console.log(x!=y);
-</textarea></code></pre>
+</code></pre>
                     <p>Returns true since we are saying x is NOT equal y.</p>
                     <p>You will find it very useful along your career.</p>
                 </li>
                 <li>
                     <h4>Not equal value or type</h4>
-<pre><code class="language-javascript"><textarea readonly>
-var x = 10;
+<pre><code class="language-javascript">var x = 10;
 var y = 10;
 console.log(x!==y);
-</textarea></code></pre>
+</code></pre>
                     <p>Returns false since they are equal and same type.</p>
                 </li>
 
                 <li>
                     <h4>Greater than and less than</h4>
                     <p>Like maths we have the > and < symbols .</p>
-<pre><code class="language-javascript"><textarea readonly>
-var x = 10;
+<pre><code class="language-javascript">var x = 10;
 var y = 8;
 console.log(x > y);
-</textarea></code></pre>
+</code></pre>
                     <p>Returns true since x is greater than y.</p>
                 </li>
 
                 <li>
                     <h4>Greater than or equal and less than or equal operators</h4>
-<pre><code class="language-javascript"><textarea readonly>
-var x = 10;
+<pre><code class="language-javascript">var x = 10;
 var y = 8;
 console.log(x >= y);
 console.log(x <= y);
-</textarea></code></pre>
+</code></pre>
                     <p>Returns true at first line false at second line.</p>
                     <p><button>Show multiple choice</button></p>
                 </li>
@@ -660,14 +602,11 @@ console.log(x <= y);
                 <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
                 <p>We have two variables :</p>
 
-<pre><code class="language-javascript"><textarea readonly>
-var  x =  5 ;
+<pre><code class="language-javascript">var  x =  5 ;
 var  y = '5';
-</textarea></code></pre>
+</code></pre>
                 <p>True or false</p>
-<pre><code class="language-javascript"><textarea readonly>
-console.log( x != y);
-</textarea></code></pre>
+<pre><code class="language-javascript">console.log( x != y);</code></pre>
                 <p><button>Show result and explanation</button></p>
             </section> <!--Mysterious code 5 vs '5'-->
 
@@ -684,13 +623,11 @@ console.log( x != y);
                     <li>
                         <h4>&&</h4>
                         <p>This operator is like saying and. It means that two conditions must be met.</p>
-<pre><code class="language-javascript"><textarea readonly>
-var x = 10;
+<pre><code class="language-javascript">var x = 10;
 var y = 8;
 var k = 7 ;
 console.log(x >= y && k < y);
-
-</textarea></code></pre>
+</code></pre>
                         <p>It returns true since x is greater or equal than y and at the same time k is less than y.</p>
 
                     </li>
@@ -699,13 +636,11 @@ console.log(x >= y && k < y);
                     <li>
                         <h4>||</h4>
                         <p>This operator means or. One or the other condition must be met.</p>
-<pre><code class="language-javascript"><textarea readonly>
-var x = 10;
+<pre><code class="language-javascript">var x = 10;
 var y = 8;
 var k = 7 ;
 console.log(x >= y || k > y);
-
-</textarea></code></pre>
+</code></pre>
                         <p>It returns true since x is greater or equal than y and that's enough.</p>
 
                     </li>
@@ -713,11 +648,10 @@ console.log(x >= y || k > y);
                     <li>
                         <h4>!</h4>
                         <p>We saw it again at comparison operators which means NOT.</p>
-<pre><code class="language-javascript"><textarea readonly>
-var x = 10;
+<pre><code class="language-javascript">var x = 10;
 var y = 8;
 console.log( !(x > y) );
-</textarea></code></pre>
+</code></pre>
 
                         <p>Returns false since it says that NOT(x > y). We see though and know that x is greater than y.</p>
                         <p>Notice the parenthesis because we want the ! operator only for (x > y) and if we had more variables we will have wrong results. </p>
@@ -740,15 +674,14 @@ console.log( !(x > y) );
             <ol>
                 <li>
                 <h3>If statement</h3>
-<pre><code class="language-javascript"><textarea readonly>
-//Variables
+<pre><code class="language-javascript">//Variables
 var x = 10;
 var y = 8;
 //If statement
 if(x > y){
     console.log("Yes x is greater than y");
 }
-</textarea></code></pre>
+</code></pre>
                     <p>Pretty simple right? We start with if. Then inside the parenthesis we put the condition we want to meet.
                     Finally between the curly brushes we say what we will do if the condition is met.
                     </p>
@@ -759,8 +692,7 @@ if(x > y){
 
                 <li>
                     <h3>Else statement</h3>
-<pre><code class="language-javascript"><textarea readonly>
-//Variables
+<pre><code class="language-javascript">//Variables
 var x = 10;
 var y = 11;
 //If..else statement
@@ -770,15 +702,14 @@ if(x > y){
 else{
     console.log("No x is not greater than y");
 }
-</textarea></code></pre>
+</code></pre>
                     <p>Here we just say to do something else in all other cases. Else doesn't work without if.
                     </p>
 
                 </li>
                 <li>
                     <h3>Else if statement</h3>
-<pre><code class="language-javascript"><textarea readonly>
-//Variables
+<pre><code class="language-javascript">//Variables
 var x = 10;
 var y = 10;
 //If..else if statement
@@ -790,44 +721,41 @@ else if(x===y){
 else{
     console.log("No x is not greater than y");
 }
-</textarea></code></pre>
+</code></pre>
                     <p>You see now we covered all possible conditions. </p>
                 </li>
 
 
 
                 <!--Mysterious code if else if>-->
-                <section>
+                <li>
                     <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
                     <p>We have three variables :</p>
 
-<pre><code class="language-javascript"><textarea readonly>
-var number1 = 5;
+<pre><code class="language-javascript">var number1 = 5;
 var number2 = 10;
 var number3 = 11;
-</textarea></code></pre>
+</code></pre>
                     <p>Then we have two conditions : </p>
-<pre><code class="language-javascript"><textarea readonly>
-if(number1 < number2){
+<pre><code class="language-javascript">if(number1 < number2){
     number1 = 11;
 }
 
 if(number1 < number2 && number3 === number1){
     number1 += 12;
 }
-</textarea></code></pre>
+</code></pre>
                     <p>What you think number1 value will be? Please write it in paper first </p>
 
                     <p><button>Show result and explanation</button></p>
-                </section> <!--Mysterious code if else if-->
+                </li> <!--Mysterious code if else if-->
 
 
                 <li>
                     <h3>Switch</h3>
                     <p>Switch is very powerful conditional statement that replaces having code with multiple if.</p>
                     <p>Though in the beginning it might seem confusing if you get used to it you will love it.</p>
-<pre><code class="language-javascript"><textarea readonly>
-//Variable
+<pre><code class="language-javascript">//Variable
 var myName = "George";
 
 //Switch
@@ -845,7 +773,7 @@ switch(myName){
     default :
         console.log("I don't know your name");
 }//End switch
-</textarea></code></pre>
+</code></pre>
                     <p>So we declared var myName = "George". Then we put into the parenthesis th variables name that we will
                     need to check. We open and close curly braces and we say case "George" : do something. We finish this condition
                       if it's the correct by adding break;.
@@ -854,7 +782,7 @@ switch(myName){
                     if no case matches.
                     </p>
                     <p>Let's see how to do it with if. </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Variable
 var myName = "George";
 
@@ -870,10 +798,10 @@ else if(myName==="Alex"){
 else{
     console.log("I don't know your name");
 }
-</textarea></code></pre>
+</code></pre>
                     <p>Imagine having many many conditions how many ifs you would have to put.</p>
                     <p>Sometimes you want different switch cases to use same code. </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Variable
 var number = 1;
 
@@ -895,22 +823,22 @@ switch(number){
     default :
         console.log("I don't know this number");
 }//End switch
-</textarea></code></pre>
+</code></pre>
 
                 </li>
                 <li>
                     <h3>Conditional (Ternary) Operator</h3>
                     <p>Conditional ternary operator is another shortcut for if statement.</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var x = 5;
 var y = 6;
 
 //After the condition a question mark then if true the left code : else right code
 (x < y)? console.log("x is smaller than y"): console.log("x is not smaller than y");
 
-</textarea></code></pre>
+</code></pre>
                     <p>It has strange syntax but look what we are saying. </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Same result as above
 if(x < y){
     console.log("x is smaller than y");
@@ -918,7 +846,7 @@ if(x < y){
 else{
     console.log("x is not smaller than y")
 }
-</textarea></code></pre>
+</code></pre>
                     <p>Pretty cool right?</p>
                 </li>
 
@@ -939,7 +867,7 @@ else{
                 <li>
                     <h3>Function declarations</h3>
                     <p>First we add the keyword function then name, parenthesis and the curly brackets.  </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Creating your first function
 function hello(){
     console.log("Hello from function");
@@ -948,11 +876,11 @@ function hello(){
 hello();
 hello();
 hello();
-</textarea></code></pre>
+</code></pre>
                     <p>So instead of writing three times the code we just called/invoked the function hello three times.
                         Pretty useful and fundamental .</p>
                     <p>Also we can have a function have parameters and return us a value:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //A function with two parameters that will return the division of them
 function divide(number1, number2){
     return number1 / number2;
@@ -960,12 +888,12 @@ function divide(number1, number2){
 
 console.log(divide(6,3));
 console.log(divide(12,3));
-</textarea></code></pre>
+</code></pre>
                     <p>At console log we will have the result of 2 and 3 below. We simply called function divide and gave it the parameters values.
                         <strong>The values we give are called arguments.</strong> </p>
                     <p>When you create a function you also create the arguments built in object
                     and you can see it's length or access a specific argument: </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var division = function divide(number1, number2){
     //Will show us the length when we will give arguments
     console.log(arguments.length);
@@ -978,14 +906,14 @@ var division = function divide(number1, number2){
 //First argument is 1 second argument is 2
 division(1,2);
 
-</textarea></code></pre>
+</code></pre>
                     <p>So a parameter is a local variable that's inside the function and the argument is the value of that.</p>
                     <p>As you can see this is amazing since we only change the arguments of the function to have new result.</p>
                 </li>
                 <li>
                     <h3>Function expressions</h3>
                     <p>In javascript you can store a function expression in a variable.</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //A function with two parameters that will return the division of them stored in var division
 var division = function divide(number1, number2){
     return number1 / number2;
@@ -993,12 +921,12 @@ var division = function divide(number1, number2){
 
 //You can't call/invoke it by the function name but only with the variable name like this
 console.log(division(6,3));
-</textarea></code></pre>
+</code></pre>
                 </li>
                 <li>
                     <h3>Anonymous function</h3>
                     <p>Also we can have an anonymous function in javascript like that :</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //An anonymous function with two parameters that will return the division of them stored in var division
 var division = function (number1, number2){
     return number1 / number2;
@@ -1006,12 +934,12 @@ var division = function (number1, number2){
 
 //And you call it like that
 console.log(division(6,3));
-</textarea></code></pre>
+</code></pre>
                 </li>
             </ol>
             <h3>Using functions as parameters</h3>
             <p>We can have functions as parameters in javascript.</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //A function with first parameter a variable and second a function
 function advanced(id, update){
     update();//if we don't call it it won't work
@@ -1022,10 +950,10 @@ function updateList() {
 }
 //Now we call the function advanced, pass first argument 1 and second the function updateList
 advanced(1 , updateList);
-</textarea></code></pre>
+</code></pre>
         <h3>Return functions inside a function </h3>
         <p>Now things become a little complicated but you should know it so you can understand if you see it somewhere.</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //A more advanced function that returns functions
 var order = function(specialClient){
 
@@ -1053,7 +981,7 @@ startOrdering(); // But we get undefined since the return has nothing in it
 //And the correct way
 startOrdering("George");
 
-</textarea></code></pre>
+</code></pre>
 
             <p>Find some built in javascript global properties and functions here:</p>
             <h4><a href="http://www.w3schools.com/jsref/jsref_obj_global.asp" target="_blank">BuiltGlobal Functions</a></h4>
@@ -1063,7 +991,7 @@ startOrdering("George");
                 <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
                 <p>Question : What is a function expression and a function declaration ?</p>
                 <p>What will the console output by the code below ?</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Console output x
  console.log(x);
 
@@ -1073,7 +1001,7 @@ var x = function() {
 
 //Calling function x
 x();
-</textarea></code></pre>
+</code></pre>
                 <p class="alert-info">HINT: That's the major difference between a function expression and declaration. The
                 function declaration after is called you have it in all the script
                 </p>
@@ -1085,7 +1013,7 @@ x();
                 <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
                 <p>What the console will show true or false?</p>
                 <p><span class="alert">Please use brackets instead of the below code</span></p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 function cheat(a,b){
     if(a==b)
         return true;
@@ -1093,7 +1021,7 @@ function cheat(a,b){
 }
 
 console.log(cheat(5,4));
-</textarea></code></pre>
+</code></pre>
                 <p><button>Show result and explanation</button></p>
             </section><!--End Mysterious code functions-->
 
@@ -1118,12 +1046,12 @@ console.log(cheat(5,4));
                    <li>
                 <h3>Global scope</h3>
 
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Global variable
 var x = 5;
-</textarea></code></pre>
+</code></pre>
                         <p>We can use the var x anywhere we want so it has global scope. </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 function showGlobal(){
     //Can be used inside here
     console.log(x); //It will show normally our x value when we call/invoke the function where we want
@@ -1131,11 +1059,11 @@ function showGlobal(){
     //To change a global variable inside a function with a new value
     x = 3;
 }
-</textarea></code></pre>
+</code></pre>
                   <p>What will be the value of x IF WE WRITE ONLY THIS CODE below our function:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 console.log(x);
-</textarea></code></pre>
+</code></pre>
                        <p><strong>Remember FIRST write the answer and then see it!</strong></p>
                        <p><button>Show result and explanation</button></p>
 
@@ -1145,28 +1073,28 @@ console.log(x);
                     <p>In local scope we declare the variable inside a function so it can be used only
                     in it.
                     </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Global variable
 var x = 5;
-</textarea></code></pre>
-<pre><code class="language-javascript"><textarea readonly>
+</code></pre>
+<pre><code class="language-javascript">
 function somethingHidden(){
     var y = 10; //It can be used only inside the function
 }
 //But you can't use it here even if you call/invoke the function
 console.log(y);//It will show y is not defined
-</textarea></code></pre>
+</code></pre>
                     </li>
                     <li>
                         <h3>Automatically Global<span class="alert">Don't do it...</span></h3>
                         <p>If you declare a variable like that :</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 function pollution(){
     y = 10;
 }
 //And then
 pollution(); //y becomes a global variable which can use
-</textarea></code></pre>
+</code></pre>
                     </li>
                 </ol>
 
@@ -1186,16 +1114,16 @@ pollution(); //y becomes a global variable which can use
             <p><strong>To access an object's property you simply add to the object the dot as we were doing with console.log</strong></p>
             <h3>Let's use our first object :</h3>
             <p>Create a div in your page at body and give it an id :</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltdiv id="products">JS manipulation&lt/div&gt
-</textarea></code></pre>
+</code></pre>
             <p>Then at our script we will use the object document and the method getElementById which we have in all browsers :</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Storing the object document with the method getElementByID and id products
    var div = document.getElementById("products");
 //Now let't use a property of div object
     div.innerHTML = "I changed thanks to javascript!";
-</textarea></code></pre>
+</code></pre>
             <p>So we created an object that in document had id products. Then we used
             a property that's already created in all browsers innerHTML which means the html text.
             </p>
@@ -1207,7 +1135,7 @@ pollution(); //y becomes a global variable which can use
 
             <h3>Let's create our first object!</h3>
             <p>You name a variable, then open and close curly brushes. Inside of it name of property and with : value of property. </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var client = {
     name : "George",
     lastName : "Tourtsinakis" ,
@@ -1215,9 +1143,9 @@ var client = {
 }
 
 document.getElementById('products').innerHTML = client.name;
-</textarea></code></pre>
+</code></pre>
             <p>Also we can access a property with this syntax:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var client = {
     name : "George",
     lastName : "Tourtsinakis" ,
@@ -1226,14 +1154,14 @@ var client = {
 
 //Different syntax for accessing a property of an object
 document.getElementById('products').innerHTML = client["name"];
-</textarea></code></pre>
+</code></pre>
             <p>Now refresh and look your div with id products</p>
             <p>Also you can change the property value : </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 client.name = "John";
-</textarea></code></pre>
+</code></pre>
             <p>Let 's create new methods and have a taste of <strong>this</strong> keyword:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var client = {
     name : "George",
     lastName : "Tourtsinakis" ,
@@ -1250,11 +1178,11 @@ var client = {
 };
 //Calling the method giveDiscount from client object
 client.giveDiscount();
-</textarea></code></pre>
+</code></pre>
             <p>We have an object called client some properties and a method called giveDiscount. When we say this.orders we are saying with javascript
                 the property orders which is in this object which in our current case is client. It's the same with :
             </p>
- <pre><code class="language-javascript"><textarea readonly>
+ <pre><code class="language-javascript">
 var client = {
     name : "George",
     lastName : "Tourtsinakis" ,
@@ -1272,14 +1200,14 @@ var client = {
 };
 //Calling the method giveDiscount from client object
 client.giveDiscount();
-</textarea></code></pre>
+</code></pre>
 
 
             <!--Object Constructor-->
             <h3>Object Constructor</h3>
             <p>We saw above how to create objects. We need more clients though correct?</p>
             <p>It would be bad writing :</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var client = {
     name : "George",
     lastName : "Tourtsinakis" ,
@@ -1298,45 +1226,45 @@ var client3 = {
     job : "unknown"
 }
 
-</textarea></code></pre>
+</code></pre>
 
         <p>So much repeating code and what if you wanted to change a property or add new? You should change it to each object.</p>
         <p>But we have a solution for that and it's called a constructor:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 function client(name,lastName,job) {
     this.name = name ;
     this.lastName =lastName ;
     this.job = job ;
 }
-</textarea></code></pre>
+</code></pre>
 
             <p>Remember we said that in javascript almost everything is an object? Well now we have an object called client.
             Though you will be confused and say "Why this.name"  equals with name?
             </p>
             <p>With this.name we are referring to the object client and equals name is the local variable we have as parameters.</p>
             <p>And to create a new client we simply use the new keyword and we pass the arguments we want:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Creating a new clients
 var client1 = new client("George","Tourtsinakis","Full Stack Developer");
 var client2 = new client("Elisabeth","Of Egypt","Queen");
 
 document.getElementById('products').innerHTML = client1.name;//It will show George
-</textarea></code></pre>
+</code></pre>
 
             <p>It was like writing :</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 function client(localVarName,localVarLastName,localVarJob) {
     this.name = localVarName ;
     this.lastName = localVarLastName ;
     this.job = localVarJob ;
 }
 
-</textarea></code></pre>
+</code></pre>
             <p>You see how this is used and what is referred to? For name convenience we give the property name the same as our local variables
             names. Amazing isn't it?
             </p>
             <p>Let's have a method from this object constructor :</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 function client(name,lastName,job,orders) {
     this.name = name ;
     this.lastName =lastName ;
@@ -1354,7 +1282,7 @@ function client(name,lastName,job,orders) {
 
 var client1 = new client("George","Tourtsis","Full Stack Developer",100);
 client1.giveDiscount();
-</textarea></code></pre>
+</code></pre>
             <p><button>Show multiple choice</button></p>
 
             <!--Object mysterious code-->
@@ -1363,7 +1291,7 @@ client1.giveDiscount();
                 <p>What will we have in our id products with the below code?</p>
                 <p><strong>Remember to WRITE it first and then see it in your browser or the answer!</strong></p>
 
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 function client(name,lastName,job,orders) {
     this.name = name ;
     this.lastName =lastName ;
@@ -1381,7 +1309,7 @@ function client(name,lastName,job,orders) {
 
 var client1 = new client("George","Tourtsinakis","Full Stack Developer",100);
 document.getElementById('products').innerHTML = client1.giveDiscount();
-</textarea></code></pre>
+</code></pre>
                 <p><button>Show result and explanation</button></p>
             </section> <!--End Object Mysterious code -->
 
@@ -1389,12 +1317,12 @@ document.getElementById('products').innerHTML = client1.giveDiscount();
         <h3>Javascript Object protoypes</h3>
         <p>Every object in javascript has a prototype.</p>
         <p>Remember this code?</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Storing the object document with the method getElementByID and id products
    var div = document.getElementById("products");
 //Now let't use a property of div object
     div.innerHTML = "I changed thanks to javascript!";
-</textarea></code></pre>
+</code></pre>
         <p>We created an object that already had some pre created properties like innerHTML.
         Without us doing anything div inherited everything(properties,methods)from its prototype.
         </p>
@@ -1403,7 +1331,7 @@ document.getElementById('products').innerHTML = client1.giveDiscount();
         <p>The top in chain is Object.prototype so all inherit from this.</p>
         <p>What if we want to add a new property in an object?</p>
         <p>We can add it directly to our constructor.</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 function client(name,lastName,job,orders,address) {
     this.name = name ;
     this.lastName =lastName ;
@@ -1412,19 +1340,19 @@ function client(name,lastName,job,orders,address) {
     this.address = address;
 }
 var client1 = new client();
-</textarea></code></pre>
+</code></pre>
             <p>And we can add directly to client1 a new property but then only client1 will have it :</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 client1.newProperty = 5 ;
-</textarea></code></pre>
+</code></pre>
           <p>Many times we work with other teams,use frameworks,libraries etc which would be bad directly
           inserting into the function the new property or method. Also maybe you want to create a plugin
           for a library or framework.
           </p>
           <p>This is achieved by using the prototype property :</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 client.prototype.newProperty = 5 ;
-</textarea></code></pre>
+</code></pre>
 
             <!--Mysterious code objects and prototype-->
             <section >
@@ -1444,68 +1372,67 @@ client.prototype.newProperty = 5 ;
             <p>Array is a special variable that can hold more than one value at a time.</p>
             <p>Imagine it like having a storage with products in it.</p>
             <p>Without using an array you would write:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var product1 = "mobile-phones";
 var product2 = "air-conditions";
 var product3 = "tvs";
 
-</textarea></code></pre>
+</code></pre>
             <p>Well if you have 2-3 products this will work but what if you add more products or you have more than 100-200?</p>
             <p>This is where arrays come in.</p>
             <p>You declare a var then equals  opening closing brackets: </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = ["mobile-phones","air-conditions","tvs"];
-</textarea></code></pre>
+</code></pre>
             <p>For better readability you can write it like this:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = [
     "mobile-phones",
     "air-conditions",
     "tvs"
 ];
-</textarea></code></pre>
+</code></pre>
             <p>Also we can create an array using the new keyword:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = new Array("mobile-phones","air-conditions","tvs");
-</textarea></code></pre>
+</code></pre>
         <p>Arrays in javascript are zero indexed so in position 0 we have mobile phones and
         you call it like that:
         </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 console.log(products[0]);
-</textarea></code></pre>
+</code></pre>
             <p>And for the whole array:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 console.log(products);
-</textarea></code></pre>
+</code></pre>
             <p>To see how many elements an array has in it you just use the length property:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 console.log(products.length);
-</textarea></code></pre>
+</code></pre>
             <p>It returns 3 since we have mobile phones, air conditions and tvs.</p>
             <p>To add new element in our array we use the method push:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 products.push("books");
-</textarea></code></pre>
+</code></pre>
             <p>It means pushing a new element at the end of the array.</p>
             <p><strong>Remember arrays are objects.</strong> </p>
 
 
             <p>Now let's create an unordered list with some items in our body html.</p>
-<pre><code class="language-javascript"><textarea readonly>
-<ul id="mobilePhones">
-    <li>iphone</li>
-    <li>galaxy</li>
-    <li>xperia</li>
+<pre><code class="language-javascript">&lt;ul id="mobilePhones">
+    &lt;li>iphone&lt;/li>
+    &lt;li>galaxy&lt;/li>
+    &lt;li>xperia&lt;/li>
 
-</ul>
-</textarea></code></pre>
+&lt;/ul>
+</code></pre>
             <p>We can grab anything we want in our script:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var mobilePhones = document.getElementById("mobilePhones").getElementsByTagName("li");
 
 console.log(mobilePhones[0].innerHTML);
-</textarea></code></pre>
+</code></pre>
             <p>So we grabbed something from out page that had the id of mobilePhones and at this
             id we needed from li tag the zero element.
             </p>
@@ -1518,7 +1445,7 @@ console.log(mobilePhones[0].innerHTML);
             <section >
                 <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
                 <p>Question : What is the result of the below code?</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Products array
 var products = [
     "mobile-phones",
@@ -1527,17 +1454,17 @@ var products = [
 ];
 //Show us a specific element value
 console.log(products[3]);
-</textarea></code></pre>
+</code></pre>
                 <p><button>Show result and explanation</button></p>
                 <p>Since arrays are object we can have the following syntax:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Products array
 var products = [];
 
 products["mobile-phones"] = "iphone";
 
 console.log(products["mobile-phones"]);
-</textarea></code></pre>
+</code></pre>
                 <p>And it will give us iphone...</p>
             </section> <!--Mysterious code arrays-->
 
@@ -1547,7 +1474,7 @@ console.log(products["mobile-phones"]);
                 <li><h4>Join</h4>
                     <p>The join method returns the string of the array and by default separates them by comma.
                         You can give the parameter value you want: </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Array
 var products = [
     "mobile-phones",
@@ -1561,12 +1488,12 @@ var products = [
 //Showing the array to our html with join and &ltbr> tags
 document.getElementById("products").innerHTML = products.join("<br>");
 
-</textarea></code></pre>
+</code></pre>
                 </li>
 
                 <li><h4>Length</h4>
                     <p>The length property which can be used with an array or an object:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Array
 var products = [
     "mobile-phones",
@@ -1579,13 +1506,13 @@ var products = [
 
 //Showing the length array
 document.getElementById("products").innerHTML = products.length;
-</textarea></code></pre>
+</code></pre>
                 <p>Will show 3 since we have 3 elements in our array.</p>
                 </li>
 
                 <li><h4>Concat</h4>
                 <p>The concat method is used to join two or more arrays each other in one.</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Array
 var products = [
     "mobile-phones",
@@ -1602,7 +1529,7 @@ var newProducts = [
 
 //Concat the two arrays and show them in our HTML
 document.getElementById("products").innerHTML= products.concat(newProducts).join("<br>");
-</textarea></code></pre>
+</code></pre>
             <p>Now you will say WOW man stop it what you did here?</p>
             <p>In javascript this is called <strong>method chaining</strong>.
                 We simply add multiple methods by what order we want them to be executed.</p>
@@ -1613,18 +1540,18 @@ document.getElementById("products").innerHTML= products.concat(newProducts).join
                 <p class="alert-warning">
                     Though we don't have the newly created array anywhere so we must store it somewhere:
                 </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //New value for products that has the newProducts  also
 products = products.concat(newProducts);
 
 //Show products and line break each
 document.getElementById("products").innerHTML= products.join("<br>");
-</textarea></code></pre>
+</code></pre>
                 </li>
 
                 <li><h4>Pop</h4>
                 <p>This method removes the last element from the array and changes the length of it.</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = [
     "mobile-phones",
     "air-conditions",
@@ -1638,9 +1565,9 @@ var productsLength = products.length;
 
 //Showing to out HTML the productsLength
 document.getElementById("products").innerHTML = productsLength;
-</textarea></code></pre>
+</code></pre>
                 <p>The length of the array now will be 2.</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = [
     "mobile-phones",
     "air-conditions",
@@ -1654,12 +1581,12 @@ var productsLength = products.length;
 
 //Showing to out HTML the productsLength
 document.getElementById("products").innerHTML = productsLength;
-</textarea></code></pre>
+</code></pre>
             </li>
 
                 <li><h4>Push</h4>
                     <p>This adds an element at the end of the array.</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = [
     "mobile-phones",
     "air-conditions",
@@ -1671,17 +1598,17 @@ products.push("books");
 
 //Showing products separated with comma since its the default behavior
 document.getElementById("products").innerHTML = products;
-</textarea></code></pre>
+</code></pre>
                     <p>More correct way but not needed:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Showing products separated with toString method
 document.getElementById("products").innerHTML = products.toString();
-</textarea></code></pre>
+</code></pre>
                 </li>
 
                 <li><h4>Shift</h4>
                     <p>Remove an element from the start of the array:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = [
     "mobile-phones",
     "air-conditions",
@@ -1691,13 +1618,13 @@ var products = [
 //Remove element at the start of the array
 products.shift();
 
-</textarea></code></pre>
+</code></pre>
                     <p>We will have 2 items without mobile-phones</p>
                 </li>
 
                 <li><h4>Unshift</h4>
                     <p>This will add at the start of the array an element.</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = [
     "mobile-phones",
     "air-conditions",
@@ -1708,7 +1635,7 @@ var products = [
 products.unshift("books");
 
 document.getElementById("products").innerHTML = products;
-</textarea></code></pre>
+</code></pre>
                     <p>Our first element will be books now.</p>
                 </li>
 
@@ -1717,7 +1644,7 @@ document.getElementById("products").innerHTML = products;
                     <p>By default,
                         the sort() method sorts the values as strings in alphabetical and ascending order.
                     </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = [
     "mobile-phones",
     "air-conditions",
@@ -1728,11 +1655,11 @@ var products = [
 products.sort();
 
 document.getElementById("products").innerHTML = products;
-</textarea></code></pre>
+</code></pre>
                     <p>We will have air-conditions,mobile-phones,tvs. Awesome!</p>
                     <p class="alert-warning">But if we want to return numbers from the smaller to the bigger  it won't work like that.</p>
                     <p>We need to add a function in our method:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Array with numbers
 var clientId = [
     1,
@@ -1744,10 +1671,10 @@ var clientId = [
 
 //With this function we will show them in correct order
 products.sort(function(a, b){return a-b});
-</textarea></code></pre>
+</code></pre>
 
                     <p>Now from bigger to smaller:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Array with numbers
 var clientId = [
     1,
@@ -1759,14 +1686,14 @@ var clientId = [
 
 //With this function we will show them in correct order
 products.sort(function(a, b){return b-a});
-</textarea></code></pre>
+</code></pre>
                     <p>We will have 31,4,3,2,1</p>
 
                 </li>
 
                 <li><h4>Reverse</h4>
                     <p>The opposite of sort since it reverses the array in descending order!</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = [
     "mobile-phones",
     "air-conditions",
@@ -1777,13 +1704,13 @@ var products = [
 products.reverse();
 
 document.getElementById("products").innerHTML = products;
-</textarea></code></pre>
+</code></pre>
                     <p>We will have tvs,air-conditions,mobile-phones</p>
                 </li>
 
                 <li><h4>Slice</h4>
                     <p>This method returns the elements we want only from what index how many to show: </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = [
     "mobile-phones",
     "air-conditions",
@@ -1795,7 +1722,7 @@ var products = [
 var sliced = products.slice(0,2)
 
 document.getElementById("products").innerHTML = sliced;
-</textarea></code></pre>
+</code></pre>
                     <p class="alert-warning">It doesn't include the last element we put so it will show
                         mobile-phones,air-conditions.</p>
 
@@ -1803,7 +1730,7 @@ document.getElementById("products").innerHTML = sliced;
                 <li>
                     <h4>Splice</h4>
                     <p>The splice method adds/removes elements to an array and returns the removed. </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = [
     "mobile-phones",
     "air-conditions",
@@ -1815,10 +1742,10 @@ var products = [
     products.splice(1,2)
 
 document.getElementById("products").innerHTML = products;
-</textarea></code></pre>
+</code></pre>
                     <p>So the result will be air-conditions,tvs.</p>
                     <p>We can add to the removed something new like this:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = [
     "mobile-phones",
     "air-conditions",
@@ -1830,7 +1757,7 @@ var products = [
 products.splice(1,2,"monitors","drones");
 
 document.getElementById("products").innerHTML = products;
-</textarea></code></pre>
+</code></pre>
                     <p>We will have mobile-phones,monitors,drones,books,laptops since we said at
                     index 1 remove 2 and add monitors,drones and then continue the array.</p>
                 </li>
@@ -1845,23 +1772,23 @@ document.getElementById("products").innerHTML = products;
             <section>
                     <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
                     <p>We have the following code:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Array
 var products = [
     "mobile-phones",
     "air-conditions",
     "tvs"
 ];
-</textarea></code></pre>
+</code></pre>
 
                     <p>Question: What the result will be of the following code?</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 document.getElementById("products").innerHTML += "-New line-";
-</textarea></code></pre>
+</code></pre>
                 <p><button>Show result and explanation</button></p>
                 <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
                 <p>We have the following code:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Array
 var products = [
      "mobile-phones",
@@ -1870,14 +1797,14 @@ var products = [
      "books",
      "laptops"
 ];
-</textarea></code></pre>
+</code></pre>
 
                 <p>Question: What the result will be of the following code?</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var spliced = products.splice(1,2,"monitors","drones");
 
 document.getElementById("products").innerHTML = spliced;
-</textarea></code></pre>
+</code></pre>
                 <p><button>Show result and explanation</button></p>
             </section> <!--Arrays mysterious code-->
 
@@ -1893,7 +1820,7 @@ document.getElementById("products").innerHTML = spliced;
             <p>A loop is something that executes continuously while a condition is true. </p>
             <p>Loops are very useful in all programming world and fundamental.</p>
             <p>Our array:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Array
 var product = [
     "mobile-phones",
@@ -1902,26 +1829,26 @@ var product = [
     "books",
     "laptops"
 ];
-</textarea></code></pre>
+</code></pre>
             <p>Let's store our documents id to a variable:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Store id to variable
 var products = document.getElementById("products");
-</textarea></code></pre>
+</code></pre>
             <p>Show one by one its array index with line breaks:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 products.innerHTML += product[0]+ "<br>";
 products.innerHTML += product[1]+ "<br>";
 products.innerHTML += product[2]+ "<br>";
 products.innerHTML += product[3]+ "<br>";
 products.innerHTML += product[4];
-</textarea></code></pre>
+</code></pre>
             <p>Pretty bad code right? What if we have 100-200 or thousands of indexes? </p>
             <p>That's where loops come:</p>
             <ol>
 
                 <li><h3>While loop</h3>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Array
 var product = [
     "mobile-phones",
@@ -1945,19 +1872,19 @@ while(i < productLength){
         products.innerHTML += product[i]+"<br>";
         i++;
 }
-</textarea></code></pre>
+</code></pre>
                     <p>So here we declared a var i = 0. Imagine it like the start for our loop.</p>
                     <p>Then we said while i value is less than our productLength at
                     products.innerHTML add the value product[0] + line break. After that give i + 1.
                     </p>
                     <p>Now the script goes to
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 products.innerHTML += product[i]+"<br>";
-</textarea></code></pre>
+</code></pre>
                         <p>but now i is 1. After that i++ so i becomes 2 back again to</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 products.innerHTML += product[i]+"<br>";
-</textarea></code></pre>
+</code></pre>
                     <p>but i now is 3 and so on.</p>
                     <p>So to finalize i becomes 0,1,2,3,4 until it reaches the array length and then the loop stops.</p>
                     <p class="alert"><strong>Remember to make i++ or i-- always else
@@ -1966,7 +1893,7 @@ products.innerHTML += product[i]+"<br>";
 
                     <p>We can use a loop to take stuff from a page of course.</p>
                     <p>Let' s say we have some products in our html:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltdiv class="container">
     &ltul id="pageProducts">
         &ltli> mobile-phones &lt/li>
@@ -1974,9 +1901,9 @@ products.innerHTML += product[i]+"<br>";
         &ltli> tvs &lt/li>
     &lt/ul>
 &lt/div>
-</textarea></code></pre>
+</code></pre>
                     <p>In our javascript:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Where to show pageProducts
 var products = document.getElementById("products");
 
@@ -1989,9 +1916,9 @@ while(i < pageProducts.length){
         products.innerHTML +="&ltli>" +pageProducts[i].innerHTML+"&lt/li>";
         i++;
 }
-</textarea></code></pre>
+</code></pre>
                     <p>So the newly created html code will look like this:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltdiv class="container">
     &ltul id="products">
         <!--Inserted dynamically-->
@@ -2000,10 +1927,10 @@ while(i < pageProducts.length){
         &ltli> tvs &lt/li>
     &lt/ul>
 &lt/div>
-</textarea></code></pre>
+</code></pre>
                     <p>Pretty amazing right?</p>
                     <p>Let's make it even cooler with functions and parameters:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 function showProducts(takeFrom,showTo){
     //Where to show
     var products = document.getElementById(showTo);
@@ -2018,17 +1945,17 @@ function showProducts(takeFrom,showTo){
                 i++;
     }
 }
-</textarea></code></pre>
+</code></pre>
                     <p>We simple call the function where we want and give arguments:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 showProducts("pageProducts","products");
-</textarea></code></pre>
+</code></pre>
                     <p>Yes now you are the programmer!</p>
                 </li>
 
                 <li><h3>Do...While loop</h3>
                 <p>The do while loop works almost the same but do will run at least one time even if the while condition is false: </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Loop variable
 var i = 6;
 
@@ -2049,7 +1976,7 @@ function showProducts(takeFrom,showTo){
 }
 
 showProducts("pageProducts","products");
-</textarea></code></pre>
+</code></pre>
                 <p>We have given pageProduct[0] since if we put i it will return undefined because the
                 pageProduct length is smaller than 6.
                 </p>
@@ -2059,7 +1986,7 @@ showProducts("pageProducts","products");
 
                 <li><h3>For loop</h3>
                 <p>Works like the while loops but with its own syntax:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Array
 var products = [
     "mobile-phones",
@@ -2074,45 +2001,45 @@ for(var i=0; i < products.length; i++){
     document.getElementById("products").innerHTML +=  products[i]+ "<br>";
 }
 
-</textarea></code></pre>
+</code></pre>
                     <p>So we declared a var i=0 then we said if i < products.length then do i++.
                         Pretty straightforward and clean code right?</p>
                 </li>
                 <li><h3>Break and continue</h3>
                 <p>We have already seen break with switch which means jumping out when condition is met.
                     Continue ignores current condition and jumps over it. </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 for(var i=0; i < 5; i++){
     if(i===2){
         break;
     }
     document.getElementById("products").innerHTML += i + "<br>";
 }
-</textarea></code></pre>
+</code></pre>
                     <p>A simple loop which when i === 2 it jumps out the loop and stops. </p>
                     <p>If we wrote:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 for(var i=0; i < 5; i++){
     if(i===2){
         continue;
     }
     document.getElementById("products").innerHTML += i + "<br>";
 }
-</textarea></code></pre>
+</code></pre>
                     <p>Then we will had all numbers less than 5 except 2. </p>
                     <p>Why this is useful?</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 for(var i=0; i < 5; i++){
     if(i===2){
         continue;
     }
     document.getElementById("products").innerHTML += i + "<br>";
 }
-</textarea></code></pre>
+</code></pre>
                 </li>
                 <li><h3>For/in loop</h3>
                     <p>This loops through the properties of an object.</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Create an object
 var client ={
     id:1,
@@ -2124,9 +2051,9 @@ var client ={
 for (var property in client){
     console.log(property);
 }
-</textarea></code></pre>
+</code></pre>
                     <p>And to access the properties values:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Create an object
 var client ={
     id:1,
@@ -2138,10 +2065,10 @@ var client ={
 for (var property in client){
     console.log(client[property]);
 }
-</textarea></code></pre>
+</code></pre>
                     <p>But what if you want to loop with for/in in our html document?</p>
                     <p>We have a list of items in our html like this:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltdiv class="container">
     &ltul id="products">
         <!--Inserted dynamically-->
@@ -2150,18 +2077,18 @@ for (var property in client){
         &ltli> tvs &lt/li>
     &lt/ul>
 &lt/div>
-</textarea></code></pre>
+</code></pre>
                     <p>The below code will show us HTML Object,function etc..</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = document.getElementById("products").getElementsByTagName("li");
 
 for (var property in products){
     //Let's see what type is each products property with typeOf
     console.log(typeOf products[property]);
 }
-</textarea></code></pre>
+</code></pre>
                     <p>To fix this we do this:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = document.getElementById("products").getElementsByTagName("li");
 
 for (var property in products){
@@ -2173,10 +2100,10 @@ for (var property in products){
     }
 
 }
-</textarea></code></pre>
+</code></pre>
                     <p>You see how useful break is since we don't need to continue if there are not objects in.</p>
                 <p>We can use loops in arguments:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 function addNumbers(){
     var sum = 0;
 
@@ -2188,7 +2115,7 @@ function addNumbers(){
 }
 
 console.log(addNumbers(6,2));
-</textarea></code></pre>
+</code></pre>
                     <p>We are adding each arguments property to sum we return sum and then give arguments
                     to the function in our console.
                     </p>
@@ -2200,7 +2127,7 @@ console.log(addNumbers(6,2));
                 <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
                 <p>What we will get of our two console.logs?</p>
 
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Loop variable
 var i = 6;
 
@@ -2219,7 +2146,7 @@ function doWhile(){
 }
 
 console.log(i);
-</textarea></code></pre>
+</code></pre>
                 <p><button>Show result and explanation</button></p>
             </section> <!--Mysterious code while loops-->
 
@@ -2228,7 +2155,7 @@ console.log(i);
                 <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
                 <p>What x will be in the following code at our console?</p>
 
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var x ;
 
 var client ={
@@ -2241,7 +2168,7 @@ for (var property in client){
 }
 
 console.log(x);
-</textarea></code></pre>
+</code></pre>
                 <p><button>Show result and explanation</button></p>
             </section> <!--Mysterious code for/in loops-->
 
@@ -2273,72 +2200,72 @@ console.log(x);
             <section>
             <h3>DOM properties</h3>
             <p>Let's say we have this html code so we use it with DOM properties below:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltsection id="mainSection">
     &ltdiv>I am a div &lt/div>
 &lt/section>
-</textarea></code></pre>
+</code></pre>
             <ol>
                 <li><h4>nodeName</h4>
                     <p>Name of node. Most times the tag name.</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Store the nodeName of id mainSection
 var products = document.getElementById("mainSection").nodeName;
 //It will show us SECTION
 console.log(products);
-</textarea></code></pre>
+</code></pre>
                 </li>
 
                 <li><h4>Attributes</h4>
                 <p>The attributes property returns the node's attributes.</p>
                     <p>In our html:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltdiv id="productsId">Item1&lt/div>
-</textarea></code></pre>
+</code></pre>
                     <p>In javascript:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = document.getElementById("productsId").attributes[0].nodeValue;
 
 console.log(products);
-</textarea></code></pre>
+</code></pre>
                     <p>It will return productsId since this is the value of our 0 indexed attribute</p>
                 </li>
                 <li><h4>nodeValue</h4>
                 <p>It returns the value of the node but you must call the index of the attributes array which was
                 created as you can see in your tools:
                 </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = document.getElementById("mainSection").attributes[0].nodeValue;
 
 console.log(products);
-</textarea></code></pre>
+</code></pre>
                     <p>It will return the id which id mainSection.</p>
                     <p>Though this is a confusing way so we better use the getAttribute method:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = document.getElementById("mainSection");
 
 console.log(products.getAttribute("id"));
-</textarea></code></pre>
+</code></pre>
                     <p>We are just saying to get the id attribute.You can find classes or any attribute.</p>
                 </li>
                 <li><h4>setAttribute</h4>
                     <p>This is more powerful since we can search the whole document and add an attribute dynamically.</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = document.getElementById("mainSection");
 
 
 //Adding attribute class with value addedClass
 products.setAttribute("class","addedClass");
-</textarea></code></pre>
+</code></pre>
                     <p>Now check your developer tools the mainSection id that has the class addedClass.</p>
 
                 </li>
                 <li><h4>removeAttribute</h4>
                 <p>This is the opposite and you remove an attribute that you don't want anymore:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Removing a class attribute
 products.removeAttribute("class");
-</textarea></code></pre>
+</code></pre>
 
                 </li>
 
@@ -2355,47 +2282,47 @@ products.removeAttribute("class");
                 <li><h4>firstChild</h4>
                     <p>First node child.</p>
                     <p>Suppose we have in our html:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltul id="mainSection">
     &ltli>Item1&lt/li>
     &ltli>Item2&lt/li>
     &ltli>Item3&lt/li>
     &lt/ul>
-</textarea></code></pre>
+</code></pre>
                     <p>In javascript:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = document.getElementById("mainSection").firstChild;
 
 console.log(products);
-</textarea></code></pre>
+</code></pre>
                     <p>You will notice that it returns #text. This because of the empty space we have.
                     If we do:
                     </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltul id="mainSection">&ltli>Item1&lt/li>
     &ltli>Item2&lt/li>
     &ltli>Item3&lt/li>
     &lt/ul>
-</textarea></code></pre>
+</code></pre>
                     <p>Now you get the first child which is:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltli>Item1&lt/li>
-</textarea></code></pre>
+</code></pre>
                     <p>Our html code:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltul id="mainSection">
     &ltli>Item1&lt/li>
     &ltli>Item2&lt/li>
     &ltli>Item3&lt/li>
     &lt/ul>
-</textarea></code></pre>
+</code></pre>
                     <p>To access the text in it you should do something like:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = document.getElementById("mainSection").childNodes[1].firstChild.nodeValue;
 
 
 console.log(products);
-</textarea></code></pre>
+</code></pre>
                     <p class="alert">The above code is bad and hard to understand.
                         Don't try to access nodes like that since you and your team will get lost, even if
                         you are the best programmers.</p>
@@ -2408,11 +2335,11 @@ console.log(products);
                 <li><h4>innerHTML</h4>
                 <p>We have already see it and it's a property for the content of an element. </p>
                     <p>Let's improve our above bad code:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = document.getElementById("mainSection").getElementsByTagName("li")[0].innerHTML;
 
 console.log(products);
-</textarea></code></pre>
+</code></pre>
 
 
                 </li>
@@ -2420,28 +2347,28 @@ console.log(products);
                 <p>Textcontent works like innerHTML with the disadvantage of being supported in IE>9
                 and one major advantage that shows only the text we have nothing else.
                 </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltdiv id="products">&ltspan>I'm inside div.&lt/span>&lt/div>
-</textarea></code></pre>
+</code></pre>
 
                 <p>With innerHTML </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = document.getElementById("products").innerHTML;
-</textarea></code></pre>
+</code></pre>
                     <p>We would have &ltspan>I'm inside div.&lt/span></p>
                     <p>But with textContent we get only the content which will be:<strong> I'm inside div.</strong></p>
                 </li>
                 <li><h4>previousSibling and nextSibling</h4>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltul id="products">&ltli id="item1">Item1&lt/li>&ltli id="item2">Item2&lt/li>&ltli id="item3">Item3&lt/li>
 &lt/ul>
-</textarea></code></pre>
+</code></pre>
                     <p>And in our javascript:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = document.getElementById("item1").nextSibling.innerHTML;
 
 console.log(products);
-</textarea></code></pre>
+</code></pre>
                     <p>We wil get Item2.</p>
                     <p class="alert-warning">Note that I made the html code without white spaces
                     else it counts differently.
@@ -2474,34 +2401,34 @@ console.log(products);
                     </li>
 
                     <li><h4>getElementsByName() Method</h4>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltinput name="firstName" type="text" value="George">
-</textarea></code></pre>
+</code></pre>
                         <p>It will search for all elements with the attribute name and the value we want.</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var firstName = document.getElementsByName("firstName");
 
 //Will return George
 console.log(firstName);
-</textarea></code></pre>
+</code></pre>
                     </li>
                     <li><h4>querySelectorAll() Method</h4>
                         <p>A pretty strong method that returns all CSS selectors like id and classes.
                             Also it creates an array you can access by index. </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltul id="mainSection">
     &ltli class="products">Item1&lt/li>
     &ltli class="products">Item2&lt/li>
     &ltli class="products">Item3&lt/li>
     &lt/ul>
-</textarea></code></pre>
+</code></pre>
                         <p>Of course we can see how many items have with this class:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = document.querySelectorAll('.products');
 
 //Will return how many items have the class products
 console.log(products.length);
-</textarea></code></pre>
+</code></pre>
                         <p>It will return 3.</p>
                     </li>
                     <li><h4>querySelector() Method</h4>
@@ -2513,12 +2440,12 @@ console.log(products.length);
                     browsers <= IE 8.
                     </p>
                         <p>Also you can do something more advanced like this:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = document.querySelector('#mainSection li ');
 
 
 console.log(products);
-</textarea></code></pre>
+</code></pre>
                         <p>It will show the first list of id mainSection.</p>
                         <p><button>Show multiple choice</button></p>
                     </li>
@@ -2532,21 +2459,21 @@ console.log(products);
             <h3>Manipulate CSS with javascript</h3>
                 <p>We will start applying what we learned to change some styling in CSS.</p>
                 <p>Our html:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltul id="mainSection">
     &ltli class="products">Item1&lt/li>
     &ltli class="products">Item2&lt/li>
     &ltli class="products">Item3&lt/li>
 &lt/ul>
-</textarea></code></pre>
+</code></pre>
                 <p>In javascript:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var products = document.querySelector('#mainSection');
 
 products.style.backgroundColor = "#f2e6d9";
 
 products.style.borderRadius = "25px";
-</textarea></code></pre>
+</code></pre>
                 <p>Style is an object and you access its properties like above.</p>
                 <p>Result:</p>
                 <ul id="mainSection">
@@ -2564,10 +2491,10 @@ products.style.borderRadius = "25px";
                 <ol>
                     <li><h4>createElement()</h4>
                     <p>In our javascript:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Storing the created p to a var
 var p= document.createElement("p");
-</textarea></code></pre>
+</code></pre>
                         <p>We used the method createElement to create p.
                         </p>
                         <p>But we have just created it without putting anywhere.</p>
@@ -2575,58 +2502,58 @@ var p= document.createElement("p");
                     </li>
                     <li><h4>appendChild() and removeChild()</h4>
                     <p>To have it in our html you must append it:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltdiv id="text">&lt/div>
-</textarea></code></pre>
+</code></pre>
 
                 <p>In javascript:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 p.style.backgroundColor = "lightblue";
 p.style.padding = "5px";
 p.textContent ="Appended with javascript! How cool you are?";
 var text= document.querySelector("#text");
 
 text.appendChild(p);
-</textarea></code></pre>
+</code></pre>
                     <p>Result:</p>
                     <div id="text"></div>
                         <p>Check with your developer tools that it has all attributes and values
                         we gave it with javascript.
                         </p>
                         <p>And to remove it:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 text.removeChild(p);
-</textarea></code></pre>
+</code></pre>
                         <!--Mysterious code ++x vs x++-->
                         <section >
                             <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
                             <p>Our html:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltarticle id="mainArticle">&ltarticle>
-</textarea></code></pre>
+</code></pre>
 
                             <p>Inside let's create a section:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var mainArticle = document.getElementById("mainArticle");
 var newSection = document.createElement("section");
-newSection.innerHTML = "<p id='sectionParagraph'>Dynamically created paragraph</p>";
+newSection.innerHTML = "&lt;p id='sectionParagraph'>Dynamically created paragraph&lt;/p>";
 mainArticle.appendChild(newSection);
-</textarea></code></pre>
+</code></pre>
                             <p>Manipulate the sectionParagraph with javascript:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var sectionParagraph = document.getElementById("sectionParagraph");
 sectionParagraph.style.border = "1px solid black";
-</textarea></code></pre>
+</code></pre>
                             <p>Result:</p>
                             <article id="mainArticle">
 
                             </article>
                             <p>See with your developers tools that's created correctly.</p>
                             <p>What we will get by having this:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 newSection.innerHTML += "hello";
 sectionParagraph.style.border = "1px solid black";
-</textarea></code></pre>
+</code></pre>
                             <p class="alert-info">HINT: when you use again innerHTML it resets the content.</p>
                             <p><button>Show result and explanation</button></p>
                         </section> <!--Mysterious code ++x vs x++-->
@@ -2673,9 +2600,9 @@ sectionParagraph.style.border = "1px solid black";
 
                 <li><h3>onclick Event</h3>
                     <p>Create a div and give it an id and inline onclick event: </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltdiv id="firstEvent" onclick="alert('your first event!')">click me &lt/div>
-</textarea></code></pre>
+</code></pre>
                     <p>When you click the div in your page, onclick event triggers the alert method. </p>
                     <p><strong>But as we said putting something inline is bad practice and you should avoid it.</strong> </p>
                     <p>Let's create it in our javascript by using documentGetElementById. </p>
@@ -2684,11 +2611,11 @@ sectionParagraph.style.border = "1px solid black";
                     <section >
                         <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
                         <p>Will alert trigger normally when we click firstEvent?</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var firstEvent = document.getElementById("firstEvent");
 
 firstEvent.onclick = alert('your first event!');
-</textarea></code></pre>
+</code></pre>
                         <p><button>Show result and explanation</button></p>
                     </section> <!--End Mysterious code event triggering-->
                 </li>
@@ -2700,23 +2627,23 @@ firstEvent.onclick = alert('your first event!');
                     <p>It refers to the object or element that's owns the current code but let's see it in action.</p>
 
                     <p>Let's have two fixed width images in our html inside two divs :</p>
-<pre><code class="language-javascript"><textarea readonly>
-&ltdiv class="productsLayout ">
-    &ltimg  class="productImg" src="assets/img/turntable.jpg" alt="Turntable">
-    &ltbutton class="buyMe">Buy Me&lt/button>
-&lt/div >
-&ltdiv class="productsLayout ">
-    &ltimg  class="productImg"  src="assets/img/amplifier.png" alt="Amplifier">
-    &ltbutton class="buyMe">Buy Me&lt/button>
-&lt/div>
-</textarea></code></pre>
+<pre><code class="language-javascript">
+&lt;div class="productsLayout ">
+    &lt;img  class="productImg" src="assets/img/turntable.jpg" alt="Turntable">
+    &lt;button class="buyMe">Buy Me&lt/button>
+&lt;/div >
+&lt;div class="productsLayout ">
+    &lt;img  class="productImg"  src="assets/img/amplifier.png" alt="Amplifier">
+    &lt;button class="buyMe">Buy Me&lt/button>
+&lt;/div>
+</code></pre>
 
 
-                    <p><h3>onmouseover and onmouseout</h3></p>
+                    <h3>onmouseover and onmouseout</h3>
                     <p>Your client wants when you hover a product an effect and buy button to appear.</p>
                     <p class="alert-info">Note : This can be done with CSS also using the selector hover.</p>
                     <p>In our javascript:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //Remember that querySelectorAll creates an array
 var product = document.querySelectorAll(".productsLayout");
 
@@ -2743,7 +2670,7 @@ function productHoverEffect() {
 
 //Start the function for effects
 productHoverEffect();
-</textarea></code></pre>
+</code></pre>
                     <p>Now we said : this element(in our case product[0] or product[1]) invoked the function so run your code for this element. It's like showing this, this, this.  </p>
                     <p>Remember we used "this" in constructor when we wanted to refer to "this" object.</p>
                     <p>If we didn't have this we would have to write for each element id a function or use
@@ -2766,7 +2693,7 @@ productHoverEffect();
                     </div>
                     <p>Don't forget to look your developer tools for details for your front end code like html,CSS and javascrit.</p>
                     <p class="alert-danger"><strong >Bad bad bad code without this keyword</strong></p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 function greyEffect() {
     product[0].style.backgroundColor = "#f2f2f2";
     product[0].children[1].style.display = "inline-block";
@@ -2777,7 +2704,7 @@ function normalImg(){
     product[0].style.backgroundColor = "white";
     product[0].children[1].style.display = "none";
 }
-</textarea></code></pre>
+</code></pre>
                     <p>How would we do that for each element like that?</p>
                     <p>That's why "this" is the COOLEST keyword you must learn. It says Heyyyy
                     I want only <strong>this</strong>  don't give me anything else!
@@ -2799,17 +2726,17 @@ function normalImg(){
                     <section >
                         <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
                         <p>Our html code:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltdiv id="firstEvent" onclick="alert('red wins!')">click me &lt/div>
-</textarea></code></pre>
+</code></pre>
                         <p>What we will get in our console if we have also this external javascript with defer?</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var firstEvent = document.getElementById("firstEvent");
 
 firstEvent.onclick = function(){
     console.log('blue wins!');
 }
-</textarea></code></pre>
+</code></pre>
                         <p><button>Show result and explanation</button></p>
                     </section> <!--End Mysterious code event triggering-->
 
@@ -2819,13 +2746,13 @@ firstEvent.onclick = function(){
                 <p>The onload event is VERY VERY important and it says only when an object have finished
                 loading trigger.
                 </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 window.onload = function(){
 
     //Put your code here
 
 }
-</textarea></code></pre>
+</code></pre>
                     <p>With this code we are saying to run the code after the entire page has loaded(everything).
                     </p>
                     <p>So even if you remove the defer attribute from the script(since some older browsers
@@ -2841,12 +2768,12 @@ window.onload = function(){
                     will run all our functions but that's not clean and descriptive code.
                 </p>
                 <p>Our html:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltdiv id="canYouHearMe">Can you hear me? &lt/div >
-</textarea></code></pre>
+</code></pre>
 
                     <p>In javascript:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 //=====Event listener=====
 var canYouHearMe = document.getElementById("canYouHearMe");
 
@@ -2867,29 +2794,29 @@ function reset(){
 canYouHearMe.addEventListener("mouseover",changeText);
 canYouHearMe.addEventListener("mouseover",changeColor);
 canYouHearMe.addEventListener("mouseout",reset);
-</textarea></code></pre>
+</code></pre>
                     <p>Result:</p>
                     <div id="canYouHearMe">Can you hear me? </div >
                     <p>Pretty clean and understandable code without saying on just mouseover or mouseout.</p>
 
                     <p class="alert-info">If we want to get the value of a CSS property we have to do this:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var canYouHearMe = document.getElementById("canYouHearMe");
 var  currentColor = window.getComputedStyle(canYouHearMe).getPropertyValue("color");
 console.log(currentColor);
-</textarea></code></pre>
+</code></pre>
                     <p>You see it returns the rgb color. You can convert RGB, hex <a href="http://www.w3schools.com/colors/colors_picker.asp">here in color picker</a>. </p>
                     <p>Now let's see how to removeEventListener:</p>
                     <p>Our html:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltdiv id="stopChangingColor">Stop changing color&lt/div >
-</textarea></code></pre>
+</code></pre>
                     <p>Javascript:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 stopChangingColor.addEventListener("click",function () {
    canYouHearMe.removeEventListener("mouseover",changeColor) ;
 });
-</textarea></code></pre>
+</code></pre>
                     <button id="stopChangingColor">Stop changing color </button>
                     <p>If you press the button you will see at "Can You Hear Me" that color won't change anymore.</p>
                 <p class="alert-warning">Note : IE 6 ,7 ,8 don't support addEventListener and removeEventListener.
@@ -2906,11 +2833,11 @@ stopChangingColor.addEventListener("click",function () {
                     <p>The event argument is needed only if you are gonna use it.</p>
 
                     <p>Out html:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltdiv id="coolDiv">Click the cool div to see the event object &lt/div >
-</textarea></code></pre>
+</code></pre>
                     <p>Javascript:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var coolDiv = document.getElementById("coolDiv");
 
 //Since we have an event on coolDiv the first argument e is an event object with properties
@@ -2920,7 +2847,7 @@ function doSomething(event){
 
 //onmousemove event for cooldDiv
 coolDiv.onclick = doSomething ;
-</textarea></code></pre>
+</code></pre>
                     <p>The altKey property checks if alt is pressed. So if you click the cool div without
                     having pressed alt it returns false else true.</p>
                     <p>Result:</p>
@@ -2933,11 +2860,11 @@ coolDiv.onclick = doSomething ;
 
                     <section><h4>Event target</h4>
                         <p>The target event property returns the element that triggered the event:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 function doSomething(event){
     console.log(event.target.nodeName);
 }
-</textarea></code></pre>
+</code></pre>
                         <p>We will see at our console "div".</p>
 
                     </section>
@@ -2947,7 +2874,7 @@ function doSomething(event){
                     extra arguments you have to do this:
 
                     </p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 coolDiv.onclick = function(event){
    doSomething(event ,"second argument passed");
 
@@ -2956,7 +2883,7 @@ coolDiv.onclick = function(event){
 function doSomething(event, secondArgument){
         coolDiv.innerHTML = secondArgument;
 }
-</textarea></code></pre>
+</code></pre>
                     <p>Now you will see second argument passed to appear when you click in your coolDiv. Try it!</p>
                     <p>We created an anonymous function for onclick event which we passed the second argument and as first argument "event".</p>
                     </section>
@@ -2981,13 +2908,13 @@ function doSomething(event, secondArgument){
                     Users don't like redirection so it would be better to inform them if they need to be redirected.
                     </p>
                     <p>In our javascript:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 function prevent(event) {
     event.preventDefault();
 }
 
 menuItem3.onclick = prevent;
-</textarea></code></pre>
+</code></pre>
                     <p>You will see that nothing happens when we click our menuItem3.</p>
                     </section>
 
@@ -3020,13 +2947,13 @@ menuItem3.onclick = prevent;
                         </p>
                         <p>Sounds little confusing so let't see it in action.</p>
                         <p>Our html:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltdiv id="bigCircle">
     &ltdiv id="medCircle">
         &ltdiv id="smallCircle">&lt/div>
     &lt/div>
 &lt/div>
-</textarea></code></pre>
+</code></pre>
                         <p>Check your developer tools for CSS and here is the result:</p>
                         <div id="bigCircle">
                             <div id="medCircle">
@@ -3034,7 +2961,7 @@ menuItem3.onclick = prevent;
                             </div>
                         </div>
                         <p>And javascript:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var bigCircle = document.getElementById("bigCircle");
 
 function increaseCircle(event,whatCircle){
@@ -3048,7 +2975,7 @@ function increaseCircle(event,whatCircle){
 bigCircle.onclick = function(event){
     increaseCircle(event,this);
 };
-</textarea></code></pre>
+</code></pre>
                         <p>As you can see even if we have only the bigCircle's id the event works for
                         all elements inside it.
                             Also notice that we are storing event || window.event(for IE<=8) to a var.
@@ -3056,7 +2983,7 @@ bigCircle.onclick = function(event){
                             again used for IE<=8)
                         </p>
                         <p>But what if you had this code:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var bigCircle = document.getElementById("bigCircle");
 var medCircle = document.getElementById("medCircle");
 var smallCircle = document.getElementById("smallCircle");
@@ -3077,7 +3004,7 @@ medCircle.onclick = function(event){
 smallCircle.onclick = function(event){
     increaseCircle(event,smallCircle);
 };
-</textarea></code></pre>
+</code></pre>
                         <p>You will notice that if you click the small circle all circles change.
                             But how since you clicked only the id you wanted?</p>
                         <p><button>Explanation and how to stop it</button></p>
@@ -3086,17 +3013,17 @@ smallCircle.onclick = function(event){
                 <li><h3>onscroll Event, scrollBy() and pageYOffset </h3>
                     <p>Let's create a back to top button and see where our scroll bar is:</p>
                     <p>Our html:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltdiv id="backToTop">Back To Top&lt/div>
 &ltdiv>Your scroll pageYOffset is: &ltspan id="pageOffSetY">&lt/span>&lt/div>
-</textarea></code></pre>
+</code></pre>
                     <p>Remember to check your developer tools to see the styling!</p>
 
 
                     <div id="backToTop">Back To Top</div>
                     <div>Move slowly your scroll bar and you pageYOffset is : <span id="pageOffSetY"></span></div>
                     <p>Our javascript:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 var backToTop = document.getElementById("backToTop");
 var pageOffSet = document.getElementById("pageOffSetY");
 
@@ -3115,7 +3042,7 @@ window.onscroll = function () {
 
     pageOffSet.innerHTML = parseInt(window.pageYOffset);
 };
-</textarea></code></pre>
+</code></pre>
                     <p>We are saying when we click backToTop change scroll which the first parameter is x axis the second y axis. Try
                     to change it to a value like 100 200 or something to see what happens so you can understand. Now we are saying
                     to go to top.
@@ -3139,9 +3066,9 @@ window.onscroll = function () {
                     <p>Let's become directors and create a 3,2,1,action numbering: </p>
                     <button id="startCounting">Start Counting!</button>
                     <p>Our html:</p>
-<pre><code class="language-javascript"><textarea readonly>
+<pre><code class="language-javascript">
 &ltdiv id="counter">&lt/div>
-</textarea></code></pre>
+</code></pre>
                     <p>And the code for timer in javascript:</p>
 <pre><code class="language-javascript">var startCounting = document.getElementById("startCounting");
 var counter = document.getElementById("counter");
@@ -3196,6 +3123,74 @@ startCounting.onclick = function () {
                     <p>Let's create a cool TimeWatch for your workouts since you must train your body also
                     not only your mind.
                     </p>
+                    <div class="timerWatchBox ">
+                        <div class="row">
+                            <div class="col-md-6">Minutes</div>
+                            <div class="col-md-6">Seconds</div>
+                        </div>
+                        <div id="stopWatch">
+
+                                <div id="minutes" class="col-md-6">0</div>
+                                <div id="seconds" class="col-md-6">0</div>
+
+                        </div>
+                        <div class="text-center stopWatchButtons">
+                            <button id="startTimerWatch">Start</button>
+                            <button id="addMinutes">Add minutes</button>
+                            <button id="stopTimer" >Stop</button>
+
+                        </div>
+                    </div>
+                    <p>And our javascript:</p>
+<pre><code class="language-javascript">
+    //===TimerWatch=====
+    var minutes = document.getElementById("minutes");
+    minutes.innerHTML =0;
+    var addMinutes = document.getElementById("addMinutes");
+
+    function moreMinutes(){
+    addMinutes.onclick = function () {
+    var test= parseInt(minutes.innerHTML);
+    test++;
+    minutes.innerHTML = test;
+    console.log(minutes);
+    }
+    }
+    moreMinutes();
+
+    var seconds = document.getElementById("seconds");
+    var startValue = 5;
+    seconds.value = startValue;
+
+
+    function reduceSeconds(){
+    seconds.value--;
+    console.log(seconds.value);
+    seconds.innerHTML = seconds.value;
+    for(i = 0; i < 5; i++){
+
+    if(seconds.value == 0){
+    console.log("seconds 0");
+    reduceMinutes();
+    seconds.value = 5;
+    }
+    }
+
+    }
+
+    function reduceMinutes(){
+    minutes.innerHTML--;
+    }
+
+    function startTimer(){
+        var startTimerWatch = document.getElementById("startTimerWatch");
+        startTimerWatch.onclick = function () {
+        setInterval(reduceSeconds,1000);
+        };
+    }
+
+    startTimer();
+</code></pre>
                 </li>
 
 
