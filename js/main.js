@@ -236,9 +236,9 @@ var minutes = document.getElementById("minutes");
 minutes.innerHTML = 0;
 var addMinutes = document.getElementById("addMinutes");
 
+var minutesInteger= parseInt(minutes.innerHTML);
 function moreMinutes(){
     addMinutes.onclick = function () {
-        var minutesInteger= parseInt(minutes.innerHTML);
         minutesInteger++;
         minutes.innerHTML = minutesInteger;
     }
@@ -248,19 +248,27 @@ moreMinutes();
 var seconds = document.getElementById("seconds");
 
 
+const sixtySeconds = 60;
+var startingSeconds = sixtySeconds;
 
-var startValue = 60;
 function reduceSeconds(){
-    startValue--;
-    console.log(startValue);
-    seconds.innerHTML = startValue;
+    startingSeconds--;
+    seconds.innerHTML = startingSeconds;
 
-    for(i = 0; i < 5; i++){
-        if(startValue == 0){
-            console.log("seconds 0");
-            reduceMinutes();
-            startValue = 60;
+    for(i = 0; i < sixtySeconds; i++){
+        if(startingSeconds == 0 && minutes.innerHTML ==0){
+            console.log("stop");
+            i = sixtySeconds;
+            stopTimer();
+            alert("Workout end!!!!");
+            location.reload();
         }
+        else if(startingSeconds == 0 && minutesInteger > 0){
+            reduceMinutes();
+            startingSeconds = sixtySeconds;
+
+        }
+
     }
 
 }
@@ -273,6 +281,7 @@ function reduceMinutes(){
 var timer;
 function startTimer(){
        timer = setInterval(reduceSeconds,1000);
+
 }
 
 var startTimerWatch = document.getElementById("startTimerWatch");
@@ -280,43 +289,17 @@ startTimerWatch.onclick = function () {
 startTimer();
 
 };
-
-
+function stopTimer() {
+    clearInterval(timer);
+}
 
 var stop = document.getElementById("stopTimer");
 stop.onclick = function () {
-    clearInterval(timer);
+    stopTimer();
 };
 
 
 
-
-/*var startCounting = document.getElementById("startCounting");
-
-
-
-    var startingValue = 3;
-
-    function lower(){
-        counter.innerHTML = -- startingValue;
-    }
-
-
-    var counter = document.getElementById("counter");
-    counter.innerHTML= startingValue;
-
-    function director(){
-
-        counter.innerHTML= startingValue;
-        setInterval(lower,1000)
-
-    }
-    startCounting.onclick = function () {
-        director();
-    };
-
-
-*/
 
 
 
