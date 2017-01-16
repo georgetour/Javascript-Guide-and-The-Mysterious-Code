@@ -2936,7 +2936,6 @@ menuItem3.onclick = prevent;
                 <li>
 
 
-                    <p>If we wanted to stop the propagation(bubbling) and trigget </p>
                     <!--Event bubbling-->
                     <section >
                         <h3 class="mysteriousCode">Mysterious Code(interview question)</h3>
@@ -3143,61 +3142,101 @@ startCounting.onclick = function () {
                     </div>
                     <p>And our javascript:</p>
 <pre><code class="language-javascript">
-    //===TimerWatch=====
+    //Adding minutes
     var minutes = document.getElementById("minutes");
-    minutes.innerHTML =0;
-    var addMinutes = document.getElementById("addMinutes");
+    minutes.innerHTML = 0;
+    var minutesInteger= parseInt(minutes.innerHTML);
 
     function moreMinutes(){
+    minutesInteger++;
+    minutes.innerHTML = minutesInteger;
+    }
+
+
+    //With this click we call the moreMinutes function that adds minutes in timer
+    var addMinutes = document.getElementById("addMinutes");
     addMinutes.onclick = function () {
-    var test= parseInt(minutes.innerHTML);
-    test++;
-    minutes.innerHTML = test;
-    console.log(minutes);
-    }
-    }
     moreMinutes();
+    };
 
+
+    //Controlling the seconds
     var seconds = document.getElementById("seconds");
-    var startingSeconds = 5;
-    seconds.value = startingSeconds;
+    const sixtySeconds = 60;//Const for what seconds to start
+    var startingSeconds = sixtySeconds;
 
-
+    //The function that will control each second -- that we will pass below at setInterval
     function reduceSeconds(){
-    seconds.value--;
-    console.log(seconds.value);
-    seconds.innerHTML = seconds.value;
-    for(i = 0; i < 5; i++){
+    startingSeconds--;
+    seconds.innerHTML = startingSeconds;
 
-    if(seconds.value == 0){
-    console.log("seconds 0");
-    reduceMinutes();
-    seconds.value = 5;
-    }
-    }
+    //This loop checks every second the conditions like a live browser
+    for(i = 0; i < sixtySeconds; i++){
+        if(startingSeconds == 0 && minutes.innerHTML ==0){
+        i = sixtySeconds;
+        stopTimer();
+        alert("Workout end!!!!");
+        location.reload();
+        }
+        //Calling reduceMinutes and restarting the seconds at sixty if condition
+        else if(startingSeconds == 0 && minutesInteger > 0){
+        reduceMinutes();
+        startingSeconds = sixtySeconds;
+        }
+    }//Loop close
 
     }
 
+
+    //Simply reduce minutes
     function reduceMinutes(){
     minutes.innerHTML--;
     }
 
+    //The setInterval for reduceSeconds
+    var timer;
     function startTimer(){
-        var startTimerWatch = document.getElementById("startTimerWatch");
-        startTimerWatch.onclick = function () {
-        setInterval(reduceSeconds,1000);
-        };
+    timer = setInterval(reduceSeconds,1000);
+
     }
 
+    //Start timer button
+    var startTimerWatch = document.getElementById("startTimerWatch");
+    startTimerWatch.onclick = function () {
     startTimer();
+    };
+
+    //cleanInterval
+    function stopTimer() {
+    clearInterval(timer);
+    }
+
+    //Stop timer
+    var stop = document.getElementById("stopTimer");
+    stop.onclick = function () {
+    stopTimer();
+    };
 </code></pre>
-                </li>
-
-
+                    <h3>Exercise</h3>
+                    <p>Improve code with Object Oriented way</p>
+                    <p ><span class="alert-info">HINT : Remember when we use an object constructor? Use what we learned.
+                        Within the constructor create the functions in it and then call
+                    them from the object.
+                    </span></p>
+                    </li>
             </ol>
-
-
         </section><!--End events-->
+
+        <hr>
+
+        <section>
+            <h2>Create a validation form</h2>
+            <p>Sometimes we want to validate a form so user gives us the correct info. The most important
+            thing though is to prevent bots and increase security for our sites. Though this can be done
+            with back end the best way as suggested in stackoverflow which I totally agree is to have both front end
+            and back end security measures.
+            </p>
+        </section>
 
     </article><!--End Full article-->
 </main><!--End main-->

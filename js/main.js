@@ -1,6 +1,8 @@
 /*====Pure javascript DOM manipulation with no jquery====*/
 
 
+window.onload = function () {
+
 
 //=====Manipulate CSS with javascript=====
 var products = document.querySelector('#mainSection');
@@ -231,75 +233,91 @@ startCounting.onclick = function () {
 };//====End Director Timer====
 
 
+
+
+
 //===TimerWatch=====
+
+//Adding minutes 
 var minutes = document.getElementById("minutes");
 minutes.innerHTML = 0;
-var addMinutes = document.getElementById("addMinutes");
-
 var minutesInteger= parseInt(minutes.innerHTML);
+
 function moreMinutes(){
-    addMinutes.onclick = function () {
         minutesInteger++;
         minutes.innerHTML = minutesInteger;
-    }
+
 }
-moreMinutes();
 
+
+//With this click we call the moreMinutes function that adds minutes in timer
+var addMinutes = document.getElementById("addMinutes");
+addMinutes.onclick = function () {
+    moreMinutes();
+};
+
+
+
+//Controlling the seconds
 var seconds = document.getElementById("seconds");
-
-
-const sixtySeconds = 60;
+const sixtySeconds = 5;//Const for what seconds to start
 var startingSeconds = sixtySeconds;
 
+//The function that will control each second -- that we will pass below at setInterval
 function reduceSeconds(){
     startingSeconds--;
     seconds.innerHTML = startingSeconds;
 
+    //This loop checks every second the conditions like a live browser
     for(i = 0; i < sixtySeconds; i++){
         if(startingSeconds == 0 && minutes.innerHTML ==0){
-            console.log("stop");
-            i = sixtySeconds;
+            i = sixtySeconds;//This stops the alert from popping multiple times
             stopTimer();
             alert("Workout end!!!!");
             location.reload();
         }
+         //Calling reduceMinutes and restarting the seconds at sixty if condition
         else if(startingSeconds == 0 && minutesInteger > 0){
             reduceMinutes();
             startingSeconds = sixtySeconds;
 
         }
 
-    }
+    }//Loop close
 
 }
 
+
+//Simply reduce minutes 
 function reduceMinutes(){
     minutes.innerHTML--;
 }
 
-
+//The setInterval for reduceSeconds
 var timer;
 function startTimer(){
        timer = setInterval(reduceSeconds,1000);
 
 }
 
+//Start timer button
 var startTimerWatch = document.getElementById("startTimerWatch");
 startTimerWatch.onclick = function () {
-startTimer();
-
+    startTimer();
 };
+
+//cleanInterval
 function stopTimer() {
     clearInterval(timer);
 }
 
+//Stop timer
 var stop = document.getElementById("stopTimer");
 stop.onclick = function () {
     stopTimer();
 };
 
-
-
+};
 
 
 
