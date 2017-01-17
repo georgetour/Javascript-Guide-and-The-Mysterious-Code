@@ -323,15 +323,15 @@ stop.onclick = function () {
 
         //In a form we can get the value directly like that with name attribute
         var fullName = document.getElementById("myForm").fullName;
-        var email = document.getElementById("myForm").email;
         var phone = document.getElementById("myForm").phone;
         var submitFormButton = document.getElementById("myForm").submitFormButton;
         var formError = document.getElementById("formError");
-        
+
+        //Flag variable
+        var flag = 0;
 
 
-
-       fullName.onblur = function (event) {
+       fullName.onkeydown = function (event) {
            console.log  = event.which;
        };
 
@@ -344,15 +344,71 @@ stop.onclick = function () {
         phone.onkeydown = function (event) {
             //Lets only numbers to be pressed in our phone field
             if(!isNumber(String.fromCharCode(event.which))&& event.which !== 8){//Fix for backspace
-
+                flag = 0;
                 formError.innerHTML = "Please only numbers allowed";
                 formError.style.color = "red";
                 event.preventDefault();
             }
             else{
+                flag = 1;
                 formError.innerHTML = "";
             }
         };
+
+        submitFormButton.onclick = function (event) {
+            if(flag===0){
+                event.preventDefault();
+            }
+        };
+
+
+        //Pizza order
+        var pizzaForm = document.getElementById("pizzaForm");
+        var pizzaSubmit = document.getElementById("pizzaForm").pizzaFormButton;
+
+        var flagPizza = 0;
+        var vals = [];
+
+        pizzaSubmit.onclick = function (event) {
+
+        if(flagPizza === 0){
+            event.preventDefault();
+
+        }
+
+           for (var i=0; i < pizzaForm.pizzaSize.length; i++){
+                for (var k=0; k < pizzaForm.pizzaCrust.length; k++){
+                    for (var l=0; l < pizzaForm.pizzaTops.length; l++)
+                    {
+                        if(pizzaForm.pizzaSize[i].checked && pizzaForm.pizzaCrust[k].checked && pizzaForm.pizzaTops[l].checked){
+
+                           flagPizza = 1;
+
+                           var pizzaSize = pizzaForm.pizzaSize[i].value + " ";
+                           var pizzaCrust = pizzaForm.pizzaCrust[k].value + " ";
+
+
+                           vals.push(pizzaForm.pizzaTops[l].value);
+                           var pizzaTops = vals.join(' , ') + " ";
+
+                    }
+                    }
+                }
+
+            }
+
+            if(flagPizza===1){
+               alert("Your order for "+ pizzaSize+ pizzaCrust +"with "+ pizzaTops + "will be delivered in 40 minustes");
+               pizzaForm.submit();
+
+            }
+
+
+        };
+
+
+
+
 
         
 

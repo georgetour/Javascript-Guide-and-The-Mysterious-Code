@@ -3284,7 +3284,6 @@ startCounting.onclick = function () {
             <p>Our javascript:</p>
 <pre><code class="language-javascript">//In a form we can get the value directly like that with name attribute
     var fullName = document.getElementById("myForm").fullName;
-    var email = document.getElementById("myForm").email;
     var phone = document.getElementById("myForm").phone;
     var submitFormButton = document.getElementById("myForm").submitFormButton;
     var formError = document.getElementById("formError");
@@ -3337,6 +3336,68 @@ startCounting.onclick = function () {
             <p>With the code above we prevent the user from typing non numbers in our phone field
             and we show them error message.
             </p>
+            <p>Now let's create a flag variable to check if everything is as we want then the form will be submitted.</p>
+<pre><code class="language-javascript">
+    //Flag variable
+    var flag = 0;
+
+    phone.onkeydown = function (event) {
+            //Lets only numbers to be pressed in our phone field
+            if(!isNumber(String.fromCharCode(event.which))&& event.which !== 8){//Fix for backspace
+                flag = 0;
+                formError.innerHTML = "Please only numbers allowed";
+                formError.style.color = "red";
+                event.preventDefault();
+            }
+             else{
+                flag = 1;
+                formError.innerHTML = "";
+            }
+    };
+
+    submitFormButton.onclick = function (event) {
+        if(flag===0){
+            event.preventDefault();
+        }
+    };
+</code></pre>
+            <p>As you can see now the form can't be submitted but only if flag is 1
+                which we change with some conditions. We can do anything we want
+                check if fields are empty and change variable if they have non accepted characters and stuff like that.
+            </p>
+            <p>Also you can find patterns that don't accept specific characters easily in google or in my contact forms
+            code in my sites.
+            </p>
+            <p>Let's order some pizza for you next site that you will built for a pizza store!</p>
+            <h4>Choose your pizza:</h4>
+            <p>Our form:</p>
+            <form id="pizzaForm">
+                <div class="form-group">
+                    <label><input  class="pizzaInput" type="radio" name="pizzaSize" value="small">Small</label>
+                    <label><input class="pizzaInput"  type="radio" name="pizzaSize" value="medium">Medium</label>
+                    <label><input class="pizzaInput"  type="radio" name="pizzaSize" value="giant">Giant</label>
+                </div>
+
+                <div class="form-group">
+                    <label><input class="pizzaInput"   type="radio" name="pizzaCrust" value="thin">Thin</label>
+                    <label><input class="pizzaInput"  type="radio" name="pizzaCrust" value="crispy">Crispy</label>
+                    <label><input class="pizzaInput"  type="radio" name="pizzaCrust" value="juicy">Juicy</label>
+                </div>
+
+                <div class="form-group">
+                    <label><input  class="pizzaInput" type="checkbox" name="pizzaTops" value="pepperoni">Pepperoni</label>
+                    <label><input class="pizzaInput" type="checkbox" name="pizzaTops" value="Bacon Pieces">Bacon Pieces</label>
+                    <label><input class="pizzaInput" type="checkbox" name="pizzaTops" value="sausage">Sausage</label>
+                    <label><input class="pizzaInput" type="checkbox" name="pizzaTops" value="ham">Ham</label>
+                    <label><input class="pizzaInput" type="checkbox" name="pizzaTops" value="mozzarella">Mozzarella</label>
+                </div>
+
+                <div><input type="submit" name="pizzaFormButton" value="Order My pizza!"></div>
+
+            </form>
+            <p class="alert-danger">Of course you need backend, payment system and security measures but for front end
+                you rock!</p>
+
 
         </section>
 

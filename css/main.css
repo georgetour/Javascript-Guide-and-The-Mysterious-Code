@@ -207,6 +207,12 @@ input, textarea {
     height: 20px;
 }
 
+#pizzaForm .pizzaInput{
+    width: 20px;
+    margin: 5px;
+
+}
+
 
 
 
