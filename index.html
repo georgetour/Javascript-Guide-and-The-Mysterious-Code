@@ -3232,10 +3232,112 @@ startCounting.onclick = function () {
         <section>
             <h2>Create a validation form</h2>
             <p>Sometimes we want to validate a form so user gives us the correct info. The most important
-            thing though is to prevent bots and increase security for our sites. Though this can be done
-            with back end the best way as suggested in stackoverflow which I totally agree is to have both front end
+            thing though is to have an extra layer of protection and better user experience. Though this can be done
+            with back end the best way as suggested in Stackoverflow which I totally agree is to have both front end
             and back end security measures.
             </p>
+            <p>We can use the following events:</p>
+            <ol>
+                <li>onkeydown
+                    <p>Detects what key on our keyboard is down(pressed).</p>
+                </li>
+
+                <li>onkeypress
+                <p>Same as onkeydown but doesn't detect all keys like alt arrows etc.</p>
+                </li>
+                <li>onkeyup
+                <p>Detects when you the key is up(released).</p>
+                </li>
+
+                <li>onfocus
+                    <p>It means when we click inside the element something will happen.</p>
+                </li>
+
+                <li>onblur
+                    <p>The opposite of onfocus when you click and then leave with tab or click elsewhere.</p>
+                </li>
+
+                <li>onchange
+                    <p>The onchange event happens when a value of element changes.
+                        It's used more with radiobuttons and checkboxes.  </p>
+                </li>
+
+                <li>event.which
+                    <p>Gets the value of the pressed keyboard key.</p>
+                </li>
+            </ol>
+            <p>Our form:</p>
+            <form id="myForm">
+                <div><label for="fullName" >Full Name:</label></div>
+                <input  id="fullName" type="text" name="fullName">
+
+                <div><label for="email">Email:</label> </div>
+                <input  id="email" type="text" name="email">
+
+                <div><label for="phone">Phone:</label> </div>
+                <input   id="phone"  name="phone">
+                <div id="formError"></div>
+                <div><input type="submit" name="submitFormButton"></div>
+
+            </form>
+
+            <p>Our javascript:</p>
+<pre><code class="language-javascript">//In a form we can get the value directly like that with name attribute
+    var fullName = document.getElementById("myForm").fullName;
+    var email = document.getElementById("myForm").email;
+    var phone = document.getElementById("myForm").phone;
+    var submitFormButton = document.getElementById("myForm").submitFormButton;
+    var formError = document.getElementById("formError");
+</code></pre>
+<pre><code class="language-javascript">fullName.onkeydown = function (event) {
+    console.log  = event.which;
+};
+</code></pre>
+            <p>You can get the value of an input field directly by getting the id of the form and
+            the name of the input. Next we say when a key is down at fullName show which.
+            </p>
+            <p><span class="alert-warning">Note : IE <=8 needs e.keyCode instead of which so we have to write
+             var keyPressed = event.which || event.keyCode and use that variable accordingly.
+            </span></p>
+
+            <h4>isNaN function</h4>
+            <p>With this function we can check if something is not a number.</p>
+<pre><code class="language-javascript">
+    //Function that will check if something is a number
+    function isNumber(valueToCheck){
+        return !isNaN(valueToCheck);//So this becomes is a number two negatives gives us positive
+    }
+
+    phone.onkeyup = function (event) {
+        if(!isNumber(this.value)){
+            formError.innerHTML = "Please only numbers allowed";
+            formError.style.color = "red";
+        }
+        else{
+            formError.innerHTML = "";
+        }
+    };
+</code></pre>
+       <p>But we can use the String object and call the fromCharCode method that will convert
+       Unicode values to characters.
+       </p>
+<pre><code class="language-javascript">
+    phone.onkeydown = function (event) {
+        //Lets only numbers to be pressed in our phone field
+        if(!isNumber(String.fromCharCode(event.which))&& event.which !== 8){//Fix for backspace
+            formError.innerHTML = "Please only numbers allowed";
+            formError.style.color = "red";
+            event.preventDefault();
+        }
+        else{
+            formError.innerHTML = "";
+        }
+    };
+</code></pre>
+            <p>With the code above we prevent the user from typing non numbers in our phone field
+            and we show them error message.
+            </p>
+
         </section>
 
     </article><!--End Full article-->

@@ -1,7 +1,7 @@
 /*====Pure javascript DOM manipulation with no jquery====*/
 
 
-window.onload = function () {
+
 
 
 //=====Manipulate CSS with javascript=====
@@ -315,9 +315,59 @@ function stopTimer() {
 var stop = document.getElementById("stopTimer");
 stop.onclick = function () {
     stopTimer();
-};
+};//===End TimerWatch=====
 
-};
+
+
+//===Forms====
+
+        //In a form we can get the value directly like that with name attribute
+        var fullName = document.getElementById("myForm").fullName;
+        var email = document.getElementById("myForm").email;
+        var phone = document.getElementById("myForm").phone;
+        var submitFormButton = document.getElementById("myForm").submitFormButton;
+        var formError = document.getElementById("formError");
+        
+
+
+
+       fullName.onblur = function (event) {
+           console.log  = event.which;
+       };
+
+
+        //Function that will check if something is a number
+        function isNumber(valueToCheck){
+            return !isNaN(valueToCheck);//So this becomes is a number two negatives gives us positive
+        }
+
+        phone.onkeydown = function (event) {
+            //Lets only numbers to be pressed in our phone field
+            if(!isNumber(String.fromCharCode(event.which))&& event.which !== 8){//Fix for backspace
+
+                formError.innerHTML = "Please only numbers allowed";
+                formError.style.color = "red";
+                event.preventDefault();
+            }
+            else{
+                formError.innerHTML = "";
+            }
+        };
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

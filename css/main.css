@@ -195,6 +195,18 @@ td{
     margin: 7px;
 }
 
+textarea{
+    resize: none;
+}
+
+input, textarea {
+    width: 300px;
+}
+
+#formError{
+    height: 20px;
+}
+
 
 
 
