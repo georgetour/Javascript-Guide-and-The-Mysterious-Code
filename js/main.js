@@ -260,7 +260,7 @@ addMinutes.onclick = function () {
 
 //Controlling the seconds
 var seconds = document.getElementById("seconds");
-const sixtySeconds = 5;//Const for what seconds to start
+const sixtySeconds = 60;//Const for what seconds to start
 var startingSeconds = sixtySeconds;
 
 //The function that will control each second -- that we will pass below at setInterval
@@ -319,7 +319,7 @@ stop.onclick = function () {
 
 
 
-//===Forms====
+        //===Forms====
 
         //In a form we can get the value directly like that with name attribute
         var fullName = document.getElementById("myForm").fullName;
@@ -332,7 +332,7 @@ stop.onclick = function () {
 
 
        fullName.onkeydown = function (event) {
-           console.log  = event.which;
+           console.log(event.which);
        };
 
 
@@ -376,26 +376,27 @@ stop.onclick = function () {
 
         }
 
+            //Remember you can get the input of form directly if you have the form
            for (var i=0; i < pizzaForm.pizzaSize.length; i++){
                 for (var k=0; k < pizzaForm.pizzaCrust.length; k++){
-                    for (var l=0; l < pizzaForm.pizzaTops.length; l++)
-                    {
-                        if(pizzaForm.pizzaSize[i].checked && pizzaForm.pizzaCrust[k].checked && pizzaForm.pizzaTops[l].checked){
+                    for (var l=0; l < pizzaForm.pizzaTops.length; l++) {
+                        if(pizzaForm.pizzaSize[i].checked && pizzaForm.pizzaCrust[k].checked && pizzaForm.pizzaTops[l].checked){    
 
                            flagPizza = 1;
 
                            var pizzaSize = pizzaForm.pizzaSize[i].value + " ";
                            var pizzaCrust = pizzaForm.pizzaCrust[k].value + " ";
 
-
+                           //Adding values to the empty array
                            vals.push(pizzaForm.pizzaTops[l].value);
-                           var pizzaTops = vals.join(' , ') + " ";
 
-                    }
+                            var pizzaTops = vals.join(' , ') + " ";
+
+                        }
                     }
                 }
 
-            }
+            }//End for
 
             if(flagPizza===1){
                alert("Your order for "+ pizzaSize+ pizzaCrust +"with "+ pizzaTops + "will be delivered in 40 minustes");
@@ -404,12 +405,58 @@ stop.onclick = function () {
             }
 
 
-        };
+        };//End pizza submit order
+
+//================Enable/Disable radio button=====
+
+var acceptTerms = document.getElementById("acceptTerms");
+var acceptButton = document.getElementById("acceptButton");
+
+function terms(){
+
+    for (var i =0; i < acceptTerms.accept.length; i++){
+
+        acceptTerms.accept[i].onclick = function () {
+
+                if(this.value === "true"){
+                    acceptButton.disabled = false;
+                }else{
+                    acceptButton.disabled = true;
+                }
+
+        }
+    }
+
+}
+
+terms();
 
 
 
+    //===========Select form================
+    var superHeroesForm = document.getElementById("superHeroesForm");
+    var heroes = superHeroesForm.heroes;
+    var showSelectedOption = document.getElementById("showSelectedOption");
 
+    heroes.onchange = function(){
 
+        //showSelectedOption.innerHTML =heroes.options[0].text;
+        showSelectedOption.innerHTML =heroes.options[heroes.selectedIndex].value;
+        //showSelectedOption.innerHTML =this.value;
+    };
+
+    var addHero = document.getElementById("addHero");
+
+    addHero.onclick = function () {
+
+        var addHeroField = document.getElementById("addHeroField").value;
+        if(addHeroField) {
+            var newOption = document.createElement("option");
+            newOption.text = addHeroField;
+            heroes.add(newOption);
+        }
+
+    };
         
 
 

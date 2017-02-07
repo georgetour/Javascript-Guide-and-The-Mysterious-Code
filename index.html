@@ -3229,7 +3229,7 @@ startCounting.onclick = function () {
 
         <hr>
 
-        <section>
+        <section><!--Validation forms-->
             <h2>Create a validation form</h2>
             <p>Sometimes we want to validate a form so user gives us the correct info. The most important
             thing though is to have an extra layer of protection and better user experience. Though this can be done
@@ -3289,7 +3289,7 @@ startCounting.onclick = function () {
     var formError = document.getElementById("formError");
 </code></pre>
 <pre><code class="language-javascript">fullName.onkeydown = function (event) {
-    console.log  = event.which;
+    console.log(event.which);
 };
 </code></pre>
             <p>You can get the value of an input field directly by getting the id of the form and
@@ -3373,23 +3373,23 @@ startCounting.onclick = function () {
             <p>Our form:</p>
             <form id="pizzaForm">
                 <div class="form-group">
-                    <label><input  class="pizzaInput" type="radio" name="pizzaSize" value="small">Small</label>
-                    <label><input class="pizzaInput"  type="radio" name="pizzaSize" value="medium">Medium</label>
-                    <label><input class="pizzaInput"  type="radio" name="pizzaSize" value="giant">Giant</label>
+                    <label><input  class="formInput" type="radio" name="pizzaSize" value="small">Small</label>
+                    <label><input class="formInput"  type="radio" name="pizzaSize" value="medium">Medium</label>
+                    <label><input class="formInput"  type="radio" name="pizzaSize" value="giant">Giant</label>
                 </div>
 
                 <div class="form-group">
-                    <label><input class="pizzaInput"   type="radio" name="pizzaCrust" value="thin">Thin</label>
-                    <label><input class="pizzaInput"  type="radio" name="pizzaCrust" value="crispy">Crispy</label>
-                    <label><input class="pizzaInput"  type="radio" name="pizzaCrust" value="juicy">Juicy</label>
+                    <label><input class="formInput"   type="radio" name="pizzaCrust" value="thin">Thin</label>
+                    <label><input class="formInput"  type="radio" name="pizzaCrust" value="crispy">Crispy</label>
+                    <label><input class="formInput"  type="radio" name="pizzaCrust" value="juicy">Juicy</label>
                 </div>
 
                 <div class="form-group">
-                    <label><input  class="pizzaInput" type="checkbox" name="pizzaTops" value="pepperoni">Pepperoni</label>
-                    <label><input class="pizzaInput" type="checkbox" name="pizzaTops" value="Bacon Pieces">Bacon Pieces</label>
-                    <label><input class="pizzaInput" type="checkbox" name="pizzaTops" value="sausage">Sausage</label>
-                    <label><input class="pizzaInput" type="checkbox" name="pizzaTops" value="ham">Ham</label>
-                    <label><input class="pizzaInput" type="checkbox" name="pizzaTops" value="mozzarella">Mozzarella</label>
+                    <label><input  class="formInput" type="checkbox" name="pizzaTops" value="pepperoni">Pepperoni</label>
+                    <label><input class="formInput" type="checkbox" name="pizzaTops" value="Bacon Pieces">Bacon Pieces</label>
+                    <label><input class="formInput" type="checkbox" name="pizzaTops" value="sausage">Sausage</label>
+                    <label><input class="formInput" type="checkbox" name="pizzaTops" value="ham">Ham</label>
+                    <label><input class="formInput" type="checkbox" name="pizzaTops" value="mozzarella">Mozzarella</label>
                 </div>
 
                 <div><input type="submit" name="pizzaFormButton" value="Order My pizza!"></div>
@@ -3397,9 +3397,147 @@ startCounting.onclick = function () {
             </form>
             <p class="alert-danger">Of course you need backend, payment system and security measures but for front end
                 you rock!</p>
+            <p>Javascript code:</p>
+<pre><code class="language-javascript">
+    //Pizza order
+    var pizzaForm = document.getElementById("pizzaForm");
+    var pizzaSubmit = document.getElementById("pizzaForm").pizzaFormButton;
+
+    var flagPizza = 0;
+    var vals = [];
+
+    pizzaSubmit.onclick = function (event) {
+
+    if(flagPizza === 0){
+        event.preventDefault();
+    }
+
+    //Remember you can get the input of form directly if you have the form
+    for (var i=0; i < pizzaForm.pizzaSize.length; i++){
+        for (var k=0; k < pizzaForm.pizzaCrust.length; k++){
+            for (var l=0; l < pizzaForm.pizzaTops.length; l++) {
+                if(pizzaForm.pizzaSize[i].checked && pizzaForm.pizzaCrust[k].checked && pizzaForm.pizzaTops[l].checked){
+
+                flagPizza = 1;
+
+                var pizzaSize = pizzaForm.pizzaSize[i].value + " ";
+                var pizzaCrust = pizzaForm.pizzaCrust[k].value + " ";
+
+                //Adding values to the empty array
+                vals.push(pizzaForm.pizzaTops[l].value);
+
+                var pizzaTops = vals.join(' , ') + " ";
+
+                }
+            }
+        }
+    }//End for
+
+    if(flagPizza===1){
+        alert("Your order for "+ pizzaSize+ pizzaCrust +"with "+ pizzaTops + "will be delivered in 40 minutes");
+        pizzaForm.submit();
+
+    }
 
 
-        </section>
+    };//End pizza submit order
+</code></pre>
+            <h4>Enable/disable buttons</h4>
+
+            <form id="acceptTerms">
+                <div class="form-group">
+                    <div>Do you accept the terms?</div>
+                    <label><input class="termsInput" type="radio" name="accept" value="true">Yes</label>
+                    <label><input class="termsInput" type="radio" name="accept" value="false">No</label>
+                    <div><input id="acceptButton"  class="submit" type="submit"  name="" value="Submit" ></div>
+                </div>
+            </form>
+<pre><code class="language-javascript">function terms(){
+        for (var i =0; i < acceptTerms.accept.length; i++){
+
+            acceptTerms.accept[i].onclick = function () {
+
+                if(this.value === "true"){
+                    acceptButton.disabled = false;
+                }else{
+                    acceptButton.disabled = true;
+                }
+
+            }
+        }
+}
+
+terms();
+</code></pre>
+            <h4>options and selectedIndex</h4>
+            <p>Options text property is a zero indexed array and selectedIndex returns the selected array index.</p>
+            <p>Chose the option to see the text changes according to it's value:</p>
+            <form id="superHeroesForm">
+                <select name="heroes">
+                    <option value="i'm batman">Batman</option>
+                    <option value="i'm superman">Superman</option>
+                </select>
+                <div id="showSelectedOption"></div>
+            </form>
+<pre><code class="language-javascript">
+    //===========Select form================
+    var superHeroesForm = document.getElementById("superHeroesForm");
+
+    var heroes = superHeroesForm.heroes;
+
+    var showSelectedOption = document.getElementById("showSelectedOption");
+
+    heroes.onchange = function(){
+
+        //showSelectedOption.innerHTML =heroes.options[0].text;
+        showSelectedOption.innerHTML =heroes.options[heroes.selectedIndex].value;
+        //showSelectedOption.innerHTML =this.value;
+    };
+</code></pre>
+            <p class="alert-info">
+                <span >Try to change the value property in the above code with text.</span>
+            </p>
+            <p>And if you wanted to be more cool:</p>
+<pre><code class="language-javascript">showSelectedOption.innerHTML = this.value;
+</code></pre>
+            <h4>remove() and add()</h4>
+            <p>We can remove a select option and add like this:</p>
+<pre><code class="language-javascript">//Remove the zero indexed option
+selection.remove(0);
+
+</code></pre>
+
+                <label><input id="addHeroField" type="text"></label>
+                <button id="addHero">Add hero</button><h4>Now check above our heroes!</h4>
+                <p>And our javascript:</p>
+<pre><code class="language-javascript">
+    var addHero = document.getElementById("addHero");
+
+    addHero.onclick = function () {
+
+    var addHeroField = document.getElementById("addHeroField").value;
+        if(addHeroField) {
+            var newOption = document.createElement("option");
+            newOption.text = addHeroField;
+            heroes.add(newOption);
+        }
+
+    };
+</code></pre>
+
+
+
+            <h3>innerHTML vs value vs text</h3>
+            <p>A lot of newcomers confuse why to use this over that. Let's clear it:</p>
+            <ol>
+                <li>innerHTML - gets the text of an HTML element</li>
+                <li>value - if we have value attribute else the text for the element as the pizza example above</li>
+                <li>text - used to change text inside option etc(not the value) </li>
+
+            </ol>
+
+
+        </section><!--Validation forms-->
 
     </article><!--End Full article-->
 </main><!--End main-->

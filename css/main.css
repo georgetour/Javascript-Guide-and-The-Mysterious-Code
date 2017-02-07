@@ -8,7 +8,9 @@ body{
 
 }
 
-
+h1,h2,h3,h4,h5,h6{
+    font-weight: bold;
+}
 
 h1{
     font-size: 2em;
@@ -200,17 +202,21 @@ textarea{
 }
 
 input, textarea {
-    width: 300px;
+    width: 200px;
 }
 
 #formError{
     height: 20px;
 }
 
-#pizzaForm .pizzaInput{
+.formInput{
     width: 20px;
-    margin: 5px;
+    padding: 5px;
 
+}
+
+.termsInput{
+    width: 50px;
 }
 
 
